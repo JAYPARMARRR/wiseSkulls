@@ -1,0 +1,97 @@
+.card{
+    align-items: center;
+    background: #265F9D 0 0 no-repeat padding-box;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 487px;
+    margin-top: 62px;
+
+}
+
+
+.heding-login-peg{
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 200;
+    margin-top: 11px;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.from-div{
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10px;
+    padding: 0 10px;
+
+}
+
+.tow-box{
+    background: 0px 0px no-repeat padding-box padding-box rgb(255, 255, 255);
+    border: 1px solid rgb(38, 95, 157);
+    border-radius: 8px;
+    font: 400 16px / 18px Poppins;
+    height: 46px;
+    padding-left: 24px;
+    text-align: left;
+    outline-color: rgb(0, 178, 130);
+    width: 283px;
+}
+
+
+.btn{
+    background: transparent;
+    border: 1.5px solid white;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    height: 50px;
+    width: 220px;
+    margin-bottom: 34px;
+    cursor: pointer;
+}
+.btn-main{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.img {
+    padding-top: 15px;
+}
+
+.logoimg{
+    padding-top: 35px;
+}
+
+
+.all-box-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover {
+    background: #00b282; 
+    border: none;
+}
+
+
+.tow-box:hover{
+    border: 1px solid #00b282;
+    
+    box-shadow: 0 1px 3px 0 #4caf50, 0 0 0 1px #4caf50;
+
+}
+
+.background-login-pag{
+    background-image: url(./background.png);
+    background-repeat: no-repeat;
+
+}
