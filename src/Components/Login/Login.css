@@ -1,97 +1,118 @@
-.card{
-    align-items: center;
-    background: #265F9D 0 0 no-repeat padding-box;
-    border-radius: 10px;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.main{
+    height: 97vh; 
+    width: 100%;
+    margin: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: 487px;
-    margin-top: 62px;
-
+  align-items: center;
+  background-color: #edf1f4;
+  gap: 10px;
 }
 
-
-.heding-login-peg{
-    color: #FFFFFF;
-    font-size: 28px;
-    font-weight: 200;
-    margin-top: 11px;
-    font-weight: 200;
-    font-family: 'Poppins', sans-serif;
-
+.login-box-img{
+    background-image: url(./background.png);
+    /* background-color: aqua; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    left: -250px;
+    position: absolute ;
+    top: -8px;
+    width: 481px;
 }
-
-.from-div{
-
+.box-main {
+    width: 485px;
+    height: 75%;
+    background-color: #265F9D ;
+    border-radius: 10px;
+    box-shadow: 24px 21px 99px #00000024;
+    text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    gap: 30px;
-    margin-top: 10px;
-    padding: 0 10px;
-
 }
 
-.tow-box{
-    background: 0px 0px no-repeat padding-box padding-box rgb(255, 255, 255);
-    border: 1px solid rgb(38, 95, 157);
-    border-radius: 8px;
-    font: 400 16px / 18px Poppins;
-    height: 46px;
-    padding-left: 24px;
-    text-align: left;
-    outline-color: rgb(0, 178, 130);
-    width: 283px;
+.title {
+    font: normal normal 26px/65px Poppins;
+    font-weight: 300;
+    opacity: 1;
+    padding-bottom: 12px;
+    color: #FFFFFF;
+}
+.img-logo{
+    height: 92%;
 }
 
 
-.btn{
-    background: transparent;
-    border: 1.5px solid white;
-    border-radius: 8px;
-    color: white;
-    font-size: 18px;
-    height: 50px;
-    width: 220px;
-    margin-bottom: 34px;
-    cursor: pointer;
-}
-.btn-main{
+.login-main-button{
     align-items: center;
     display: flex;
     justify-content: center;
     margin-top: 25px;
 }
-
-.img {
-    padding-top: 15px;
+.Login-button{
+    background: transparent;
+    border: 1.5px solid #fff;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    height: 50px;
+    width: 220px;
+    cursor: pointer;
+    margin-top: 10px;
+    
+}
+.input-box-main {
+    display: flex;
+    flex-direction: column;
+    width: 322px;
+    margin-top: 18px;
+    gap: 31px;
+}
+.input-field {
+    padding: 9px 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
 }
 
-.logoimg{
-    padding-top: 35px;
-}
+.input-field::placeholder {
+    color: #999;
+  }
+
+  .input-field:hover {
+    border-color: 1px solid #00b282; 
+    box-shadow: 0 1px 3px 0 #4caf50, 0 0 0 1px #4caf50;
+  }
+  .input-field:focus {
+    border-color: 1px solid #04a076; 
+    box-shadow: 0 2px 3px 0 #4caf50, 0 0 0 1px #4caf50;
+  }
+
+  .Login-button:hover{
+    background-color: #00b282;
+    border: 1.5px solid #00b282;
+    transition: all .5s 
+  }
+
+  .input-field[type="email"] {
+    color: #0f0d0d;
+  }
 
 
-.all-box-main{
+
+  .img-heading-main {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.btn:hover {
-    background: #00b282; 
-    border: none;
-}
-
-
-.tow-box:hover{
-    border: 1px solid #00b282;
-    
-    box-shadow: 0 1px 3px 0 #4caf50, 0 0 0 1px #4caf50;
-
-}
-
-.background-login-pag{
-    background-image: url(./background.png);
-    background-repeat: no-repeat;
-
+    gap: 11px;
 }

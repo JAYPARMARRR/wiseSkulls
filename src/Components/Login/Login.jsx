@@ -1,38 +1,38 @@
 import "./Login.css";
-import LogoImg from "./logo.png";
-import TextHeding from "./TextHeding.png";
+import LogoImg from "./Group 1240.png";
 
 
 
 const Login = () => {
   return (
-    <div className="all-box-main">
-      <div className="background-login-pag ">
-        
-        <div className="card">
-          <img src={LogoImg} className="logoimg"  />
-          <img src={TextHeding} className="img" />
+    <div className="main">
+      <div className="login-box-img"></div>
+      <form className="box-main" >
+
+        <div className="img-heading-main">
+          <img src={LogoImg} className="img-logo" />
 
 
-          <h1 className="heding-login-peg">Hotlist Management</h1>
-
-          <form className="from-div">
-            <div className="boss-box">
-              <input type="email" placeholder="email" className="tow-box" required />
-            </div>
-            <div className="boss-box">
-              <input
-                type="password"
-                placeholder="password"
-                className="tow-box" required
-              />
-            </div>
-            <div className="btn-main">
-              <button className="btn">Login</button>
-            </div>
-          </form>
         </div>
-      </div>
+
+        <h2 className="title">Hotlist Management</h2>
+
+        <div className="input-box-main">
+          <input type="email" className="input-field" placeholder="Email" required />
+          <input type="Password" className="input-field" placeholder="Password" required />
+
+        </div>
+
+        <div className="login-main-button">
+          <button className="Login-button"  type="submit" >Login</button>
+
+        </div>
+
+
+
+
+      </form>
+
     </div>
   );
 };
