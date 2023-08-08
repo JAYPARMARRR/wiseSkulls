@@ -2,15 +2,36 @@ import Navbarlogo from "./LogoOfHotlist.png";
 import Photo from "./jayu.png";
 import NavbarLast from "./NavbarLast.png";
 import "./Hotlist.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { BiSolidUser } from 'react-icons/bi';
+import { FaPowerOff } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
+
+
 
 const Hotlist = () => {
+    const menuRef = useRef(null)
 
     const [Open, setOpen] = useState(false)
+    const Navigate = useNavigate()
 
     const PopupOpen = () => {
         setOpen(!Open)
     }
+
+    useEffect(() => {
+        document.addEventListener('click', handleOutsideClick, true);
+        return () => {
+            document.removeEventListener('click', handleOutsideClick, true);
+        };
+    }, []);
+
+    const handleOutsideClick = (e) => {
+        if (menuRef.current && !menuRef.current.contains(e.target)) {
+            setOpen(false)
+        }
+    }
+
 
     return (
         <div>
@@ -23,21 +44,22 @@ const Hotlist = () => {
                 </div>
             </nav>
             {Open && (
-                <div className="popup" id="popupModal" >
+                <div ref={menuRef} className="popup" id="popupModal" >
                     <div className="modal-content">
-                        <div>
+                        <div className="popupShowMain">
                             <img src={Photo} />
-                            <div>
+                            <div className="popup-Heding-name">
                                 <h4>Jay Parmar</h4>
-                                <p>Admin</p>
+                                <span className="adminPopupText">Admin</span>
                             </div>
                         </div>
                         <div>
-                  <h5>Manage</h5>
-                  <h6><span>logo</span> User</h6>
+
+                            <h5 className="Manage-button-popup" >Manage</h5>
+                            <h5 className="user-logo"><span><BiSolidUser /></span> User</h5>
                         </div>
-    
-                <h4> <span>logo</span>log Out</h4>
+
+                        <h4 className="PowerOff-button"> <span className="FaPowerOff" onClick={() => { Navigate("/") }} ><FaPowerOff /> </span>Log Out</h4>
 
 
 
