@@ -1,0 +1,61 @@
+.TableNavbar {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 0px 36px;
+    background-color: #E6E6E6;
+    color: white;
+}
+  
+.TableNavbar-left-side {
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+  .TableNavbar-search-box {
+    width: 64%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 29px;
+    margin-left: 13px;
+}
+  
+  .TableNavbar-right-side {
+    display: flex;
+    align-items: center;
+  }
+  
+  .TableNavbar-nav-image {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+  }
+  
+  .TableNavbar-nav-Delete-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #A4A5A5;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .TableNavbar-nav-Delete-button:hover {
+    background-color: #AA0000   ;
+  }
+
+  .TableNavbar-nav-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #265F9D;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+
+  

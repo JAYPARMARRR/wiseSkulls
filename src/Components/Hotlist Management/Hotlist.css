@@ -37,14 +37,14 @@
 
 .modal-content {
   /* border: 1px solid #aaa; */
-  width: 258px;
+  background-color: white;
+  width: 253px;
   padding: 24px;
   box-shadow: 0px 0px 1px rgba(0, 6, 4, 1.2);
   position: absolute;
-  top: 77px;
+  top: 66px;
   right: 4px;
 }
-
 .popupShowMain{
   display:flex ;
 }
