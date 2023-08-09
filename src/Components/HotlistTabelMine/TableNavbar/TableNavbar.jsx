@@ -2,6 +2,7 @@ import "./TableNavbar.css"
 import RisetImg from "./grds.png"
 import ExpartImg from "./Group 1259.png"
 import setingImg from "./setingimg.png"
+import TablelUser from "../TablelUser/TablelUser"
 
 
 const TableNavbar = () => {
@@ -11,8 +12,8 @@ const TableNavbar = () => {
       <div className="TableNavbar-left-side">
         <input type="text" placeholder="Search" className="TableNavbar-search-box" />
       </div>
-      <div>
-        <div>
+      <div className="TableNavbar-navbar-center-box">
+        <div className="TableNavbar-navbar-center-wiseskiils">
          Wiseskulls   
         </div>
       </div>
@@ -24,6 +25,21 @@ const TableNavbar = () => {
         <button className="TableNavbar-nav-button">Add Hotlist</button>
       </div>
     </div>
+<TablelUser/>
+{/* //////////////////////////////////////////////////////////////////////////////////////////////////// */}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </>
   )
