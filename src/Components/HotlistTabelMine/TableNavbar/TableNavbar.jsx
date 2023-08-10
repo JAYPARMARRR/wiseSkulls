@@ -69,14 +69,22 @@ const TableNavbar = () => {
       </div>
       <TablelUser />
       {/* //////////////////////////////////////////////////////////////////////////////////////////////////// */}
+
+
+
+
       {/* seting modal csss */}
+
+
+
+      
       <Modal
         title="Column Settings "
         centered
         open={modal2Open}
         onOk={() => setModal2Open(false)}
         onCancel={() => setModal2Open(false)}
-        footer={false}
+        footer={false} className="table-navbar-Modal-1"
       >
         <img src={setingImg} className="popupTitalImg" />
         <form className="form-container">
@@ -133,7 +141,7 @@ const TableNavbar = () => {
       </Modal>
 {/* ///////////////////////////////////////////////////////////////////////////////////// */}
 
-<Modal  open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  footer={false}  closeIcon={false}>
+<Modal  open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  footer={false}  closeIcon={false} className="table-navbar-Modal-2">
  
 <Lottie  animationData ={animation} loop={true} className="Lottie-lodar" />
    <p className="loding-text">Please Wait</p>

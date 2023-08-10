@@ -31,6 +31,7 @@
     width: 30px;
     height: 30px;
     margin: 0 5px;
+    cursor: pointer;
   }
   .TableNavbar-nav-Delete-button {
     margin: 0 5px;
@@ -81,7 +82,7 @@
 /* 
 seting modal csss */
 
-:where(.css-dev-only-do-not-override-fpg3f5).ant-modal .ant-modal-content {
+.table-navbar-Modal-1{
   position: relative;
   background-color: #FFFFFF;
   background-clip: padding-box;
@@ -89,12 +90,11 @@ seting modal csss */
   border-radius: 8px;
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   pointer-events: auto;
-  padding: 20px 24px;
-  height: 73vh;
-  width: 173%;
-  margin: 103px -245px;
+  padding: 2px 4px;
+  height: 62vh;
+  width: 191%;
+  margin: 146px -261px;
 }
-
 
 .popupTitalImg{
   height: 34px;
@@ -145,7 +145,7 @@ seting modal csss */
 :where(.css-dev-only-do-not-override-fpg3f5).ant-modal .ant-modal-footer {
   text-align: end;
   background: transparent;
-  /* margin-top: 12px; */
+
   position: absolute;
   bottom: 8%;
   right: 9%;
@@ -189,7 +189,7 @@ seting modal csss */
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////// */
-:where(.css-dev-only-do-not-override-fpg3f5).ant-modal .ant-modal-content {
+.table-navbar-Modal-2{
   position: relative;
   background-color: #FFFFFF;
   background-clip: padding-box;
@@ -216,3 +216,8 @@ seting modal csss */
   text-align: center;
   font-weight: 900;
 }
+
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////// */

@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import LogoImg from "./Group 1240.png";
 
+
+
+
+
+
 const Login = () => {
+  const Navigate = useNavigate()
   return (
     <div className="main">
       <div className="login-box-img"></div>
@@ -28,7 +35,7 @@ const Login = () => {
         </div>
 
         <div className="login-main-button">
-          <button className="Login-button" type="submit">
+          <button className="Login-button" type="submit" onClick={()=>{Navigate("/hotlist")}}>
             Login
           </button>
         </div>
