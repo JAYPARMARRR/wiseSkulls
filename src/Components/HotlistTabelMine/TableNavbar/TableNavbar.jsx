@@ -51,7 +51,7 @@ const TableNavbar = () => {
         onOk={() => setModal1Open(false)}
         onCancel={() => setModal1Open(false)}
       >
-        <p>some contents...</p>
+        <div>jhgdsuydfg</div>
         <p>some contents...</p>
         <p>some contents...</p>
       </Modal>
