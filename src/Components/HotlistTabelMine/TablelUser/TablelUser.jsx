@@ -48,14 +48,6 @@ const TablelUser = () => {
     { id: 10, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
     { id: 11, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
     { id: 12, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
-    { id: 13, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
-    { id: 14, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
-    { id: 15, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
-    { id: 16, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
-    { id: 17, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
-    { id: 18, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
-    { id: 19, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
-    { id: 20, name: 'Jane Smith', title: 'Frontend Developer', experience: '3 years', visaType: 'Green Card', currentLocation: 'San Francisco', relocation: 'No', availability: '2 weeks' },
   ]);
   console.log(candidates.name);
   console.log(setCandidates);
@@ -80,7 +72,7 @@ const TablelUser = () => {
       <tbody>
 
         {candidates.map((ele) => {
-
+console.log(">>>>ele",ele);
           return (
             <tr key={candidates.id}>
               <td className='chacbox'>
@@ -88,6 +80,7 @@ const TablelUser = () => {
               </td>
               {
                 keys?.map((e) => {
+                  console.log(e);
                   // eslint-disable-next-line react/jsx-key
                   return <td>{ele?.[e]}</td>
                 })

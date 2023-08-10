@@ -1,75 +1,142 @@
-import "./TableNavbar.css"
-import RisetImg from "./grds.png"
-import ExpartImg from "./Group 1259.png"
-import setingImg from "./setingimg.png"
-import TablelUser from "../TablelUser/TablelUser"
-import { Button, Modal } from 'antd';
-import { useState } from "react"
+import "./TableNavbar.css";
+import RisetImg from "./grds.png";
+import ExpartImg from "./Group 1259.png";
+import setingImg from "./setingimg.png";
+import TablelUser from "../TablelUser/TablelUser";
+import { Modal } from "antd";
+import { useState } from "react";
+
+import animation from './animation_ll4u8lpk.json';
+
+
+
+import { FaGripVertical } from 'react-icons/fa';
+import Lottie  from "lottie-react";
+
+
+
+
+
 
 const TableNavbar = () => {
-
-  const [modal1Open, setModal1Open] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
 
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
 
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
 
 
 
   return (
     <>
-         <div className="TableNavbar">
-      <div className="TableNavbar-left-side">
-        <input type="text" placeholder="Search" className="TableNavbar-search-box" />
-      </div>
-      <div className="TableNavbar-navbar-center-box">
-        <div className="TableNavbar-navbar-center-wiseskiils">
-         Wiseskulls   
+      <div className="TableNavbar">
+        <div className="TableNavbar-left-side">
+          <input
+            type="text"
+            placeholder="Search"
+            className="TableNavbar-search-box"
+          />
+        </div>
+        <div className="TableNavbar-navbar-center-box">
+          <div className="TableNavbar-navbar-center-wiseskiils">Wiseskulls</div>
+        </div>
+        <div className="TableNavbar-right-side">
+          <img
+            src={setingImg}
+            alt="Image 1"
+            className="TableNavbar-nav-image"
+            onClick={() => setModal2Open(true)}
+          />
+          <img src={RisetImg} alt="Image 2" className="TableNavbar-nav-image" />
+          <img
+            src={ExpartImg}
+            alt="Image 3"
+            className="TableNavbar-nav-image"
+            onClick={showModal}
+          />
+          <button className="TableNavbar-nav-Delete-button">Delete</button>
+          <button className="TableNavbar-nav-button">Add Hotlist</button>
         </div>
       </div>
-      <div className="TableNavbar-right-side">
-        <img src={setingImg} alt="Image 1" className="TableNavbar-nav-image" />
-        <img src={RisetImg} alt="Image 2" className="TableNavbar-nav-image" />
-        <img src={ExpartImg} alt="Image 3" className="TableNavbar-nav-image" />
-        <button className="TableNavbar-nav-Delete-button">Delete</button>
-        <button className="TableNavbar-nav-button">Add Hotlist</button>
-      </div>
-    </div>
-<TablelUser/>
-{/* //////////////////////////////////////////////////////////////////////////////////////////////////// */}
-
-
-
-
-<Button type="primary" onClick={() => setModal1Open(true)}>
-        Display a modal dialog at 20px to Top
-      </Button>
+      <TablelUser />
+      {/* //////////////////////////////////////////////////////////////////////////////////////////////////// */}
+      {/* seting modal csss */}
       <Modal
-        title="20px to Top"
-        style={{ top: 20 }}
-        open={modal1Open}
-        onOk={() => setModal1Open(false)}
-        onCancel={() => setModal1Open(false)}
-      >
-        <div>jhgdsuydfg</div>
-        <p>some contents...</p>
-        <p>some contents...</p>
-      </Modal>
-      <br />
-      <br />
-      <Button type="primary" onClick={() => setModal2Open(true)}>
-        Vertically centered modal dialog
-      </Button>
-      <Modal
-        title="Vertically centered modal dialog"
+        title="Column Settings "
         centered
         open={modal2Open}
         onOk={() => setModal2Open(false)}
         onCancel={() => setModal2Open(false)}
+        footer={false}
       >
-        <p>some contents...</p>
-        <p>some contents...</p>
-        <p>some contents...</p>
+        <img src={setingImg} className="popupTitalImg" />
+        <form className="form-container">
+
+          <div className="popup-1">
+          <label className="checkbox-label"><FaGripVertical className="popupicons"/>
+            <input type="checkbox" />
+            Condidata Name
+          </label>
+
+          <label className="checkbox-label"><FaGripVertical className="popupicons"/>
+            <input type="checkbox" />
+            Title
+          </label>
+
+          <label className="checkbox-label">    <FaGripVertical className="popupicons"/>
+            <input type="checkbox" />
+            Current Location
+          </label>
+
+          <label className="checkbox-label">    <FaGripVertical className="popupicons"/>
+            <input type="checkbox" />
+            Availability
+          </label>
+          </div>
+
+          <div className="popup-2">
+          <label className="checkbox-label">   <FaGripVertical className="popupicons"/>
+            <input type="checkbox" />
+            Experience
+          </label>
+
+          <label className="checkbox-label"><FaGripVertical className="popupicons"/>
+            <input type="checkbox" />
+            Visa type
+          </label>
+
+          <label className="checkbox-label"><FaGripVertical className="popupicons"/>
+            <input type="checkbox" />
+            Relocation
+          </label>
+
+          <label className="checkbox-label"><FaGripVertical className="popupicons"/>
+            <input type="checkbox" />
+            Notes
+          </label>
+          </div>
+        </form>
+<div className="popup-tow-button-main">
+
+        <button className="cancel-button">Cancel</button>
+  <button className="apply-button">Apply</button>
+</div>
+      </Modal>
+{/* ///////////////////////////////////////////////////////////////////////////////////// */}
+
+<Modal  open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  footer={false}  closeIcon={false}>
+ 
+<Lottie  animationData ={animation} loop={true} className="Lottie-lodar" />
+   <p className="loding-text">Please Wait</p>
       </Modal>
 
 
@@ -81,7 +148,7 @@ const TableNavbar = () => {
 
 
     </>
-  )
-}
+  );
+};
 
-export default TableNavbar
+export default TableNavbar;
