@@ -15,6 +15,8 @@ import Lottie from "lottie-react";
 const TableNavbar = () => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
+
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -26,6 +28,26 @@ const TableNavbar = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+
+
+
+
+  const ModalOpenDelete = () => {
+    setIsModalOpenDelete(true);
+    console.log(isModalOpenDelete);
+
+  };
+    const ModalOpenDeleteOk = () => {
+      setIsModalOpenDelete(false);
+    };
+  
+    const ModalOpenDeleteCancel = () => {
+      setIsModalOpenDelete(false);
+    };
+
+
+
 
   return (
     <>
@@ -54,7 +76,7 @@ const TableNavbar = () => {
             className="TableNavbar-nav-image"
             onClick={showModal}
           />
-          <button className="TableNavbar-nav-Delete-button">Delete</button>
+          <button className="TableNavbar-nav-Delete-button" onClick={ModalOpenDelete}>Delete</button>
           <button className="TableNavbar-nav-button">Add Hotlist</button>
         </div>
       </div>
@@ -164,7 +186,14 @@ const TableNavbar = () => {
 
 
 
+ <Modal open={isModalOpenDelete} onOk={ModalOpenDeleteOk} onCancel={ModalOpenDeleteCancel}footer={false} className="popup-Modal-3" closeIcon={false}>
+        <h3 className="Modal-3-heding">Confirm Delete</h3>
+<div className="Modal-3-button-main" >
 
+<button className="Modal-button-yes-button">Yes</button>
+<button className="Modal-button-no-button">No</button>
+</div>
+      </Modal>
 
 
 

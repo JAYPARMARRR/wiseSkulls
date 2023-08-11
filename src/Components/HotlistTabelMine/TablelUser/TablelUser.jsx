@@ -57,7 +57,7 @@ const TablelUser = () => {
 
       <table className='TablelUser-main'>
         <tr>
-          <th className='TablelUser-heding'></th>
+          <th className='TablelUser-heding'><input type="checkbox"/></th>
           <th>Sr. No</th>
           <th>Condidata Name</th>
           <th>Title</th>
