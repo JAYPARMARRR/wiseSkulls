@@ -2,6 +2,7 @@ import "./App.css"
 import { BrowserRouter, Routes ,Route } from "react-router-dom"
 import Login from "./Components/Login/Login"
 import Hotlist from "./Components/Hotlist Management/Hotlist"
+import AddHotlist from "./Components/HotlistTabelMine/AddHotlist/AddHotlist"
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
   <Routes>
     <Route path="/" element={<Login/>}/>
     <Route path="/hotlist" element={<Hotlist/>}/>
+    <Route path="/addHotlist" element={<AddHotlist/>}/>
   </Routes>
   </BrowserRouter>
 
