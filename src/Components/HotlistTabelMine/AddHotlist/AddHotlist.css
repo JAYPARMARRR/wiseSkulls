@@ -46,3 +46,125 @@
     justify-content: center;
     width: 22px;
 }
+
+
+/* ///////////////////////////'/////////////////////////////////////////////////////////////////////////' */
+
+
+
+
+.main-input-sec {
+  width: 90%;
+
+  height: 43vh;
+  display: block;
+  margin: 110px auto;
+}
+  
+.select-box-main-input-sec select {
+  height: 48px;
+  width: 299px;
+  border: 1px solid #888888;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 27%;
+  right: 74%;
+}
+
+
+
+/* ////////////////////////////// */
+
+.right-side-main-input-sec{
+    display: flex;
+    gap: 13.8%;
+    margin-bottom: 40px;
+}
+.left-side-main-input-sec{
+
+     display: flex;
+    gap: 13.8%;
+    margin-bottom: 40px;
+}
+.last-side-main-input-sec{
+
+     display: flex;
+    gap: 13.8%;
+    margin-bottom: 40px;
+}
+
+
+.right-side-input {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 17px;
+  width: 22%;
+}
+  .right-side-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+/* /////////////////////////////////////// */
+
+.main-input-sec-button-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 40px;
+}
+  
+.main-input-sec-button-1 {
+    padding: 12px 29px;
+    background-color: #A4A5A5; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+.main-input-sec-button-2 {
+    padding: 12px 29px;
+    background-color: #00B282; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  /* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+  .addHotlist-modal .ant-modal-content {
+    height: 150vh;
+    pointer-events: auto;
+    padding: 49px 44px;
+}
+
+  .addHotlist-modal-heding {
+ 
+    text-align: center;
+    font-size: 27px; 
+    font-weight: bold;
+  }
+
+.addHotlist-modal-heding-2{
+  text-align: center;
+  font-weight: 900;
+}
+
+.addHotlist-modal-per-1{
+  margin-top: 20px;
+}
+
+.addHotlist-modal-heding-3{
+  margin: 21px 9px;
+  font-size: 19px
+}
