@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { FaPowerOff } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import TableNavbar from "../HotlistTabelMine/TableNavbar/TableNavbar";  
+import TablelUser from "../HotlistTabelMine/TablelUser/TablelUser";
 
 
 const Hotlist = () => {
@@ -84,7 +86,9 @@ const Hotlist = () => {
                 )}
 
             </div>
-           
+     
+            <TableNavbar/>
+            <TablelUser/>
         </>
 
     );

@@ -59,14 +59,20 @@
     font-size: 12px;
 }
 
-
 .TableNavbar-navbar-center-box {
   background-color: #FFFFFF;
+  border: none;
   width: 44%;
-  height: 5vh;
+  height: 4vh;
   margin-right: 14px;
   border-radius: 5px;
-}  
+}
+
+.TablelUser-input{
+  height: 25px;
+  width: 21px;
+}
+
 .TableNavbar-navbar-center-wiseskiils {
   background-color: #265F9D;
   width: 21%;

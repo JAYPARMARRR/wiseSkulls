@@ -3,7 +3,7 @@ import "./TableNavbar.css";
 import RisetImg from "./grds.png";
 import ExpartImg from "./Group 1259.png";
 import setingImg from "./setingimg.png";
-import TablelUser from "../TablelUser/TablelUser";
+// import TablelUser from "../TablelUser/TablelUser";
 import { Modal } from "antd";
 import { useState } from "react";
 
@@ -11,8 +11,16 @@ import animation from "./animation_ll4u8lpk.json";
 
 import { FaGripVertical } from "react-icons/fa";
 import Lottie from "lottie-react";
+import { useNavigate } from "react-router-dom";
 
 const TableNavbar = () => {
+ const Navigate = useNavigate()
+ 
+ 
+ 
+ 
+
+
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
@@ -29,25 +37,17 @@ const TableNavbar = () => {
     setIsModalOpen(false);
   };
 
-
-
-
-
   const ModalOpenDelete = () => {
     setIsModalOpenDelete(true);
     console.log(isModalOpenDelete);
-
   };
-    const ModalOpenDeleteOk = () => {
-      setIsModalOpenDelete(false);
-    };
-  
-    const ModalOpenDeleteCancel = () => {
-      setIsModalOpenDelete(false);
-    };
+  const ModalOpenDeleteOk = () => {
+    setIsModalOpenDelete(false);
+  };
 
-
-
+  const ModalOpenDeleteCancel = () => {
+    setIsModalOpenDelete(false);
+  };
 
   return (
     <>
@@ -59,9 +59,13 @@ const TableNavbar = () => {
             className="TableNavbar-search-box"
           />
         </div>
-        <div className="TableNavbar-navbar-center-box">
-          <div className="TableNavbar-navbar-center-wiseskiils">Wiseskulls</div>
-        </div>
+
+ 
+          {/* <div className="TableNavbar-navbar-center-wiseskiils">Wiseskulls</div> */}
+          <input type="text"  className="TableNavbar-navbar-center-box" readOnly />
+
+
+        
         <div className="TableNavbar-right-side">
           <img
             src={setingImg}
@@ -76,11 +80,16 @@ const TableNavbar = () => {
             className="TableNavbar-nav-image"
             onClick={showModal}
           />
-          <button className="TableNavbar-nav-Delete-button" onClick={ModalOpenDelete}>Delete</button>
-          <button className="TableNavbar-nav-button">Add Hotlist</button>
+          <button
+            className="TableNavbar-nav-Delete-button"
+            onClick={ModalOpenDelete}
+          >
+            Delete
+          </button>
+          <button className="TableNavbar-nav-button" onClick={()=>{Navigate("/addHotlist")}}>Add Hotlist</button>
         </div>
       </div>
-      <TablelUser />
+  
       {/* //////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
       {/* seting modal csss */}
@@ -101,27 +110,27 @@ const TableNavbar = () => {
             <div className="popup-1">
               <label className="checkbox-label">
                 <FaGripVertical className="popupicons" />
-                <input type="checkbox"  className="checkboxPOPUP-1"/>
+                <input type="checkbox" className="checkboxPOPUP-1" />
                 Condidata Name
               </label>
 
               <label className="checkbox-label">
                 <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1"/>
+                <input type="checkbox" className="checkboxPOPUP-1" />
                 Title
               </label>
 
               <label className="checkbox-label">
                 {" "}
                 <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1"/>
+                <input type="checkbox" className="checkboxPOPUP-1" />
                 Current Location
               </label>
 
               <label className="checkbox-label">
                 {" "}
                 <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1"/>
+                <input type="checkbox" className="checkboxPOPUP-1" />
                 Availability
               </label>
             </div>
@@ -136,19 +145,19 @@ const TableNavbar = () => {
 
               <label className="checkbox-label">
                 <FaGripVertical className="popupicons" />
-                <input type="checkbox"className="checkboxPOPUP-1" />
+                <input type="checkbox" className="checkboxPOPUP-1" />
                 Visa type
               </label>
 
               <label className="checkbox-label">
                 <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1"/>
+                <input type="checkbox" className="checkboxPOPUP-1" />
                 Relocation
               </label>
 
               <label className="checkbox-label">
                 <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1"/>
+                <input type="checkbox" className="checkboxPOPUP-1" />
                 Notes
               </label>
             </div>
@@ -177,43 +186,24 @@ const TableNavbar = () => {
         <p className="loding-text">Please Wait</p>
       </Modal>
 
+      {/* ///////////////////////////////////////////////////////////////////////////////////// */}
 
-
-
-
- {/* ///////////////////////////////////////////////////////////////////////////////////// */}
-
-
-
-
- <Modal open={isModalOpenDelete} onOk={ModalOpenDeleteOk} onCancel={ModalOpenDeleteCancel}footer={false} className="popup-Modal-3" closeIcon={false}>
+      <Modal
+        open={isModalOpenDelete}
+        onOk={ModalOpenDeleteOk}
+        onCancel={ModalOpenDeleteCancel}
+        footer={false}
+        className="popup-Modal-3"
+        closeIcon={false}
+      >
         <h3 className="Modal-3-heding">Confirm Delete</h3>
-<div className="Modal-3-button-main" >
-
-<button className="Modal-button-yes-button">Yes</button>
-<button className="Modal-button-no-button">No</button>
-</div>
+        <div className="Modal-3-button-main">
+          <button className="Modal-button-yes-button">Yes</button>
+          <button className="Modal-button-no-button">No</button>
+        </div>
       </Modal>
 
-
-
-
- {/* ///////////////////////////////////////////////////////////////////////////////////// */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      {/* ///////////////////////////////////////////////////////////////////////////////////// */}
     </>
   );
 };

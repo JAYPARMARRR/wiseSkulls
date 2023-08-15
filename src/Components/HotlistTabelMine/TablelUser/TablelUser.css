@@ -16,8 +16,12 @@
     text-align: left;
   }
   
-  .TablelUser-main td {
+  .TablelUser-main td { 
     padding: 8px;
+  }
+  .underline{
+    color: blue;
+    text-decoration: underline;
   }
   
   .chacbox {

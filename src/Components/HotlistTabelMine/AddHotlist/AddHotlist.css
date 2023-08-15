@@ -62,26 +62,24 @@
 }
   
 .select-box-main-input-sec select {
-  height: 48px;
-  width: 299px;
+  height: 53px;
+  width: 309px;
   border: 1px solid #888888;
   padding: 10px;
   border-radius: 8px;
   background-color: white;
   cursor: pointer;
   position: absolute;
-  top: 27%;
-  right: 74%;
+  top: 22%;
+  left: 71px;
 }
-
-
-
 /* ////////////////////////////// */
 
-.right-side-main-input-sec{
-    display: flex;
-    gap: 13.8%;
-    margin-bottom: 40px;
+.right-side-main-input-sec {
+  margin-top: 150px;
+  display: flex;
+  gap: 13.8%;
+  margin-bottom: 40px;
 }
 .left-side-main-input-sec{
 
@@ -143,7 +141,7 @@
 
 
   .addHotlist-modal .ant-modal-content {
-    height: 150vh;
+    height: 184vh;
     pointer-events: auto;
     padding: 49px 44px;
 }
