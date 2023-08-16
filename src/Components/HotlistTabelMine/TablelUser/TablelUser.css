@@ -20,7 +20,7 @@
     padding: 8px;
   }
   .underline{
-    color: blue;
+    color: #006295;
     text-decoration: underline;
     cursor: pointer;
   }
@@ -89,4 +89,14 @@
   padding: 10px;
   border-bottom: 1px solid #707070;
   font-size: larger;
+}
+
+
+
+  /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+  .TablelUser-FaEdit-edit-icons-modal .ant-modal-content {
+    height: 73vh;
+    width: 197%;
+    /* text-align: center; */
+    margin: 22px -226px;
 }

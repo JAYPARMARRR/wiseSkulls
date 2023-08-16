@@ -238,8 +238,64 @@ className="TablelUser-table"
         onOk={() => setModal2Open(false)}
         onCancel={() => setModal2Open(false)}
         footer={null}
+        className="TablelUser-FaEdit-edit-icons-modal"
       >
        <h2>Bench Sales Details</h2>
+
+       <div className="">
+          <input
+            type="text"
+           placeholder="Business Email"
+          
+            
+          />
+          <input
+            type="text"
+            placeholder="First Name"
+            
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+           
+          />
+        </div>
+        {/* ////////////////////////////////////////////////// */}
+       <div className="">
+          <input
+            type="text"
+           placeholder="Phone No."
+             
+            
+          />
+          <input
+            type="text"
+            placeholder="LinkedIn ID"
+            
+          />
+          <input
+            type="text"
+            placeholder="Hangout ID"
+           
+          />
+        </div>
+        {/* ////////////////////////////////////////////////// */}
+       <div className="">
+          <input
+            type="text"
+           placeholder="WhatsApp Number"
+          
+            
+          />
+          <input
+            type="text"
+            placeholder="Location"
+            
+          />
+
+        </div>
+        {/* ////////////////////////////////////////////////// */}
+
       </Modal>
 
     </div>
