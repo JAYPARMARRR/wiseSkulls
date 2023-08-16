@@ -100,3 +100,58 @@
     /* text-align: center; */
     margin: 22px -226px;
 }
+
+
+.TablelUser-modal-in-3 {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  margin: 29px 56px;
+}
+
+.TablelUser-FaEdit-edit-icons-modal-heding{
+  text-align: center;
+  font-size: 26px;
+}
+.TablelUser-modal-in-3::placeholder {
+  color: #999;
+}
+
+.TablelUser-modal-in-3:focus {
+  border-color: #5cabff;
+  box-shadow: 0 0 5px rgba(55, 152, 255, 0.5);
+  border: #2980b9;
+
+
+}
+.TablelUser-FaEdit-right-modal{
+gap: 30px;
+}
+
+
+
+
+
+.TablelUser-FaEdit-edit-icons-modal-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 19px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.TablelUser-FaEdit-edit-icons-modal-button:hover {
+  background-color: #2980b9;
+}
+
+.TablelUser-FaEdit-edit-icons-modal-button:active {
+  background-color: #1e528e;
+}
