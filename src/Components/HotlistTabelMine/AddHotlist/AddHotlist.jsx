@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./AddHotlist.css";
-// https://colourking.co.in//#/mine
+
 import { BsInfoCircleFill } from "react-icons/bs";
 import { Modal } from "antd";
 import TablelUser from "../TablelUser/TablelUser";
