@@ -1,5 +1,5 @@
 import "./Navbar.css"
-
+import { Modal } from 'antd';
 
 import Navbarlogo from "./LogoOfHotlist.png";
 import Photo from "./jayu.png";
@@ -10,12 +10,12 @@ import navbarimg1 from "./navbarlogo1.png"
 import { useEffect, useRef, useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { FaPowerOff } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 
 
 
 
-// import TableNavbar from "../HotlistTabelMine/TableNavbar/TableNavbar";  
+
+
 
 
 
@@ -30,7 +30,22 @@ const Navbar = () => {
     const [Open, setOpen] = useState(false);
     const menuRef = useRef(null);
 
-    const Navigate = useNavigate();
+
+
+    const [DeleteCon, setDeleteCon] = useState(false);
+
+    const showDeleteCon = () => {
+        setDeleteCon(true);
+      };
+    
+      const handleOk = () => {
+        setDeleteCon(false);
+      };
+    
+      const CancelDeleteCon = () => {
+        setDeleteCon(false);
+      };
+
 
     const PopupOpen = () => {
         setOpen(!Open);
@@ -92,11 +107,10 @@ const Navbar = () => {
                             </div>
 
                             <h4 className="PowerOff-button">
-                                {" "}
-                                <span className="FaPowerOff" onClick={() => {Navigate("/");}} >
-                                    <FaPowerOff />{" "}</span>
+                              
+                                <span className="FaPowerOff"  onClick={showDeleteCon} ><FaPowerOff /></span>
 
-                                Log Out
+                              <span>  Log Out </span> 
                             </h4>
 
 
@@ -106,8 +120,9 @@ const Navbar = () => {
 
             </div>
      
-            {/* <TableNavbar/>
-         */}
+            <Modal title="Basic Modal" open={DeleteCon} onOk={handleOk} onCancel={CancelDeleteCon}>
+        
+      </Modal>
         </>
 
     );
