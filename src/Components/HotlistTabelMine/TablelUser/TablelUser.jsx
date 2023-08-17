@@ -240,23 +240,25 @@ className="TablelUser-table"
         footer={null}
         className="TablelUser-FaEdit-edit-icons-modal"
       >
-       <h2>Bench Sales Details</h2>
+       <h2 className="TablelUser-FaEdit-edit-icons-modal-heding">Bench Sales Details</h2>
 
-       <div className="">
+       <div className="TablelUser-FaEdit-right-modal">
           <input
             type="text"
            placeholder="Business Email"
-          
-            
+          className="TablelUser-modal-in-3"
           />
+       
           <input
             type="text"
             placeholder="First Name"
-            
+            className="TablelUser-modal-in-3"
+
           />
           <input
             type="text"
             placeholder="Last Name"
+            className="TablelUser-modal-in-3"
            
           />
         </div>
@@ -265,17 +267,19 @@ className="TablelUser-table"
           <input
             type="text"
            placeholder="Phone No."
-                
+             
             
           />
           <input
             type="text"
             placeholder="LinkedIn ID"
+            className="TablelUser-modal-in-3"
             
           />
           <input
             type="text"
             placeholder="Hangout ID"
+            className="TablelUser-modal-in-3"
            
           />
         </div>
@@ -284,18 +288,19 @@ className="TablelUser-table"
           <input
             type="text"
            placeholder="WhatsApp Number"
-          
+           className="TablelUser-modal-in-3"
             
           />
           <input
             type="text"
             placeholder="Location"
+            className="TablelUser-modal-in-3"
             
           />
 
         </div>
         {/* ////////////////////////////////////////////////// */}
-
+ <button className="TablelUser-FaEdit-edit-icons-modal-button">yo loo</button>
       </Modal>
 
     </div>

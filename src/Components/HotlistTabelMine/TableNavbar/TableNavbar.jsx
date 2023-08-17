@@ -148,7 +148,7 @@ const TableNavbar = () => {
                 <input type="checkbox" className="checkboxPOPUP-1" />
                 Visa type
               </label>
-
+  
               <label className="checkbox-label">
                 <FaGripVertical className="popupicons" />
                 <input type="checkbox" className="checkboxPOPUP-1" />
