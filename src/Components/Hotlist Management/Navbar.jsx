@@ -10,6 +10,7 @@ import navbarimg1 from "./navbarlogo1.png"
 import { useEffect, useRef, useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { FaPowerOff } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -27,6 +28,7 @@ import { FaPowerOff } from "react-icons/fa";
 
 const Navbar = () => {
 
+     const Navigate =useNavigate()
     const [Open, setOpen] = useState(false);
     const menuRef = useRef(null);
 
@@ -67,6 +69,11 @@ const Navbar = () => {
             }
         }
     };
+
+
+
+
+
 
     return (
         <>
@@ -110,7 +117,7 @@ const Navbar = () => {
                               
                                 <span className="FaPowerOff"  onClick={showDeleteCon} ><FaPowerOff /></span>
 
-                              <span>  Log Out </span> 
+                              <span  onClick={showDeleteCon} className="FaPowerOff-logout">  Log Out </span> 
                             </h4>
 
 
@@ -120,9 +127,17 @@ const Navbar = () => {
 
             </div>
      
-            <Modal title="Basic Modal" open={DeleteCon} onOk={handleOk} onCancel={CancelDeleteCon}>
-        
+ <Modal open={DeleteCon} onOk={handleOk} onCancel={CancelDeleteCon} footer={null} className="DeleteCon-modal">
+        <h2 className="DeleteCon-modal-heding">Confirm Log Out</h2>
+<div className="DeleteCon-modal-button-main">
+ <button className="DeleteCon-modal-button1" onClick={()=>{Navigate("/")}} >Log Out</button>
+ <button className="DeleteCon-modal-button2"    onClick={()=>{Navigate("/hotlistTabelMine")}}>Cancel</button>
+
+</div>
+
+
       </Modal>
+
         </>
 
     );

@@ -104,4 +104,48 @@
 .FaPowerOff {
   padding-top: 5px;
   padding-right: 4px;
+  cursor: pointer;
+}
+
+.FaPowerOff-logout{
+  cursor: pointer;
+}
+/* /////////////////////////////////////////////////////////////////////////////////////// */
+.DeleteCon-modal .ant-modal-content {
+  height: 26vh;
+  width: 53vh;
+  position: absolute;
+  top: 41%;
+  right: 10%;
+}
+
+.DeleteCon-modal-button-main {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 33px;
+}
+
+.DeleteCon-modal-button1,
+.DeleteCon-modal-button2 {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.DeleteCon-modal-button1 {
+  background-color: #00B282;
+  color: white;
+}
+
+.DeleteCon-modal-button2 {
+  background-color: #D4D4D4;
+  color: white;
+  margin-left: 10px;
+}
+
+.DeleteCon-modal-heding{
+  text-align: center;
 }

@@ -1,11 +1,18 @@
 /* eslint-disable react/prop-types */
 import "./App.css"
-import { BrowserRouter, Routes ,Route,Navigate } from "react-router-dom"
-import Login from "./Components/Login/Login"
 import Navbar from "./Components/Hotlist Management/Navbar"
+import Login from "./Components/Login/Login"
+import HotlistTabelMine from "./Components/HotlistTabelMine/HotlistTabelMine"
+
+
+
+
+
+
+import { BrowserRouter, Routes ,Route,Navigate } from "react-router-dom"
 import { useState } from "react"
 import {  message } from 'antd';    
-// import AddHotlist from "./Components/HotlistTabelMine/AddHotlist/AddHotlist"
+
 
 const App = () => {
 
@@ -47,8 +54,9 @@ const App = () => {
     
 
     <Route path="/" element={!islogin ? <Login islogin={Islogin}/> : <Navigate to={"/navbar"}/>}/>
-
     <Route path="/navbar" element={<Navbar/>}/>
+    <Route path="/hotlistTabelMine" element={<HotlistTabelMine/>}/>
+    
     
     
 
