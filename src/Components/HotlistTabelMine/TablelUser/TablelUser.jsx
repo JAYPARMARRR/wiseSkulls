@@ -149,9 +149,9 @@ const TablelUser = () => {
     { label: 'First Name', value: 'Jayu' },
     { label: 'Last Name', value: 'Parmar' },
     { label: 'Business Email', value: '@relianttechno.com' },
-    { label: 'Hangout ID', value: '--no--' },
+    { label: 'Hangout ID', value: '--No--' },
     { label: 'Phone No', value: '9510923353' },
-    { label: 'LinkedIn ID', value: 'yo lo' },
+    { label: 'LinkedIn ID', value: '--No--' },
     { label: 'WhatsApp Number', value: '9510923353' }, 
     { label: 'Location', value: 'Charlotte, NC' },
   ];
@@ -253,13 +253,13 @@ className="TablelUser-table"
             type="text"
             placeholder="First Name"
             className="TablelUser-modal-in-3"
-
+           
           />
           <input
             type="text"
             placeholder="Last Name"
             className="TablelUser-modal-in-3"
-           
+       
           />
         </div>
         {/* ////////////////////////////////////////////////// */}
@@ -267,7 +267,8 @@ className="TablelUser-table"
           <input
             type="text"
            placeholder="Phone No."
-             
+           className="TablelUser-modal-in-3"
+           
             
           />
           <input
@@ -300,7 +301,7 @@ className="TablelUser-table"
 
         </div>
         {/* ////////////////////////////////////////////////// */}
- <button className="TablelUser-FaEdit-edit-icons-modal-button">yo loo</button>
+ <button className="TablelUser-FaEdit-edit-icons-modal-button">Update</button>
       </Modal>
 
     </div>

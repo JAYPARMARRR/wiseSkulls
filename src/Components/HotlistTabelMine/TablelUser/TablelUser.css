@@ -74,14 +74,15 @@
   border-color: #707070;
   border-radius: 5px;
   padding: 4px;
+  margin: 11px;
 }
 .TablelUser-FaEdit-edit-icons {
   color: #707070;
   position: absolute;
-  right: 1%;
-  top: 4%;
+  right: 2%;
+  top: 5%;
   height: 73px;
-  width: 20px;
+  width: 21px;
   cursor: pointer;
 }
 .TablelUser-table-cell {
@@ -109,12 +110,12 @@
   border-radius: 4px;
   outline: none;
   box-sizing: border-box;
-  margin: 29px 56px;
+  margin: 31px 56px;
 }
-
 .TablelUser-FaEdit-edit-icons-modal-heding{
   text-align: center;
   font-size: 26px;
+  color: #000000;
 }
 .TablelUser-modal-in-3::placeholder {
   color: #999;
@@ -123,7 +124,6 @@
 .TablelUser-modal-in-3:focus {
   border-color: #5cabff;
   box-shadow: 0 0 5px rgba(55, 152, 255, 0.5);
-  border: #2980b9;
 
 
 }
@@ -136,22 +136,17 @@ gap: 30px;
 
 
 .TablelUser-FaEdit-edit-icons-modal-button {
-  background-color: #3498db;
-  color: white;
+  background-color: #00B282;
+  color: #F5F5F5;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 19px;
-  display: block;
-  margin: 0 auto;
+
+  position: absolute;
+  top: 79%;
+  left: 47%;
 }
 
 
-.TablelUser-FaEdit-edit-icons-modal-button:hover {
-  background-color: #2980b9;
-}
-
-.TablelUser-FaEdit-edit-icons-modal-button:active {
-  background-color: #1e528e;
-}
