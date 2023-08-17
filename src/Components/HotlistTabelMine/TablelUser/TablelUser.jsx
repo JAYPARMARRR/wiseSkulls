@@ -178,7 +178,7 @@ const TablelUser = () => {
         <tbody>
           {candidates.map((ele) => {
             console.log(">>>>ele", ele);
-            return (
+            return (        
               <tr key={candidates.id}>
                 <td className="chacbox">
                   <input type="checkbox" className="chacbox-chekd" />
@@ -265,7 +265,7 @@ className="TablelUser-table"
           <input
             type="text"
            placeholder="Phone No."
-             
+                
             
           />
           <input
