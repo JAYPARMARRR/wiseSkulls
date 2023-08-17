@@ -3,7 +3,7 @@ import "./TableNavbar.css";
 import RisetImg from "./grds.png";
 import ExpartImg from "./Group 1259.png";
 import setingImg from "./setingimg.png";
-// import TablelUser from "../TablelUser/TablelUser";
+
 import { Modal } from "antd";
 import { useState } from "react";
 
@@ -11,10 +11,8 @@ import animation from "./animation_ll4u8lpk.json";
 
 import { FaGripVertical } from "react-icons/fa";
 import Lottie from "lottie-react";
-import { useNavigate } from "react-router-dom";
 
 const TableNavbar = () => {
- const Navigate = useNavigate()
  
  
  
@@ -24,6 +22,8 @@ const TableNavbar = () => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
+
+
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -86,7 +86,7 @@ const TableNavbar = () => {
           >
             Delete
           </button>
-          <button className="TableNavbar-nav-button" onClick={()=>{Navigate("/addHotlist")}}>Add Hotlist</button>
+          <button className="TableNavbar-nav-button" onClick={()=>{alert("kam baki")}}>Add Hotlist</button>
         </div>
       </div>
   

@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./TablelUser.css";
 import { Modal } from 'antd';
 import { FaEdit } from 'react-icons/fa';
+import Footer from "../Footer/Footer";
 
 const TablelUser = () => {
   // eslint-disable-next-line no-unused-vars
@@ -162,9 +163,11 @@ const TablelUser = () => {
     <div>
       <table className="TablelUser-main">
         <tr>
-          <th className="TablelUser-heding">
+          
+          <th className="TablelUser-heding" >
             <input type="checkbox" className="TablelUser-input" />
           </th>
+          
           <th>Sr. No</th>
           <th>Condidata Name</th>
           <th>Title</th>
@@ -172,6 +175,7 @@ const TablelUser = () => {
           <th>Visa type </th>
           <th>Current Location</th>
           <th>Relocation</th>
+          <th>Availability</th>
           <th>Availability</th>
         </tr>
 
@@ -303,6 +307,9 @@ className="TablelUser-table"
         {/* ////////////////////////////////////////////////// */}
  <button className="TablelUser-FaEdit-edit-icons-modal-button">Update</button>
       </Modal>
+
+
+<Footer/>
 
     </div>
   );

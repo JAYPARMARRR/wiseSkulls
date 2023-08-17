@@ -1,16 +1,31 @@
+import "./Navbar.css"
+
+
 import Navbarlogo from "./LogoOfHotlist.png";
 import Photo from "./jayu.png";
 import NavbarLast from "./NavbarLast.png";
-import "./Hotlist.css";
+import navbarimg1 from "./navbarlogo1.png"
+
+
 import { useEffect, useRef, useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { FaPowerOff } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import TableNavbar from "../HotlistTabelMine/TableNavbar/TableNavbar";  
-import TablelUser from "../HotlistTabelMine/TablelUser/TablelUser";
 
 
-const Hotlist = () => {
+
+
+// import TableNavbar from "../HotlistTabelMine/TableNavbar/TableNavbar";  
+
+
+
+
+
+
+
+
+
+const Navbar = () => {
 
     const [Open, setOpen] = useState(false);
     const menuRef = useRef(null);
@@ -42,20 +57,27 @@ const Hotlist = () => {
         <>
             <div>
                 <nav className="navbar">
+                    <div className="navbar-2-img-main">
+                    <img src={navbarimg1}  className="navbarimg1" />
                     <img src={Navbarlogo} className="Navbarlogo" />
+                    </div>
 
-                    <div>
+
+                    <div className="navbar-Admin-main">
                         <img src={Photo} className="img-photo" />
                         <img src={NavbarLast} className="NavbarLast" onClick={PopupOpen} />
                     </div>
+
                 </nav>
+
+
                 {Open && (
                     <div ref={menuRef} className="popup" id="popupModal">
                         <div className="modal-content">
                             <div className="popupShowMain">
                                 <img src={Photo} />
                                 <div className="popup-Heding-name">
-                                    <h4>Jay Parmar</h4>
+                                    <h3 className="navbar-popup-name">Jay Parmar</h3>
                                     <span className="adminPopupText">Admin</span>
                                 </div>
                             </div>
@@ -71,27 +93,24 @@ const Hotlist = () => {
 
                             <h4 className="PowerOff-button">
                                 {" "}
-                                <span
-                                    className="FaPowerOff"
-                                    onClick={() => {
-                                        Navigate("/");
-                                    }}
-                                >
-                                    <FaPowerOff />{" "}
-                                </span>
+                                <span className="FaPowerOff" onClick={() => {Navigate("/");}} >
+                                    <FaPowerOff />{" "}</span>
+
                                 Log Out
                             </h4>
+
+
                         </div>
                     </div>
                 )}
 
             </div>
      
-            <TableNavbar/>
-            <TablelUser/>
+            {/* <TableNavbar/>
+         */}
         </>
 
     );
 };
 
-export default Hotlist;
+export default Navbar;
