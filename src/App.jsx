@@ -54,7 +54,9 @@ const App = () => {
     
 
     <Route path="/" element={!islogin ? <Login islogin={Islogin}/> : <Navigate to={"/navbar"}/>}/>
+
     <Route path="/navbar" element={<Navbar/>}/>
+    
     <Route path="/hotlistTabelMine" element={<HotlistTabelMine/>}/>
     
     

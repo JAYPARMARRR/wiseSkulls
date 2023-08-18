@@ -29,6 +29,8 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
 
      const Navigate =useNavigate()
+
+
     const [Open, setOpen] = useState(false);
     const menuRef = useRef(null);
 
