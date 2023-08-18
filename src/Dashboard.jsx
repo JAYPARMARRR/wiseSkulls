@@ -1,11 +1,27 @@
-import { App } from "antd"
-
+import '../src/Dashboard.css'
+import TableNavbar from './Components/HotlistTabelMine/TableNavbar/TableNavbar'
 
 const Dashboard = () => {
+
+
+
+
+
+
+
   return (
+
+
     <>
-        <App/>
+    <div className="Dashboard-main">
+         <TableNavbar/>
+ 
+
+
+    </div>
     </>
+
+
   )
 }
 
