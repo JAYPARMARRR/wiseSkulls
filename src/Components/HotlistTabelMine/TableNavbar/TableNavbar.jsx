@@ -8,22 +8,15 @@ import { Modal } from "antd";
 import { useState } from "react";
 
 import animation from "./animation_ll4u8lpk.json";
-
-import { FaGripVertical } from "react-icons/fa";
 import Lottie from "lottie-react";
 
+import { CiSearch } from "react-icons/ci";
+import { FaGripVertical } from "react-icons/fa";
+
 const TableNavbar = () => {
- 
- 
- 
- 
-
-
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
-
-
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -52,20 +45,33 @@ const TableNavbar = () => {
   return (
     <>
       <div className="TableNavbar">
+
+
         <div className="TableNavbar-left-side">
+
+          <CiSearch size={18} className="TableNavbar-BiSearch-Search-icons" />
+
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search User"
             className="TableNavbar-search-box"
           />
         </div>
 
- 
-          {/* <div className="TableNavbar-navbar-center-wiseskiils">Wiseskulls</div> */}
-          <input type="text"  className="TableNavbar-navbar-center-box" readOnly />
 
 
-        
+  <input type="text" className="TableNavbar-navbar-center-box" readOnly/>
+
+
+
+
+    
+
+    
+
+
+       
+
         <div className="TableNavbar-right-side">
           <img
             src={setingImg}
@@ -86,10 +92,17 @@ const TableNavbar = () => {
           >
             Delete
           </button>
-          <button className="TableNavbar-nav-button" onClick={()=>{alert("kam baki")}}>Add Hotlist</button>
+          <button
+            className="TableNavbar-nav-button"
+            onClick={() => {
+              alert("kam baki");
+            }}
+          >
+            Add Hotlist
+          </button>
         </div>
       </div>
-  
+
       {/* //////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
       {/* seting modal csss */}
@@ -148,7 +161,7 @@ const TableNavbar = () => {
                 <input type="checkbox" className="checkboxPOPUP-1" />
                 Visa type
               </label>
-  
+
               <label className="checkbox-label">
                 <FaGripVertical className="popupicons" />
                 <input type="checkbox" className="checkboxPOPUP-1" />
@@ -209,3 +222,6 @@ const TableNavbar = () => {
 };
 
 export default TableNavbar;
+
+
+

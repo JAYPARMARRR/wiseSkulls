@@ -1,28 +1,38 @@
 .TableNavbar {
-  /* width: 90%; */
-  display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  padding: 15px;
-  /* margin: 0px 36px; */
-  background-color: #E6E6E6;
-  color: white;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  background: #e6e6e6 0 0 no-repeat padding-box;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  opacity: 1;
+  padding: 20px;
 }
-.TableNavbar-left-side {
-    display: flex;
-    align-items: center;
-    width: 30%;
+
+
+
+.TableNavbar-BiSearch-Search-icons {
+  color: black;
+  left: 27.8px;
+  position: relative;
+  top: 6.2px;
 }
 .TableNavbar-search-box {
-  width: 86%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 29px;
-  margin-left: 13px;
+  background: #fff 0 0 no-repeat padding-box;
+  border: 1px solid #d5e9ff;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px #00000029;
+  height: 32px;
+  opacity: 1;
+  outline: none;
+  padding-left: 30px;
+  width: 290px;
 }
-  
+
+
+
+
   .TableNavbar-right-side {
     display: flex;
     align-items: center;
@@ -62,11 +72,22 @@
 
 .TableNavbar-navbar-center-box {
   background-color: #FFFFFF;
-  border: none;
   width: 44%;
   height: 4vh;
   margin-right: 14px;
-  border-radius: 5px;
+  border: 1px solid #FFFFFF;                                   
+  border-radius: 6px;
+  cursor: text;
+  transition: border-color 0.3s; /
+}
+.TableNavbar-navbar-center-box:hover {
+  border-color: #4096ff;
+}
+
+.TableNavbar-navbar-center-box:focus {
+  border: 1px solid #4096ff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+  outline: none;
 }
 
 .TablelUser-input{
