@@ -88,7 +88,7 @@ const Navbar = () => {
 
 
                     <div className="navbar-Admin-main">
-                        <img src={Photo} className="img-photo" />
+                        <img src={Photo} className="img-photo"  onClick={PopupOpen}/>
                         <img src={NavbarLast} className="NavbarLast" onClick={PopupOpen} />
                     </div>
 
