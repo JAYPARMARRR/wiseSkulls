@@ -36,6 +36,7 @@
   .TableNavbar-right-side {
     display: flex;
     align-items: center;
+    gap: 3px;
   }
   
   .TableNavbar-nav-image {
@@ -255,3 +256,4 @@
   top: 19%;
   right: 31%;
 }
+ 

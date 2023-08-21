@@ -2,9 +2,20 @@ import { useState } from "react";
 import "./TablelUser.css";
 import { Modal } from 'antd';
 import { FaEdit } from 'react-icons/fa';
-import Footer from "../Footer/Footer";
+
+
+import { Icon } from '@iconify/react';
+
+
 
 const TablelUser = () => {
+
+
+const [mainChack , setmainChack] = useState(false)
+const [secondChack , setsecondChack] = useState(false)
+
+
+
   // eslint-disable-next-line no-unused-vars
   
   const keys = [
@@ -21,7 +32,7 @@ const TablelUser = () => {
   const [candidates, setCandidates] = useState([
     {
       id: 1,
-      name: "John Doe",
+      name: "Parmar Jay",
       title: "Software Engineer",
       experience: "5 years",
       visaType: "H1B",
@@ -31,7 +42,7 @@ const TablelUser = () => {
     },
     {
       id: 2,
-      name: "jayu",
+      name: "Sohil",
       title: "Frontend Developer",
       experience: "3 years",
       visaType: "Green Card",
@@ -41,7 +52,7 @@ const TablelUser = () => {
     },
     {
       id: 3,
-      name: "yo lo",
+      name: "Shi",
       title: "Frontend Developer",
       experience: "3 years",
       visaType: "Green Card",
@@ -157,36 +168,68 @@ const TablelUser = () => {
     { label: 'Location', value: 'Charlotte, NC' },
   ];
 
+console.log(setCandidates);
 
-  console.log(setCandidates);
+
+const mainChackChang =()=>{
+
+  setmainChack(!mainChack)
+  setsecondChack(!secondChack)
+  // console.log("bhosdike 1")
+
+}                 
+
+const secondChackChang =()=>{
+  setsecondChack(!secondChack)
+  // console.log("bhosdike 2")
+
+}
+
+
+  
   return (
     <div>
       <table className="TablelUser-main">
         <tr>
           
           <th className="TablelUser-heding" >
-            <input type="checkbox" className="TablelUser-input" />
+            <input type="checkbox" className="TablelUser-input" checked={mainChack} onChange={mainChackChang}/>
           </th>
           
-          <th>Sr. No</th>
-          <th>Condidata Name</th>
-          <th>Title</th>
-          <th>Experience</th>
-          <th>Visa type </th>
-          <th>Current Location</th>
-          <th>Relocation</th>
-          <th>Availability</th>
-          <th>Availability</th>
+          <th>Sr. No <Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
+          <th>Condidata Name <Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
+          <th>Title<Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
+          <th>Experience <Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
+          <th>Visa type <Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
+          <th>Current Location <Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
+          <th>Relocation<Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
+          <th>Availability<Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
         </tr>
 
         <tbody>
+
+
+
+
+
+
+
+
+
           {candidates.map((ele) => {
-            console.log(">>>>ele", ele);
+                  
             return (        
+              
+              
               <tr key={candidates.id}>
                 <td className="chacbox">
-                  <input type="checkbox" className="chacbox-chekd" />
+
+                  <input type="checkbox" className="chacbox-chekd"  checked={secondChack} onChange={secondChackChang}/>
+
                 </td>
+
+
+
                 {keys?.map((e) => {
                   if (e === "name") {
                     // eslint-disable-next-line react/jsx-key
@@ -196,16 +239,28 @@ const TablelUser = () => {
                   } else {
                     // eslint-disable-next-line react/jsx-key
                     return <td>{ele?.[e]}</td>;
-                  }
-                })}
+                  }         
+                })} 
+
+
+
               </tr>
             );
           })}
+
+
+
+
+
+
+
+
+
+          
         </tbody>
       </table>
-
+   
 <div>
-
 <Modal  open={textClick} onOk={()=>{settextClick(false);}} onCancel={()=>{settextClick(false);}} footer={null}
 className="TablelUser-table"
 >
@@ -309,10 +364,11 @@ className="TablelUser-table"
       </Modal>
 
 
-<Footer/>
+
 
     </div>
   );
 };
 
 export default TablelUser;
+   
