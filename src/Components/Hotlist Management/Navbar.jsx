@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import { Modal } from "antd";
 
+
 import Navbarlogo from "./LogoOfHotlist.png";
 import Photo from "./jayu.png";
 import NavbarLast from "./NavbarLast.png";
@@ -119,6 +120,8 @@ const Navbar = () => {
           </button>
         </div>
       </Modal>
+     
+
     </>
   );
 };
