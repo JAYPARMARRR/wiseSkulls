@@ -86,7 +86,7 @@
 
 .TableNavbar-navbar-center-box:focus {
   border: 1px solid #4096ff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);  
   outline: none;
 }
 
