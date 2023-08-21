@@ -60,7 +60,7 @@ const TableNavbar = () => {
 
      
 
-  <input type="text" className="TableNavbar-navbar-center-box" readOnly/>
+  <input type="text" className="TableNavbar-navbar-center-box" readOnly />
 
 
 
@@ -120,6 +120,7 @@ const TableNavbar = () => {
           <img src={setingImg} className="popupTitalImg" />
           <h3 className="Column-Settings">Column Settings</h3>
           <form className="form-container">
+            
             <div className="popup-1">
               <label className="checkbox-label">
                 <FaGripVertical className="popupicons" />
@@ -210,7 +211,7 @@ const TableNavbar = () => {
         closeIcon={false}
       >
         <h3 className="Modal-3-heding">Confirm Delete</h3>
-        <div className="Modal-3-button-main">
+        <div className="Modal-3-button-main"> 
           <button className="Modal-button-yes-button">Yes</button>
           <button className="Modal-button-no-button">No</button>
         </div>

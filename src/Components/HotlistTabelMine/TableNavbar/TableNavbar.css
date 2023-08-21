@@ -36,6 +36,7 @@
   .TableNavbar-right-side {
     display: flex;
     align-items: center;
+    gap: 3px;
   }
   
   .TableNavbar-nav-image {
@@ -45,23 +46,24 @@
     cursor: pointer;
   }
   .TableNavbar-nav-Delete-button {
-    margin: 0 5px;
-    padding: 9px 15px;
+    /* margin: 0 5px; */
+    padding: 11px 16px;
     background-color: #A4A5A5;
     border: none;
     border-radius: 4px;
-    color: white;
+    color: #3A3A3A;
     cursor: pointer;
     font-size: 11px;
 }
 
   .TableNavbar-nav-Delete-button:hover {
     background-color: #AA0000   ;
+    color: white;
   }
 
   .TableNavbar-nav-button {
-    margin: 0 5px;
-    padding: 8px 10px;
+    margin: 0px 7px;
+    padding: 10px 14px;
     background-color: #265F9D;
     border: none;
     border-radius: 4px;
@@ -72,10 +74,10 @@
 
 .TableNavbar-navbar-center-box {
   background-color: #FFFFFF;
-  width: 44%;
+  width: 50%;
   height: 4vh;
-  margin-right: 14px;
-  border: 1px solid #FFFFFF;                                   
+
+  border: 1px solid #dbdbdb;                                   
   border-radius: 6px;
   cursor: text;
   transition: border-color 0.3s; /
@@ -86,7 +88,7 @@
 
 .TableNavbar-navbar-center-box:focus {
   border: 1px solid #4096ff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);  
   outline: none;
 }
 
@@ -254,3 +256,4 @@
   top: 19%;
   right: 31%;
 }
+ 
