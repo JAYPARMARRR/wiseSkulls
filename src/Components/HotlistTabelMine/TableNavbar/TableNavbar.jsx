@@ -60,7 +60,7 @@ const TableNavbar = () => {
 
 
 
-  <input type="text" className="TableNavbar-navbar-center-box" readOnly/>
+  <input type="text" className="TableNavbar-navbar-center-box" readOnly />
 
 
 
