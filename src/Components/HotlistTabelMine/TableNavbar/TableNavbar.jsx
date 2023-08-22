@@ -12,6 +12,7 @@ import Lottie from "lottie-react";
 
 import { CiSearch } from "react-icons/ci";
 import { FaGripVertical } from "react-icons/fa";
+import { MdDelete } from 'react-icons/md';
 
 const TableNavbar = () => {
   const [modal2Open, setModal2Open] = useState(false);
@@ -90,7 +91,8 @@ const TableNavbar = () => {
             className="TableNavbar-nav-Delete-button"
             onClick={ModalOpenDelete}
           >
-            Delete
+              <MdDelete  className="MdDelete"/>
+             Delete
           </button>
           <button
             className="TableNavbar-nav-button"

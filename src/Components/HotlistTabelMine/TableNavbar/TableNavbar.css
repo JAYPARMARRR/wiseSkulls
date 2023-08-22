@@ -47,29 +47,40 @@
   }
   .TableNavbar-nav-Delete-button {
     /* margin: 0 5px; */
-    padding: 11px 16px;
-    background-color: #A4A5A5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 9px;
+    background-color: #D4D4D4;
     border: none;
-    border-radius: 4px;
-    color: #3A3A3A;
+    border-radius: 6px;
+    color: #575757;
+    gap: 2px;
     cursor: pointer;
-    font-size: 11px;
+    font-weight: 600;
+    font-size: 12px;
+    margin-right: 3px;
 }
-
+.MdDelete{
+ 
+height: 15px;
+width: 15px;
+}
   .TableNavbar-nav-Delete-button:hover {
     background-color: #AA0000   ;
     color: white;
   }
 
   .TableNavbar-nav-button {
-    margin: 0px 7px;
-    padding: 10px 14px;
-    background-color: #265F9D;
+    background: #265f9d 0 0 no-repeat padding-box;
     border: none;
-    border-radius: 4px;
-    color: white;
+    border-radius: 5px;
+    color: #fff;
     cursor: pointer;
-    font-size: 12px;
+    font-weight: 500;
+    height: 38px;
+    opacity: 1;
+    width: 110px;
 }
 
 .TableNavbar-navbar-center-box {

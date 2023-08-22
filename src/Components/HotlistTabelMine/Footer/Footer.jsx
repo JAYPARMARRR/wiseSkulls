@@ -13,7 +13,7 @@ const Footer = () => {
 
     {/* <div className="showing-footer-text-2">Candidates per page</div> */}
 
-      <Pagination  defaultCurrent={1} total={5000}   className="pagination-of-footer" />
+      <Pagination  defaultCurrent={1} total={5000}  className="pagination-of-footer" />
     </div>
     </>
   );
