@@ -11,9 +11,6 @@ import { Icon } from '@iconify/react';
 const TablelUser = () => {
 
 
-const [mainChack , setmainChack] = useState(false)
-const [secondChack , setsecondChack] = useState(false)
-
 
 
   // eslint-disable-next-line no-unused-vars
@@ -140,16 +137,7 @@ const [secondChack , setsecondChack] = useState(false)
       relocation: "No",
       availability: "2 weeks",
     },
-    {
-      id: 12,
-      name: "Jane Smith",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
+    
   ]);
 
 
@@ -171,21 +159,6 @@ const [secondChack , setsecondChack] = useState(false)
 console.log(setCandidates);
 
 
-const mainChackChang =()=>{
-
-  setmainChack(!mainChack)
-  setsecondChack(!secondChack)
-  // console.log("bhosdike 1")
-
-}                 
-
-const secondChackChang =()=>{
-  setsecondChack(!secondChack)
-  // console.log("bhosdike 2")
-
-}
-
-
   
   return (
     <div>
@@ -193,7 +166,7 @@ const secondChackChang =()=>{
         <tr>
           
           <th className="TablelUser-heding" >
-            <input type="checkbox" className="TablelUser-input" checked={mainChack} onChange={mainChackChang}/>
+            <input type="checkbox" className="TablelUser-input" />
           </th>
           
           <th>Sr. No <Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
@@ -206,7 +179,8 @@ const secondChackChang =()=>{
           <th>Availability<Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
         </tr>
 
-        <tbody>
+        <tbody> 
+             
 
 
 
@@ -221,13 +195,14 @@ const secondChackChang =()=>{
             return (        
               
               
-              <tr key={candidates.id}>
+              <tr key={candidates.id}>   
+              
                 <td className="chacbox">
 
-                  <input type="checkbox" className="chacbox-chekd"  checked={secondChack} onChange={secondChackChang}/>
-
+                  <input type="checkbox" className="chacbox-chekd"  />
+                  
                 </td>
-
+ 
 
 
                 {keys?.map((e) => {

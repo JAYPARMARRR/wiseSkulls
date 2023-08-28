@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
+    "@material/checkbox": "^14.0.0",
+    "@mui/material": "^5.14.6",
     "antd": "^5.8.2",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.12.2",
