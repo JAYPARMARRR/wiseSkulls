@@ -45,6 +45,11 @@
     margin: 0 5px;
     cursor: pointer;
   }
+
+  .TableNavbar-nav-image:hover {
+    color: #265F9D;
+  }
+
   .TableNavbar-nav-Delete-button {
     /* margin: 0 5px; */
     display: flex;
@@ -62,7 +67,6 @@
     margin-right: 3px;
 }
 .MdDelete{
- 
 height: 15px;
 width: 15px;
 }
@@ -124,9 +128,9 @@ width: 15px;
 }
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-.popup-title .ant-modal-content{
-  height: 39vh;
-
+.popup-title .ant-modal-content {
+  height: max-content;
+  width: 72%;
 }
 
 .popupTitalImg {
@@ -134,8 +138,8 @@ width: 15px;
 }
 .Column-Settings {
   position: absolute;
-  right: 61%;
-  top: 8%;
+  right: 47%;
+  top: 5%;
 }
 .checkboxPOPUP-1 {
   margin: 2PX;
@@ -145,23 +149,26 @@ width: 15px;
 
 .form-container {
   padding: 16px;
+
+
 }
 
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
+
+.item{
+  list-style-type: none;
+  cursor: pointer;
+  padding: 9px;
 }
 
 .popupicons {
   margin-right: 8px;
 }
 
-.popup-1,
-.popup-2 {
+.popup-1 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
   gap: 8px;
+
 }
 
 .popup-tow-button-main {

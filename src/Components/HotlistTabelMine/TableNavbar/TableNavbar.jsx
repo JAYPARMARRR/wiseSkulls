@@ -13,8 +13,14 @@ import Lottie from "lottie-react";
 import { CiSearch } from "react-icons/ci";
 import { FaGripVertical } from "react-icons/fa";
 import { MdDelete } from 'react-icons/md';
+import { Icon } from '@iconify/react';
+
+
+
+
 
 const TableNavbar = () => {
+  
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
@@ -42,6 +48,45 @@ const TableNavbar = () => {
   const ModalOpenDeleteCancel = () => {
     setIsModalOpenDelete(false);
   };
+
+/////////////////////////////////////////////////////////////
+
+const [items, setItems] = useState([
+  { id: "1", content: "Condidata Name" },
+  { id: "2", content: "Title" },
+  { id: "3", content: "Current Location" },
+  { id: "4", content: "Availability" },
+  { id: "5", content: "Experience" },
+  { id: "6", content: "Visa type" },
+  { id: "7", content: "Relocation" },
+  { id: "8", content: "Notes" },
+]);
+
+const handleDragStart = (e, index) => {
+  e.dataTransfer.setData("index", index);
+};
+
+const handleDragOver = (e) => {
+  e.preventDefault();
+};
+
+const handleDrop = (e, targetIndex) => {
+  e.preventDefault();
+
+  const sourceIndex = e.dataTransfer.getData("index");
+  const newItems = [...items];
+  const [movedItem] = newItems.splice(sourceIndex, 1);
+  newItems.splice(targetIndex, 0, movedItem);
+
+  setItems(newItems);
+};
+
+
+
+
+
+
+
 
   return (
     <>
@@ -74,12 +119,8 @@ const TableNavbar = () => {
        
 
         <div className="TableNavbar-right-side">
-          <img
-            src={setingImg}
-            alt="Image 1"
-            className="TableNavbar-nav-image"
-            onClick={() => setModal2Open(true)}
-          />
+        <Icon icon="fluent:table-settings-28-regular"   className="TableNavbar-nav-image"
+            onClick={() => setModal2Open(true)}/>
           <img src={RisetImg} alt="Image 2" className="TableNavbar-nav-image" />
           <img
             src={ExpartImg}
@@ -107,7 +148,17 @@ const TableNavbar = () => {
 
       {/* //////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
+
+
+
+
+
+
+
       {/* seting modal csss */}
+
+
+
 
       <div className="table-navbar-Modal-1">
         <Modal
@@ -123,60 +174,30 @@ const TableNavbar = () => {
           <h3 className="Column-Settings">Column Settings</h3>
           <form className="form-container">
             
+ 
             <div className="popup-1">
-              <label className="checkbox-label">
-                <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1" />
-                Condidata Name
-              </label>
+            <div className="jayu">
+        <ul className="item-list">
+          {items.map((item, index) => (
+              <li
+              key={item.id}
+              className="item"
+              draggable
+              onDragStart={(e) => handleDragStart(e, index)}
+              onDragOver={handleDragOver}
+              onDrop={(e) => handleDrop(e, index)}
+              >  <FaGripVertical className="popupicons"/>
+              <input type="checkbox" className="checkboxPOPUP-1"/>
+              {item.content}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-              <label className="checkbox-label">
-                <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1" />
-                Title
-              </label>
-
-              <label className="checkbox-label">
-                {" "}
-                <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1" />
-                Current Location
-              </label>
-
-              <label className="checkbox-label">
-                {" "}
-                <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1" />
-                Availability
-              </label>
             </div>
 
-            <div className="popup-2">
-              <label className="checkbox-label">
-                {" "}
-                <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1" />
-                Experience
-              </label>
+        
 
-              <label className="checkbox-label">
-                <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1" />
-                Visa type
-              </label>
-
-              <label className="checkbox-label">
-                <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1" />
-                Relocation
-              </label>
-
-              <label className="checkbox-label">
-                <FaGripVertical className="popupicons" />
-                <input type="checkbox" className="checkboxPOPUP-1" />
-                Notes
-              </label>
-            </div>
           </form>
           <div className="popup-tow-button-main">
             <button className="cancel-button">Cancel</button>
@@ -185,6 +206,14 @@ const TableNavbar = () => {
         </Modal>
       </div>
       {/* ///////////////////////////////////////////////////////////////////////////////////// */}
+
+
+
+
+
+
+
+
 
       <Modal
         className="table-navbar-Modal-2"
