@@ -159,6 +159,23 @@ const TablelUser = () => {
 console.log(setCandidates);
 
 
+const [parentChecked, setParentChecked] = useState(false);
+  const [childChecked, setChildChecked] = useState(false);
+
+  const handleParentChange = () => {
+    setParentChecked(!parentChecked);
+    setChildChecked(!parentChecked);
+  };
+
+  const handleChildChange = () => {
+    setChildChecked(!childChecked);
+    if (!childChecked) {
+      setParentChecked(true);
+    }
+  };
+
+
+
   
   return (
     <div>
@@ -166,7 +183,8 @@ console.log(setCandidates);
         <tr>
           
           <th className="TablelUser-heding" >
-            <input type="checkbox" className="TablelUser-input" />
+            <input type="checkbox" className="TablelUser-input"  checked={parentChecked}
+              onChange={handleParentChange} />
           </th>
           
           <th>Sr. No <Icon icon="fa-solid:filter" /> <Icon icon="fa-solid:sort-amount-up-alt" /></th>
@@ -199,7 +217,8 @@ console.log(setCandidates);
               
                 <td className="chacbox">
 
-                  <input type="checkbox" className="chacbox-chekd"  />
+                  <input type="checkbox" className="chacbox-chekd" checked={childChecked}
+              onChange={handleChildChange} />
                   
                 </td>
  

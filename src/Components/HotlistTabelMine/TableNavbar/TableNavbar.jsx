@@ -243,7 +243,7 @@ const handleDrop = (e, targetIndex) => {
       >
         <h3 className="Modal-3-heding">Confirm Delete</h3>
         <div className="Modal-3-button-main"> 
-          <button className="Modal-button-yes-button">Yes</button>
+            <button className="Modal-button-yes-button">Yes</button>
           <button className="Modal-button-no-button">No</button>
         </div>
       </Modal>
