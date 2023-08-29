@@ -167,9 +167,12 @@ const TablelUser = () => {
     } else {
       setInArr([...InArr, id]);
     }
-    console.log("idsss>>", id);
+
   };
 
+
+  const isParentChecked = InArr.length === candidates.length;
+  
   return (
     <div>
       <table className="TablelUser-main">
@@ -178,6 +181,7 @@ const TablelUser = () => {
             <input
               type="checkbox"
               className="TablelUser-input"
+              checked={isParentChecked}
               onChange={handleParentChange}
             />
           </th>
