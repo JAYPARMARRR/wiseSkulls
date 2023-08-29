@@ -14,6 +14,7 @@ import { CiSearch } from "react-icons/ci";
 import { FaGripVertical } from "react-icons/fa";
 import { MdDelete } from 'react-icons/md';
 import { Icon } from '@iconify/react';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -24,6 +25,12 @@ const TableNavbar = () => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
+
+const Navigate = useNavigate()
+
+
+
+
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -137,8 +144,8 @@ const handleDrop = (e, targetIndex) => {
           </button>
           <button
             className="TableNavbar-nav-button"
-            onClick={() => {
-              alert("kam baki");
+            onClick={() => { Navigate("/addHotlist")
+                     
             }}
           >
             Add Hotlist

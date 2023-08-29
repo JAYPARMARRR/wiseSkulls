@@ -6,8 +6,6 @@ import { FaEdit } from "react-icons/fa";
 import { Icon } from "@iconify/react";
 
 const TablelUser = () => {
-  // eslint-disable-next-line no-unused-vars
-
   const keys = [
     "id",
     "name",
@@ -511,6 +509,8 @@ const TablelUser = () => {
       availability: "2 weeks",
     },
   ]);
+  
+  // eslint-disable-next-line no-unused-vars
 
   const [textClick, settextClick] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);

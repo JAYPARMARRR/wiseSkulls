@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { message } from "antd";
 import Dashboard from "./Dashboard";
+import AddHotlist from "./Components/HotlistTabelMine/AddHotlist/AddHotlist";
 
 const App = () => {
   const [islogin, setislogin] = useState(false);
@@ -36,6 +37,8 @@ const App = () => {
         <Route
           path="/"  element={ !islogin ? <Login islogin={Islogin} /> : <Navigate to={"/navbar"} />}/>
         <Route path="/navbar" element={<Navbar/>} />
+        <Route path="/addHotlist" element={<AddHotlist/>} />
+
 
 
      

@@ -1,8 +1,7 @@
-.TablelUser-main{
-    justify-content: center
-}
+
 
 .TablelUser-main {
+  justify-content: center;
     width: 100%;
     border-collapse: collapse;
   }
