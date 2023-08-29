@@ -1,6 +1,6 @@
 
 import '../src/Dashboard.css'
-// import Footer from './Components/HotlistTabelMine/Footer/Footer'
+import Footer from './Components/HotlistTabelMine/Footer/Footer'
 import TableNavbar from './Components/HotlistTabelMine/TableNavbar/TableNavbar'
 import TablelUser from './Components/HotlistTabelMine/TablelUser/TablelUser'
 
@@ -19,7 +19,7 @@ const Dashboard = () => {
     <div className="Dashboard-main">
          <TableNavbar/>
          <TablelUser/>
-         {/* <Footer/> */}
+         <Footer/>
     </div>
     </>
 
