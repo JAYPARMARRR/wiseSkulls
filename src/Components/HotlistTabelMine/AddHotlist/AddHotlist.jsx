@@ -1,17 +1,42 @@
-import { useState } from "react";
-
 import "./AddHotlist.css";
+import Navbar from "../../Hotlist Management/Navbar";
 
-import { BsInfoCircleFill } from "react-icons/bs";
+
+import { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import { BsHddRackFill, BsInfoCircleFill } from "react-icons/bs";
 import { Modal } from "antd";
+
+
+import DownArrow from "./down arrow gif.gif"
+
+import {  message } from 'antd';
+import AddHotlistNavbar from "./AddHotlistNavbar";
 import TablelUser from "../TablelUser/TablelUser";
+import Footer from "../Footer/Footer";
+
 
 const AddHotlist = () => {
+
+
+
   const [selectedOption, setSelectedOption] = useState("");
   const [fullName, setFullName] = useState("");
   const [visaType, setVisaType] = useState("");
   const [relocation, setRelocation] = useState("");
   const [open, setOpen] = useState(false);
+
+
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'Submit Successfully',
+    });
+  };
+
+
+
   const items = [
     "★ H1B",
     "★ H1B Transfer",
@@ -37,11 +62,12 @@ const AddHotlist = () => {
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
-    console.log(selectedOption);
+    console.log( "selectedOption >>>", selectedOption);
   };
 
   return (
     <>
+    <Navbar/>
      
     <div className="AddHotlist">
       
@@ -64,11 +90,11 @@ const AddHotlist = () => {
         <select value={selectedOption} onChange={handleOptionChange}>
           <option value="Search">Search Benchsales</option>
           <option value="Shohil">Shohil </option>
+          <option value="2Jayu">Jayu 1</option>
           <option value="2Jayu">Jayu 2</option>
-          <option value="2Jayu">Jayu 2</option>
-          <option value="2Jayu">Jayu 2</option>
-          <option value="2Jayu">Jayu 2</option>
-          <option value="3jayu">jayu 3</option>
+          <option value="2Jayu">Jayu 3</option>
+          <option value="2Jayu">Jayu 4</option>
+          <option value="3jayu">jayu 5</option>
         </select>
       </div>
       <div className="main-input-sec">
@@ -133,15 +159,19 @@ const AddHotlist = () => {
 
         <div className="main-input-sec-button-main">
           <button className="main-input-sec-button-1">Cancel</button>
-          <button className="main-input-sec-button-2">Submit</button>
+          {contextHolder}
+          <button className="main-input-sec-button-2" onClick={success} >Submit</button>
         </div>
+      
+      <img src={DownArrow} alt="down arrow gif"  className="down-arrow-gif"/>
+
       </div>
       <Modal
         centered
         open={open}
         onOk={() => setOpen(false)}
         onCancel={() => setOpen(false)}
-        width={1000}
+        width={1000} 
         closeIcon={false}
         footer={false}
         className="addHotlist-modal"
@@ -252,9 +282,17 @@ const AddHotlist = () => {
         </div>
       </Modal>
     </div>
-    <TablelUser/>
+<div className="AddHotlist-TablelUser-all"> 
+ <AddHotlistNavbar/>
+ <TablelUser/>
+ <Footer/>
+
+</div>
+
     </>
   );
 };
 
 export default AddHotlist;
+
+

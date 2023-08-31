@@ -1,13 +1,13 @@
 import "./App.css";
-import Navbar from "./Components/Hotlist Management/Navbar";
+// import Navbar from "./Components/Hotlist Management/Navbar";
 import Login from "./Components/Login/Login";
 
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { message } from "antd";
-import Dashboard from "./Dashboard";
 import AddHotlist from "./Components/HotlistTabelMine/AddHotlist/AddHotlist";
+import Dashboard from "./Dashboard";
 
 const App = () => {
   const [islogin, setislogin] = useState(false);
@@ -35,8 +35,8 @@ const App = () => {
 
       <Routes>
         <Route
-          path="/"  element={ !islogin ? <Login islogin={Islogin} /> : <Navigate to={"/navbar"} />}/>
-        <Route path="/navbar" element={<Navbar/>} />
+          path="/"  element={ !islogin ? <Login islogin={Islogin} /> : <Navigate to={"/dashboard"} />}/>
+        <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/addHotlist" element={<AddHotlist/>} />
 
 
@@ -44,7 +44,7 @@ const App = () => {
      
 
       </Routes>
-      <Dashboard/>
+      
     </BrowserRouter>
   );
 };

@@ -3,9 +3,11 @@ import "./Footer.css";
 
 
 
-import { Pagination } from "antd";
+// import { Pagination } from "antd";
 
 const Footer = () => {
+  
+
   return (
     <>
     <div className="footer-main"> 
@@ -13,7 +15,7 @@ const Footer = () => {
 
     {/* <div className="showing-footer-text-2">Candidates per page</div> */}
 
-      <Pagination  defaultCurrent={1} total={5000}  className="pagination-of-footer" />
+    {/* <Pagination  total={5000}  className="pagination-of-footer" />;  */}
     </div>
     </>
   );

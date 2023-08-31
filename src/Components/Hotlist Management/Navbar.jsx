@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { Modal } from "antd";
+//  import Dashboard from "/src/Dashboard.jsx";
 
 
 import Navbarlogo from "./LogoOfHotlist.png";
@@ -7,13 +7,16 @@ import Photo from "./jayu.png";
 import NavbarLast from "./NavbarLast.png";
 import navbarimg1 from "./navbarlogo1.png";
 
+import { Modal } from "antd";
 import { useEffect, useRef, useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { FaPowerOff } from "react-icons/fa";
-import { Link,  } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
+
 
 const Navbar = () => {
-//   const Navigate = useNavigate();
+
+  const Navigate = useNavigate();
 
   const [Open, setOpen] = useState(false);
   const menuRef = useRef(null);
@@ -57,7 +60,8 @@ const Navbar = () => {
     <>
       <div>
         <nav className="navbar">
-          <div className="navbar-2-img-main">
+          <div className="navbar-2-img-main" onClick={()=> {Navigate("/dashboard")}}> 
+
             <img src={navbarimg1} className="navbarimg1" />
             <img src={Navbarlogo} className="Navbarlogo" />
           </div>
@@ -121,9 +125,11 @@ const Navbar = () => {
         </div>
       </Modal>
      
+      {/* <Dashboard/> */}
 
     </>
   );
 };
 
 export default Navbar;
+ 
