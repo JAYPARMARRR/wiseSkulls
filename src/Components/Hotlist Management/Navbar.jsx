@@ -11,10 +11,12 @@ import { Modal } from "antd";
 import { useEffect, useRef, useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { FaPowerOff } from "react-icons/fa";
-import { Link, useNavigate} from "react-router-dom";
+import {  useNavigate} from "react-router-dom";
 
 
 const Navbar = () => {
+
+
 
   const Navigate = useNavigate();
 
@@ -22,6 +24,12 @@ const Navbar = () => {
   const menuRef = useRef(null);
 
   const [DeleteCon, setDeleteCon] = useState(false);
+
+
+
+
+
+
 
   const showDeleteCon = () => {
     setDeleteCon(true);
@@ -117,7 +125,7 @@ const Navbar = () => {
       >
         <h2 className="DeleteCon-modal-heding">Confirm Log Out</h2>
         <div className="DeleteCon-modal-button-main">
-          <Link to={"/"}><button className="DeleteCon-modal-button1">Log Out </button></Link>
+          <button className="DeleteCon-modal-button1" onClick={()=>{Navigate("/")}}  >Log Out </button>
           
           <button  className="DeleteCon-modal-button2" onClick={CancelDeleteCon}>
             Cancel

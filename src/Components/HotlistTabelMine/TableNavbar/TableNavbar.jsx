@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
+import {  message } from 'antd';
 
 
 const TableNavbar = () => {
@@ -28,6 +29,14 @@ const TableNavbar = () => {
 
 const Navigate = useNavigate()
 
+
+const [messageApi, contextHolder] = message.useMessage();
+const success = () => {
+  messageApi.open({
+    type: 'success',
+    content: ' Delete Successfully',
+  });
+};
 
 
 
@@ -250,7 +259,8 @@ const handleDrop = (e, targetIndex) => {
       >
         <h3 className="Modal-3-heding">Confirm Delete</h3>
         <div className="Modal-3-button-main"> 
-            <button className="Modal-button-yes-button">Yes</button>
+        {contextHolder}
+            <button className="Modal-button-yes-button" onClick={success} >Yes</button>
           <button className="Modal-button-no-button">No</button>
         </div>
       </Modal>

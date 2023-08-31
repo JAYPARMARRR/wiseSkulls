@@ -1,5 +1,4 @@
 .TableNavbar {
-
   align-items: center;
   background: #e6e6e6 0 0 no-repeat padding-box;
   border-radius: 10px 10px 0 0;
@@ -8,6 +7,7 @@
   justify-content: space-between;
   opacity: 1;
   padding: 20px;
+  margin-top: 20px;
 }
 
 
