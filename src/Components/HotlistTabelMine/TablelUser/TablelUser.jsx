@@ -1,522 +1,22 @@
-import { useState } from "react";
 import "./TablelUser.css";
 import { Modal } from "antd";
 import { FaEdit } from "react-icons/fa";
 
-import { Icon } from "@iconify/react";
+import { useMemo, useState } from "react";
+import {
+  flexRender,
+  useReactTable,
+  getCoreRowModel,
+  getPaginationRowModel,
+} from "@tanstack/react-table";
+import mData from "./MOCK_DATA.json";
+
+
+import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+
+
 
 const TablelUser = () => {
-  const keys = [
-    "id",
-    "name",
-    "title",
-    "experience",
-    "visaType",
-    "currentLocation",
-    "relocation",
-    "availability",
-  ];
-
-  // eslint-disable-next-line no-unused-vars
-  const [candidates, setCandidates] = useState([
-    {
-      id: 1,
-      name: "Parmar Jay",
-      title: "Software Engineer",
-      experience: "5 years",
-      visaType: "H1B",
-      currentLocation: "New York",
-      relocation: "Yes",
-      availability: "Immediate",
-    },
-    {
-      id: 2,
-      name: "Sohil",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 3,
-      name: "Shi",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 4,
-      name: "sohil",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 5,
-      name: "Jane Smith",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 6,
-      name: "Jane Smith",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 7,
-      name: "Jane Smith",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 8,
-      name: "Jane Smith",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 9,
-      name: "Jane Smith",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 10,
-      name: "Jane Smith",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    {
-      id: 11,
-      name: "Jane Smith",
-      title: "Frontend Developer",
-      experience: "3 years",
-      visaType: "Green Card",
-      currentLocation: "San Francisco",
-      relocation: "No",
-      availability: "2 weeks",
-    },
-    // {
-    //   id: 12,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 13,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 14,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 15,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 16,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 17,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 18,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 19,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 20,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 21,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 22,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 23,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 24,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 25,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 26,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 27,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 28,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 29,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 30,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 31,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 32,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 33,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 34,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 35,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 36,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 37,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 38,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 40,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 41,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 42,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 43,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 44,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 45,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 46,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 47,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 48,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 49,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-    // {
-    //   id: 50,
-    //   name: "Jane Smith",
-    //   title: "Frontend Developer",
-    //   experience: "3 years",
-    //   visaType: "Green Card",
-    //   currentLocation: "San Francisco",
-    //   relocation: "No",
-    //   availability: "2 weeks",
-    // },
-  ]);
-  
-  // eslint-disable-next-line no-unused-vars
-  const [textClick, settextClick] = useState(false);
-  const [modal2Open, setModal2Open] = useState(false);
-
-  const [InArr, setInArr] = useState([]);
-
   const tableData = [
     { label: "First Name", value: "Jayu" },
     { label: "Last Name", value: "Parmar" },
@@ -528,117 +28,132 @@ const TablelUser = () => {
     { label: "Location", value: "Charlotte, NC" },
   ];
 
-  const [childChecked, setChildChecked] = useState(false);
+  const [textClick, settextClick] = useState(false);
+  const [modal2Open, setModal2Open] = useState(false);
 
-  const handleParentChange = (check) => {
-    if (check.target.checked) {
-      setInArr(candidates.map((e) => e.id));
-    } else {
-      setInArr([]);
-    }
-  };
-  //////////////////////////////////////////////////////////
+  // console.log("mData >>",mData);
 
-  const handleChildChange = (id) => {
-    setChildChecked(!childChecked);
+  const columns = [
+    {
+      accessorKey: "id",
+      header:'Sr.No',
+      cell: (info) => info.getValue(),
+    },
+    {
+      accessorKey: "name",
+      header:"Name",
+      cell: (info) => info.getValue(),
+    },
+    {
+      accessorKey: "title",
+      header:"Title",
+      cell: (info) => info.getValue(),
+    },
+    {
+      accessorKey: "experience",
+      header:"Experience",
+      cell: (info) => info.getValue(),
+    },
+    {
+      accessorKey: "visaType",
+      header:"VisaType",
+      cell: (info) => info.getValue(),
+    },
+    {
+      accessorKey: "currentLocation",
+      header:"CurrentLocation",
+      cell: (info) => info.getValue(),
+    },
+    {
+      accessorKey: "relocation",
+      header:"Relocation",
+      cell: (info) => info.getValue(),
+    },
+   
+    {
+      accessorKey: "availability",
+      header:"Availability",
+      cell: (info) => info.getValue(),
+    },
+   
+  ];
 
-    if (InArr.includes(id)) {
-      setInArr(InArr.filter((item) => item !== id));
-    } else {
-      setInArr([...InArr, id]);
-    }
 
-  };
+  const data = useMemo(() => mData, []);
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+  });
 
 
-  const isParentChecked = InArr.length === candidates.length;
 
   return (
     <div>
       <table className="TablelUser-main">
-        <tr>
-          <th className="TablelUser-heding">
-            <input
-              type="checkbox"
-              className="TablelUser-input"
-              checked={isParentChecked}
-              onChange={handleParentChange}
-            />
-          </th>
+        <thead>
+        {table?.getHeaderGroups()?.map((headerGroup) => (
+          <tr key={headerGroup.id}>
+            
 
-          <th>
-            Sr. No <Icon icon="fa-solid:filter" />{" "}
-            <Icon icon="fa-solid:sort-amount-up-alt" />
-          </th>
-          <th>
-            Condidata Name <Icon icon="fa-solid:filter" />{" "}
-            <Icon icon="fa-solid:sort-amount-up-alt" />
-          </th>
-          <th>
-            Title
-            <Icon icon="fa-solid:filter" />{" "}
-            <Icon icon="fa-solid:sort-amount-up-alt" />
-          </th>
-          <th>
-            Experience <Icon icon="fa-solid:filter" />{" "}
-            <Icon icon="fa-solid:sort-amount-up-alt" />
-          </th>
-          <th>
-            Visa type <Icon icon="fa-solid:filter" />{" "}
-            <Icon icon="fa-solid:sort-amount-up-alt" />
-          </th>
-          <th>
-            Current Location <Icon icon="fa-solid:filter" />{" "}
-            <Icon icon="fa-solid:sort-amount-up-alt" />
-          </th>
-          <th>
-            Relocation
-            <Icon icon="fa-solid:filter" />{" "}
-            <Icon icon="fa-solid:sort-amount-up-alt" />
-          </th>
-          <th>
-            Availability
-            <Icon icon="fa-solid:filter" />{" "}
-            <Icon icon="fa-solid:sort-amount-up-alt" />
-          </th>
-        </tr>
-
+            {headerGroup?.headers?.map((header) => (
+              <th key={header?.id}>
+                {flexRender(
+                  header?.column?.columnDef?.header,
+                  header.getContext()
+                )}
+              </th>
+            ))}
+          </tr>
+        ))}
+     </thead>
         <tbody>
-          {candidates.map((ele) => {
-            return (
-              <tr key={candidates.id}>
-                <td className="chacbox">
-                  <input
-                    type="checkbox"
-                    className="chacbox-chekd"
-                    checked={InArr.includes(ele.id)}
-                    onChange={() => handleChildChange(ele.id)}
-                  />
-                </td>
-
-                {keys?.map((e) => {
-                  if (e === "name") {
-                    return (
-                      // eslint-disable-next-line react/jsx-key
-                      <td
-                        className="underline"
-                        onClick={() => {
-                          settextClick(true);
-                        }}
-                      >
-                        {ele?.[e]}
-                      </td>
-                    );
-                  } else {
-                    // eslint-disable-next-line react/jsx-key
-                    return <td>{ele?.[e]}</td>;
-                  }
-                })}
-              </tr>
-            );
-          })}
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell) => {
+                // console.log(cell);
+                return (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
         </tbody>
+
+        {/* <tfoot>
+        {table?.getFooterGroups()?.map((footerGroups) => (
+          <tr key={footerGroups.id}>
+            
+
+            {footerGroups?.headers?.map((header) => (
+              <th key={header?.id}>
+                {flexRender(
+                  header?.column?.columnDef?.header,
+                  header.getContext()
+                )}
+              </th>
+            ))}
+          </tr>
+        ))}
+        </tfoot> */}
+
+   
+
       </table>
+   
+      <div className="Pagination-react-table">
+      
+      <MdKeyboardDoubleArrowLeft  className="react-table-icons-1" onClick={()=> table.setPageIndex(0)}/>
+    
+    <MdKeyboardArrowLeft className="react-table-icons-2"    disabled={!table.getCanPreviousPage()} onClick={()=> table.previousPage()}/> 
+    <MdKeyboardArrowRight className="react-table-icons-2"   disabled={!table.getCanNextPage()} onClick={()=> table.nextPage()}/>
+
+    <MdKeyboardDoubleArrowRight className="react-table-icons-1"onClick={()=> table.setPageIndex(table.getPageCount() - 1)}/>
+      </div>
+
 
       <div>
         <Modal

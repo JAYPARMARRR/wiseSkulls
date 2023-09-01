@@ -159,3 +159,29 @@ gap: 30px;
 }
 
 
+/* ///////////////////////////////////////////////----- Pagination-react-table---------////////////////// */
+
+
+
+.Pagination-react-table {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  /* border: 1px solid #00B282; */
+  margin: 2px 29px;
+}
+
+.react-table-icons-2{
+  cursor: pointer;
+  height: 44px;
+    width: 34px;
+  border: 1px solid #00B282;
+
+}
+.react-table-icons-1{
+  cursor: pointer;
+  height: 44px;
+    width: 34px;
+  border: 1px solid #00B282;
+
+}

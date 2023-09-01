@@ -3,8 +3,7 @@ import Navbar from "../../Hotlist Management/Navbar";
 
 
 import { useState } from "react";
-// eslint-disable-next-line no-unused-vars
-import { BsHddRackFill, BsInfoCircleFill } from "react-icons/bs";
+import {  BsInfoCircleFill } from "react-icons/bs";
 import { Modal } from "antd";
 
 
@@ -16,6 +15,11 @@ import TablelUser from "../TablelUser/TablelUser";
 import Footer from "../Footer/Footer";
 
 
+
+
+
+
+
 const AddHotlist = () => {
 
 
@@ -25,6 +29,9 @@ const AddHotlist = () => {
   const [visaType, setVisaType] = useState("");
   const [relocation, setRelocation] = useState("");
   const [open, setOpen] = useState(false);
+
+
+
 
 
   const [messageApi, contextHolder] = message.useMessage();
