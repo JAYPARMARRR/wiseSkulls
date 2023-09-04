@@ -21,7 +21,8 @@ import { useNavigate } from "react-router-dom";
 import {  message } from 'antd';
 
 
-const TableNavbar = () => {
+// eslint-disable-next-line react/prop-types
+const TableNavbar = ({setFilter, Filter}) => {
   
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -117,6 +118,9 @@ const handleDrop = (e, targetIndex) => {
             type="text"
             placeholder="Search User"
             className="TableNavbar-search-box"
+            value={Filter}
+            onChange={(e) => setFilter(e.target.value)}
+         
           />
         </div>
 

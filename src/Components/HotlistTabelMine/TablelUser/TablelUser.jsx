@@ -8,6 +8,7 @@ import {
   useReactTable,
   getCoreRowModel,
   getPaginationRowModel,
+  getFilteredRowModel,
 } from "@tanstack/react-table";
 import mData from "./MOCK_DATA.json";
 
@@ -16,7 +17,8 @@ import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowL
 
 
 
-const TablelUser = () => {
+// eslint-disable-next-line react/prop-types
+const TablelUser = ({setFilter, Filter}) => {
   const tableData = [
     { label: "First Name", value: "Jayu" },
     { label: "Last Name", value: "Parmar" },
@@ -31,6 +33,9 @@ const TablelUser = () => {
   const [textClick, settextClick] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
 
+
+ const [Shorting ,setShorting]= useState("")   
+ 
   // console.log("mData >>",mData);
 
   const columns = [
@@ -85,6 +90,14 @@ const TablelUser = () => {
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    state: {
+      Shorting: Shorting ,
+      globalFilter: Filter
+    },
+    onSortingChange : setFilter,
+    onGlobalFilterChange : setShorting
+
   });
 
 
@@ -125,22 +138,7 @@ const TablelUser = () => {
           ))}
         </tbody>
 
-        {/* <tfoot>
-        {table?.getFooterGroups()?.map((footerGroups) => (
-          <tr key={footerGroups.id}>
-            
 
-            {footerGroups?.headers?.map((header) => (
-              <th key={header?.id}>
-                {flexRender(
-                  header?.column?.columnDef?.header,
-                  header.getContext()
-                )}
-              </th>
-            ))}
-          </tr>
-        ))}
-        </tfoot> */}
 
    
 
@@ -173,7 +171,7 @@ const TablelUser = () => {
           <h1 className="TablelUser-table-heding">
             Benchsales Contact Details
           </h1>
-          <FaEdit
+          <FaEdit 
             className="TablelUser-FaEdit-edit-icons"
             onClick={() => setModal2Open(true)}
           />
