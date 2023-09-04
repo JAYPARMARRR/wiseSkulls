@@ -93,9 +93,10 @@ const TablelUser = () => {
     <div>
       <table className="TablelUser-main">
         <thead>
+
         {table?.getHeaderGroups()?.map((headerGroup) => (
           <tr key={headerGroup.id}>
-            
+       
 
             {headerGroup?.headers?.map((header) => (
               <th key={header?.id}>
@@ -103,6 +104,7 @@ const TablelUser = () => {
                   header?.column?.columnDef?.header,
                   header.getContext()
                 )}
+                
               </th>
             ))}
           </tr>
@@ -145,6 +147,7 @@ const TablelUser = () => {
       </table>
    
       <div className="Pagination-react-table">
+
       
       <MdKeyboardDoubleArrowLeft  className="react-table-icons-1" onClick={()=> table.setPageIndex(0)}/>
     
