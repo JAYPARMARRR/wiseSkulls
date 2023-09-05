@@ -1,8 +1,11 @@
 import "./TablelUser.css";
 import { Modal } from "antd";
 import { FaEdit } from "react-icons/fa";
-
+import { Icon } from "@iconify/react";
 import { useMemo, useState } from "react";
+import mData from "./MOCK_DATA.json";
+
+
 import {
   flexRender,
   useReactTable,
@@ -10,15 +13,16 @@ import {
   getPaginationRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
-import mData from "./MOCK_DATA.json";
 
-
-import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-
-
+import {
+  MdKeyboardDoubleArrowLeft,
+  MdKeyboardDoubleArrowRight,
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+} from "react-icons/md";
 
 // eslint-disable-next-line react/prop-types
-const TablelUser = ({setFilter, Filter}) => {
+const TablelUser = ({ setFilter, Filter }) => {
   const tableData = [
     { label: "First Name", value: "Jayu" },
     { label: "Last Name", value: "Parmar" },
@@ -32,57 +36,51 @@ const TablelUser = ({setFilter, Filter}) => {
 
   const [textClick, settextClick] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
-
-
- const [Shorting ,setShorting]= useState("")   
- 
-  // console.log("mData >>",mData);
+  const [Shorting, setShorting] = useState("");
 
   const columns = [
     {
       accessorKey: "id",
-      header:'Sr.No',
+      header: "Sr.No",
       cell: (info) => info.getValue(),
     },
     {
       accessorKey: "name",
-      header:"Name",
+      header: "Name",
       cell: (info) => info.getValue(),
     },
     {
       accessorKey: "title",
-      header:"Title",
+      header: "Title",
       cell: (info) => info.getValue(),
     },
     {
       accessorKey: "experience",
-      header:"Experience",
+      header: "Experience",
       cell: (info) => info.getValue(),
     },
     {
       accessorKey: "visaType",
-      header:"VisaType",
+      header: "VisaType",
       cell: (info) => info.getValue(),
     },
     {
       accessorKey: "currentLocation",
-      header:"CurrentLocation",
+      header: "CurrentLocation",
       cell: (info) => info.getValue(),
     },
     {
       accessorKey: "relocation",
-      header:"Relocation",
+      header: "Relocation",
       cell: (info) => info.getValue(),
     },
-   
+
     {
       accessorKey: "availability",
-      header:"Availability",
+      header: "Availability",
       cell: (info) => info.getValue(),
     },
-   
   ];
-
 
   const data = useMemo(() => mData, []);
   const table = useReactTable({
@@ -92,13 +90,47 @@ const TablelUser = ({setFilter, Filter}) => {
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     state: {
-      Shorting: Shorting ,
-      globalFilter: Filter
+      Shorting: Shorting,
+      globalFilter: Filter,
     },
-    onSortingChange : setFilter,
-    onGlobalFilterChange : setShorting
-
+    onSortingChange: setFilter,
+    onGlobalFilterChange: setShorting,
   });
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  const [childChecked, setChildChecked] = useState();
+  const [InArr, setInArr] = useState([]);
+
+
+
+  const handleParentChange = (check) => {
+    
+    if (check.target.checked) {
+      setInArr(mData.map((e) => e.id));
+
+    } else {
+      setInArr([]);
+    }
+  };
+
+
+
+  const handleChildChange = (id) => {
+    setChildChecked(!childChecked);
+
+      // console.log("id >>" ,id.target.checked);
+
+    if (InArr.includes(id)) {
+      setInArr(InArr.filter((item) => item !== id));
+
+    } else {
+      setInArr([...InArr, id]);
+    }
+  };
+
+  console.log("InArr", InArr);
+
+  // const isParentChecked = InArr.length === mData.length;
 
 
 
@@ -106,26 +138,47 @@ const TablelUser = ({setFilter, Filter}) => {
     <div>
       <table className="TablelUser-main">
         <thead>
+          {table?.getHeaderGroups()?.map((headerGroup) => (
 
-        {table?.getHeaderGroups()?.map((headerGroup) => (
-          <tr key={headerGroup.id}>
-       
+            <tr key={headerGroup.id}>
 
-            {headerGroup?.headers?.map((header) => (
-              <th key={header?.id}>
-                {flexRender(
-                  header?.column?.columnDef?.header,
-                  header.getContext()
-                )}
-                
+              <th className="TablelUser-heding">
+                <input
+                  type="checkbox"
+                  className="TablelUser-input"
+                  // checked={isParentChecked}
+                  onChange={handleParentChange}
+                />
+
               </th>
-            ))}
-          </tr>
-        ))}
-     </thead>
+
+              {headerGroup?.headers?.map((header) => (
+                <th key={header?.id}>
+                  {flexRender(
+                    header?.column?.columnDef?.header,
+                    header.getContext()
+                  )}
+                  <Icon icon="fa-solid:filter" className="fa-solid-icons" />
+                  <Icon icon="fa-solid:sort-amount-up-alt" />
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
+              <td className="chacbox">
+
+                <input
+                  type="checkbox"
+                  className="chacbox-chekd"
+                  checked={InArr.includes(row.id)}
+                  onChange={() => handleChildChange(row.id)}
+                />
+                
+              </td>
+
               {row.getVisibleCells().map((cell) => {
                 // console.log(cell);
                 return (
@@ -137,24 +190,30 @@ const TablelUser = ({setFilter, Filter}) => {
             </tr>
           ))}
         </tbody>
-
-
-
-   
-
       </table>
-   
+
       <div className="Pagination-react-table">
+        <MdKeyboardDoubleArrowLeft
+          className="react-table-icons-1"
+          onClick={() => table.setPageIndex(0)}
+        />
 
-      
-      <MdKeyboardDoubleArrowLeft  className="react-table-icons-1" onClick={()=> table.setPageIndex(0)}/>
-    
-    <MdKeyboardArrowLeft className="react-table-icons-2"    disabled={!table.getCanPreviousPage()} onClick={()=> table.previousPage()}/> 
-    <MdKeyboardArrowRight className="react-table-icons-2"   disabled={!table.getCanNextPage()} onClick={()=> table.nextPage()}/>
+        <MdKeyboardArrowLeft
+          className="react-table-icons-2"
+          disabled={!table.getCanPreviousPage()}
+          onClick={() => table.previousPage()}
+        />
+        <MdKeyboardArrowRight
+          className="react-table-icons-2"
+          disabled={!table.getCanNextPage()}
+          onClick={() => table.nextPage()}
+        />
 
-    <MdKeyboardDoubleArrowRight className="react-table-icons-1"onClick={()=> table.setPageIndex(table.getPageCount() - 1)}/>
+        <MdKeyboardDoubleArrowRight
+          className="react-table-icons-1"
+          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+        />
       </div>
-
 
       <div>
         <Modal
@@ -171,7 +230,7 @@ const TablelUser = ({setFilter, Filter}) => {
           <h1 className="TablelUser-table-heding">
             Benchsales Contact Details
           </h1>
-          <FaEdit 
+          <FaEdit
             className="TablelUser-FaEdit-edit-icons"
             onClick={() => setModal2Open(true)}
           />

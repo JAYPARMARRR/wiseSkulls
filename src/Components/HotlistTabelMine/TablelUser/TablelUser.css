@@ -39,7 +39,6 @@
   .chacbox {
     text-align: center;
   }
-  
 
 
   .chacbox-chekd{
@@ -53,6 +52,23 @@
   }
 
 
+  .TablelUser-input{
+    height: 25px;
+    width: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+
+  .TablelUser-input.checked {
+    background-color: #00B282;
+  }
+
+.fa-solid-icons{
+  cursor: pointer;
+}
 
   /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
 
