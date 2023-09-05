@@ -8,7 +8,6 @@ import {
   useReactTable,
   getCoreRowModel,
   getPaginationRowModel,
-  getFilteredRowModel,
 } from "@tanstack/react-table";
 import mData from "./MOCK_DATA.json";
 
@@ -17,8 +16,7 @@ import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowL
 
 
 
-// eslint-disable-next-line react/prop-types
-const TablelUser = ({setFilter, Filter}) => {
+const TablelUser = () => {
   const tableData = [
     { label: "First Name", value: "Jayu" },
     { label: "Last Name", value: "Parmar" },
@@ -33,9 +31,6 @@ const TablelUser = ({setFilter, Filter}) => {
   const [textClick, settextClick] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
 
-
- const [Shorting ,setShorting]= useState("")   
- 
   // console.log("mData >>",mData);
 
   const columns = [
@@ -90,14 +85,6 @@ const TablelUser = ({setFilter, Filter}) => {
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    state: {
-      Shorting: Shorting ,
-      globalFilter: Filter
-    },
-    onSortingChange : setFilter,
-    onGlobalFilterChange : setShorting
-
   });
 
 
@@ -106,10 +93,9 @@ const TablelUser = ({setFilter, Filter}) => {
     <div>
       <table className="TablelUser-main">
         <thead>
-
         {table?.getHeaderGroups()?.map((headerGroup) => (
           <tr key={headerGroup.id}>
-       
+            
 
             {headerGroup?.headers?.map((header) => (
               <th key={header?.id}>
@@ -117,7 +103,6 @@ const TablelUser = ({setFilter, Filter}) => {
                   header?.column?.columnDef?.header,
                   header.getContext()
                 )}
-                
               </th>
             ))}
           </tr>
@@ -138,25 +123,39 @@ const TablelUser = ({setFilter, Filter}) => {
           ))}
         </tbody>
 
+        {/* <tfoot>
+        {table?.getFooterGroups()?.map((footerGroups) => (
+          <tr key={footerGroups.id}>
+            
 
+            {footerGroups?.headers?.map((header) => (
+              <th key={header?.id}>
+                {flexRender(
+                  header?.column?.columnDef?.header,
+                  header.getContext()
+                )}
+              </th>
+            ))}
+          </tr>
+        ))}
+        </tfoot> */}
 
    
 
       </table>
    
       <div className="Pagination-react-table">
-
       
       <MdKeyboardDoubleArrowLeft  className="react-table-icons-1" onClick={()=> table.setPageIndex(0)}/>
     
     <MdKeyboardArrowLeft className="react-table-icons-2"    disabled={!table.getCanPreviousPage()} onClick={()=> table.previousPage()}/> 
-    <MdKeyboardArrowRight className="react-table-icons-2"   disabled={!table.getCanNextPage()} onClick={()=> table.nextPage()}/>
+    <MdKeyboardArrowRight className="react-table-icons-2"   disabled={!table.getCanNextPage() } onClick={()=> table.nextPage()}/>
 
     <MdKeyboardDoubleArrowRight className="react-table-icons-1"onClick={()=> table.setPageIndex(table.getPageCount() - 1)}/>
       </div>
 
 
-      <div>
+      <div> 
         <Modal
           open={textClick}
           onOk={() => {
@@ -171,7 +170,7 @@ const TablelUser = ({setFilter, Filter}) => {
           <h1 className="TablelUser-table-heding">
             Benchsales Contact Details
           </h1>
-          <FaEdit 
+          <FaEdit
             className="TablelUser-FaEdit-edit-icons"
             onClick={() => setModal2Open(true)}
           />
@@ -254,6 +253,6 @@ const TablelUser = ({setFilter, Filter}) => {
       </Modal>
     </div>
   );
-};
+}
 
 export default TablelUser;
