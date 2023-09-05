@@ -6,6 +6,8 @@ import { useMemo, useState } from "react";
 import mData from "./MOCK_DATA.json";
 
 
+
+
 import {
   flexRender,
   useReactTable,
@@ -97,40 +99,14 @@ const TablelUser = ({ setFilter, Filter }) => {
     onGlobalFilterChange: setShorting,
   });
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  const [childChecked, setChildChecked] = useState();
-  const [InArr, setInArr] = useState([]);
+ const [checked ,setchecked]= useState(false)
 
 
-
-  const handleParentChange = (check) => {
-    
-    if (check.target.checked) {
-      setInArr(mData.map((e) => e.id));
-
-    } else {
-      setInArr([]);
-    }
-  };
+const Change = (e) =>{
+  setchecked(e.target.value)
+}
 
 
-
-  const handleChildChange = (id) => {
-    setChildChecked(!childChecked);
-
-      // console.log("id >>" ,id.target.checked);
-
-    if (InArr.includes(id)) {
-      setInArr(InArr.filter((item) => item !== id));
-
-    } else {
-      setInArr([...InArr, id]);
-    }
-  };
-
-  console.log("InArr", InArr);
-
-  // const isParentChecked = InArr.length === mData.length;
 
 
 
@@ -143,12 +119,16 @@ const TablelUser = ({ setFilter, Filter }) => {
             <tr key={headerGroup.id}>
 
               <th className="TablelUser-heding">
+
+
+                 {/* Heding  */}
                 <input
                   type="checkbox"
                   className="TablelUser-input"
-                  // checked={isParentChecked}
-                  onChange={handleParentChange}
+                  onChange={Change}
                 />
+      {checked ? (<h1>hey loduu</h1>): (<h1>nthi thayu madar</h1>)}
+
 
               </th>
 
@@ -170,13 +150,15 @@ const TablelUser = ({ setFilter, Filter }) => {
             <tr key={row.id}>
               <td className="chacbox">
 
+
+              {/* rows */}
                 <input
                   type="checkbox"
                   className="chacbox-chekd"
-                  checked={InArr.includes(row.id)}
-                  onChange={() => handleChildChange(row.id)}
                 />
                 
+
+
               </td>
 
               {row.getVisibleCells().map((cell) => {
