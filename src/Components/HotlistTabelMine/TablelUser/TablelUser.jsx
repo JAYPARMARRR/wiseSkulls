@@ -99,12 +99,10 @@ const TablelUser = ({ setFilter, Filter }) => {
     onGlobalFilterChange: setShorting,
   });
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- const [checked ,setchecked]= useState(false)
+ 
+  const [checked ,setchecked]= useState(false)
 
 
-const Change = (e) =>{
-  setchecked(e.target.value)
-}
 
 
 
@@ -125,10 +123,9 @@ const Change = (e) =>{
                 <input
                   type="checkbox"
                   className="TablelUser-input"
-                  onChange={Change}
+                 
                 />
-      {checked ? (<h1>hey loduu</h1>): (<h1>nthi thayu madar</h1>)}
-
+    
 
               </th>
 
@@ -142,6 +139,7 @@ const Change = (e) =>{
                   <Icon icon="fa-solid:sort-amount-up-alt" />
                 </th>
               ))}
+              
             </tr>
           ))}
         </thead>
