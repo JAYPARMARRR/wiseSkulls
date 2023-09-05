@@ -1,0 +1,226 @@
+.Navbar-AddHotlist {
+    display: flex;
+    /* height: 72vh; */
+    justify-content: space-around;
+
+    margin-top: 3%;
+    width: 100%;
+
+}
+.AddHotlist-Add-Hotlist {
+  align-items: center;
+  background-color: #265f9d;
+  border-radius: 10px 100px 0 10px;
+  color: #fff;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  line-height: 63px;
+  outline: none;
+  width: 17.5%;
+  font-weight: 100;
+}
+
+.AddHotlist-text{
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AddHotlist-icons{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    justify-content: center; 
+}
+.AddHotlist-logo{
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    font-size: 17px;
+    height: 22px;
+    justify-content: center;
+    width: 22px;
+}
+
+
+/* ///////////////////////////'/////////////////////////////////////////////////////////////////////////' */
+
+
+
+
+.main-input-sec {
+  width: 90%;
+
+  height: 43vh;
+  display: block;
+  margin: 110px auto;
+}
+.select-box-main-input-sec select {
+  height: 52px;
+  width: 280px;
+  border: 1px solid #888888;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 29%;
+  left: 72px;
+}
+/* ////////////////////////////// */
+
+.right-side-main-input-sec {
+  margin-top: 150px;
+  display: flex;
+  gap: 13.8%;
+  margin-bottom: 40px;
+}
+.left-side-main-input-sec{
+
+     display: flex;
+    gap: 13.8%;
+    margin-bottom: 40px;
+}
+.last-side-main-input-sec{
+
+     display: flex;
+    gap: 13.8%;
+    margin-bottom: 40px;
+}
+
+
+.right-side-input {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 17px;
+  width: 22%;
+}
+  .right-side-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    
+  }
+
+
+
+  .down-arrow-gif {
+    display: block;
+    margin: 0 auto;
+    height: 112px;
+}
+/* /////////////////////////////////////// */
+
+.main-input-sec-button-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 40px;
+}
+  
+.main-input-sec-button-1 {
+    padding: 12px 29px;
+    background-color: #A4A5A5; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+.main-input-sec-button-2 {
+    padding: 12px 29px;
+    background-color: #00B282; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  /* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+  .addHotlist-modal .ant-modal-content {
+    height: 184vh;
+    pointer-events: auto;
+    padding: 49px 44px;
+}
+
+  .addHotlist-modal-heding {
+ 
+    text-align: center;
+    font-size: 27px; 
+    font-weight: bold;
+  }
+
+.addHotlist-modal-heding-2{
+  text-align: center;
+  font-weight: 900;
+}
+
+.addHotlist-modal-per-1{
+  margin-top: 20px;
+}
+
+.addHotlist-modal-heding-3{
+  margin: 21px 9px;
+  font-size: 19px
+}
+
+
+/* /////////////////////////////-----AddHotlist-Navbar css------- /////////////////////////// */
+
+.AddHotlist-TablelUser-all{
+  margin: 22px 39px;
+  height: 86vh;
+  width: 94%;
+  border-radius: 11px;
+}
+
+
+
+.AddHotlistNavbar-main{
+  align-items: center;
+    background: #e6e6e6 0 0 no-repeat padding-box;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    opacity: 1;
+    padding: 20px;
+}
+
+
+
+.CiSearch{
+  left: 1.8rem;
+    position: relative;
+    top: 0.2rem;
+}
+
+.AddHotlistNavbar-input{
+  background: #fff 0 0 no-repeat padding-box;
+  border: 1px solid #d5e9ff;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px #00000029;
+  height: 32px;
+  opacity: 1;
+  outline: none;
+  padding-left: 30px;
+  width: 290px;
+}
+
+.FaFileExport{
+  margin-right: 28px;
+}
+
+.FaFileExport:hover{
+  color: #265f9d;
+}
