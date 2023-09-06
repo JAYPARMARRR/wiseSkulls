@@ -100,13 +100,37 @@ const TablelUser = ({ setFilter, Filter }) => {
   });
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
-  const [checked ,setchecked]= useState(false)
+  const [isParentChecked, setIsParentChecked] = useState(false);
+  const [InArr, setInArr] = useState([]);
+  const handleParentChange = () => {
+    if (isParentChecked) {
+      // If the main checkbox is checked, uncheck all child checkboxes
+      setInArr([]);
+    } else {
+      // If the main checkbox is unchecked, check all child checkboxes
+      // You need to have an array of all row ids in your data to achieve this
+      // Replace 'data' with your actual data array
+      const allRowIds = data.map((item) => item.id);
+      setInArr(allRowIds);
+    }
+    // Toggle the state of the main checkbox
+    setIsParentChecked(!isParentChecked);
+  };
+
+  // Function to handle the change of a child checkbox
+  const handleChildChange = (id) => {
+    if (InArr.includes(id)) {
+      // If the child checkbox is checked, uncheck it
+      setInArr(InArr.filter((item) => item !== id));
+    } else {
+      // If the child checkbox is unchecked, check it
+      setInArr([...InArr, id]);
+    }
+  };
 
 
 
-
-
-
+// console.log("InArr >>",InArr);
 
   return (
     <div>
@@ -119,13 +143,14 @@ const TablelUser = ({ setFilter, Filter }) => {
               <th className="TablelUser-heding">
 
 
-                 {/* Heding  */}
+                 {/* main  */}
                 <input
                   type="checkbox"
                   className="TablelUser-input"
-                 
-                />
-    
+                  checked={isParentChecked}
+                  onChange={handleParentChange}
+                 />
+
 
               </th>
 
@@ -135,16 +160,15 @@ const TablelUser = ({ setFilter, Filter }) => {
                     header?.column?.columnDef?.header,
                     header.getContext()
                   )}
-                  <Icon icon="fa-solid:filter" className="fa-solid-icons" />
-                  <Icon icon="fa-solid:sort-amount-up-alt" />
+                  <Icon icon="fa-solid:filter" className="fa-solid-icons"  />
+                  <Icon icon="fa-solid:sort-amount-up-alt"  />
                 </th>
               ))}
-              
             </tr>
           ))}
         </thead>
         <tbody>
-          {table.getRowModel().rows.map((row) => (
+          {table.getRowModel().rows.map((row ) => (
             <tr key={row.id}>
               <td className="chacbox">
 
@@ -153,6 +177,8 @@ const TablelUser = ({ setFilter, Filter }) => {
                 <input
                   type="checkbox"
                   className="chacbox-chekd"
+                  checked={InArr.includes(row.id)}
+                  onChange={() => handleChildChange(row.id )}
                 />
                 
 
