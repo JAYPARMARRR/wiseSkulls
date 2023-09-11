@@ -2,7 +2,7 @@ import "./TablelUser.css";
 import { Modal } from "antd";
 import { FaEdit } from "react-icons/fa";
 import { Icon } from "@iconify/react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import mData from "./MOCK_DATA.json";
 
 
@@ -40,6 +40,8 @@ const TablelUser = ({ setFilter, Filter }) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [Shorting, setShorting] = useState("");
   const [isModalOpen3, setIsModalOpen3] = useState(false);
+  const [isParentChecked, setIsParentChecked] = useState(false);
+  const [InArr, setInArr] = useState([]);
 
   const columns = [
     {
@@ -113,35 +115,32 @@ const TablelUser = ({ setFilter, Filter }) => {
   };
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  const [ids, setIds] = useState([])
-
-  console.log("ids>>>",ids)
-
-
-
-
-  const boxChange = (e,id) => {
-    console.log("id>>>",id)
-        
-    if (ids.includes(id)) {
-
-        setIds(ids.filter(item => item !== id));
+  const handleParentChange = () => {
+    if (isParentChecked) {
+      setInArr([]);
+    } else {
+      const allRowIds = data.map((item) => item.id);
+      setInArr(allRowIds);
     }
-     else {
-        setIds([...ids, id]);
-    }
+    setIsParentChecked(!isParentChecked);
+  };
 
-    if(e.target.checked){
-        setIds([...ids, id])
-    }else{
-        setIds(ids?.filter((item)=>{
-            if(item !== id){
-                return item
-            }
-        }))
+
+  const handleChildChange = (id) => {
+    if (InArr.includes(id)) {
+      setInArr(InArr.filter((item) => item !== id));
+    } else {
+      setInArr([...InArr, id]);
     }
   };
+
+  useEffect(() => {
+    if (InArr.length === mData.length) {
+      setIsParentChecked(true);
+    } else {
+      setIsParentChecked(false);
+    }
+  }, [InArr, data]);
 
 
 
@@ -161,6 +160,8 @@ const TablelUser = ({ setFilter, Filter }) => {
                 <input
                   type="checkbox"
                   className="TablelUser-input"
+                  checked={isParentChecked}
+                  onChange={handleParentChange}
                 />
 
 
@@ -186,6 +187,7 @@ const TablelUser = ({ setFilter, Filter }) => {
           {table.getRowModel().rows.map((row) => 
           
           {
+              // console.log("rows id >>>" ,row.original.id);
             return <>
   
             <tr key={row.id}>
@@ -196,7 +198,9 @@ const TablelUser = ({ setFilter, Filter }) => {
                 <input
                   type="checkbox"
                   className="chacbox-chekd"
-                  onChange={(e) => boxChange(e,row.id)}
+                  checked={InArr.includes(row.original.id)}
+                  onChange={() => handleChildChange(row.original.id)}
+                 
                 /> 
                 
 
