@@ -3,6 +3,7 @@ import { flexRender } from "@tanstack/react-table";
 import { Modal } from "antd";
 import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
+import { FiEdit3 } from 'react-icons/fi';
 
 const UserName = ({ cell, row, setModal2Open }) => {
   const [textClick, settextClick] = useState(false);
@@ -16,8 +17,12 @@ const UserName = ({ cell, row, setModal2Open }) => {
         onClick={() => {
           settextClick(true);
         }}
+        
       >
         {flexRender(cell.column.columnDef.cell, cell.getContext())}
+
+        <FiEdit3/>
+        
       </td>
       <div>
         <Modal
@@ -53,8 +58,8 @@ const UserName = ({ cell, row, setModal2Open }) => {
                 {Object.keys(row?.original).map((col) => {
                   return (
                     <div key={col} style={{ display: "flex", width: "100%" }}>
-                      <div className="TablelUser-table-cell">{col}</div>
-                      <div className="TablelUser-table-cell">
+                      <div className="TablelUser-table-cell"> <span className="TablelUser-table-cell-span">{col}</span></div>
+                      <div className="TablelUser-table-cell">  <span>:</span> 
                         {row?.original[col]}
                       </div>
                     </div>

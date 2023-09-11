@@ -115,12 +115,13 @@
 }
 
 .TablelUser-table-1 {
-  border-width: 1px 1px 0px 1px;
-  border-style: solid;   
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
   border-color: #707070;
   border-radius: 5px;
-  padding: 4px;
-  margin: 11px;
+  padding: 0px;
+  margin: 11px 85px;
+  height: 53vh;
 }
 .TablelUser-FaEdit-edit-icons {
   color: #707070;
@@ -133,7 +134,7 @@
 }
 .TablelUser-table-cell {
   flex: 1;
-  padding: 10px;
+  padding: 12.4px;
   border-bottom: 1px solid #707070;
   font-size: larger;
 }
@@ -193,6 +194,15 @@ gap: 30px;
   position: absolute;
   top: 79%;
   left: 47%;
+}
+
+
+
+
+.TablelUser-table-cell-span{
+  width: 47%;
+    padding-left: 28px;
+    font-weight: 900;
 }
 
 /* ///////////////////////////////////////////////----- footer----------////////////////// */
