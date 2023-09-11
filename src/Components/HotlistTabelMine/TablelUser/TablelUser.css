@@ -74,16 +74,37 @@
 
 
 .TablelUser-table .ant-modal-content {
-    height: 70vh;
-    width: 143%;
-    position: absolute;
-    left: -18%;
-    top: 96%;
-    color: black;
+  height: 71vh;
+  width: 183%;
+  position: absolute;
+  left: -42%;
+  top: 100%;
+  color: black;
+  padding: 0;
 }
+
+
+.TablelUser-table-heding-main{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+  text-align: right;
+  width: 100%;
+}
+
+
 .TablelUser-table-heding{
-  text-align: center;
-  margin: 4px;
+  align-items: center;
+  background: #d4d4d4;
+  border-radius: 0 0 100px 100px;
+  display: flex;
+  font: normal normal bolder 18px/31px;
+  font-size: 18px;
+  height: 65px;
+  justify-content: center;
+  letter-spacing: .2px;
+  width: 380px;
 }
 
 .TablelUser-table-row{
@@ -174,8 +195,17 @@ gap: 30px;
   left: 47%;
 }
 
-/* ///////////////////////////////////////////////----- ChakBox input  modal css ---------////////////////// */
-
+/* ///////////////////////////////////////////////----- footer----------////////////////// */
+.footer-main-div{
+      align-items: center;
+    background-color: #e6e6e6;
+    display: flex;
+    height: 50px!important;
+    justify-content: space-between;
+    padding-left: 35px;
+    padding-right: 35px;
+    width: 100%;
+}
 
 
 

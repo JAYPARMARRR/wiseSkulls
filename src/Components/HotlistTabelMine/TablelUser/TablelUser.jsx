@@ -1,6 +1,5 @@
 import "./TablelUser.css";
 import { Modal } from "antd";
-import { FaEdit } from "react-icons/fa";
 import { Icon } from "@iconify/react";
 import { useEffect, useMemo, useState } from "react";
 import mData from "./MOCK_DATA.json";
@@ -19,21 +18,21 @@ import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
 } from "react-icons/md";
+import UserName from "./UserName";
 
 // eslint-disable-next-line react/prop-types
 const TablelUser = ({ setFilter, Filter }) => {
-  const tableData = [
-    { label: "First Name", value: "Jayu" },
-    { label: "Last Name", value: "Parmar" },
-    { label: "Business Email", value: "@relianttechno.com" },
-    { label: "Hangout ID", value: "--No--" },
-    { label: "Phone No", value: "9510923353" },
-    { label: "LinkedIn ID", value: "--No--" },
-    { label: "WhatsApp Number", value: "9510923353" },
-    { label: "Location", value: "Charlotte, NC" },
-  ];
+  // const tableData = [
+  //   { label: "First Name", value: "Jayu" },
+  //   { label: "Last Name", value: "Parmar" },
+  //   { label: "Business Email", value: "@relianttechno.com" },
+  //   { label: "Hangout ID", value: "--No--" },
+  //   { label: "Phone No", value: "9510923353" },
+  //   { label: "LinkedIn ID", value: "--No--" },
+  //   { label: "WhatsApp Number", value: "9510923353" },
+  //   { label: "Location", value: "Charlotte, NC" },
+  // ];
 
-  const [textClick, settextClick] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
   const [Shorting, setShorting] = useState("");
   const [isModalOpen3, setIsModalOpen3] = useState(false);
@@ -198,24 +197,11 @@ const TablelUser = ({ setFilter, Filter }) => {
                   </td>
 
                   {row.getVisibleCells().map((cell) => {
-                    console.log("cell.column.id >>>" ,cell.column);
-
-                    
                     if (cell.column.id == "name") {
                       return (
-                        <td key={cell.id} className="underline" onClick={() => {
-                          settextClick(true);
-                        }}>
-                          
-                          {flexRender(
-                            cell.column.columnDef.cell,
-                            cell.getContext()
-                          )}
-                        
-
-                        </td>
+                        // eslint-disable-next-line react/jsx-key
+                        <UserName cell={cell} row={row} setModal2Open={setModal2Open} />
                       );
-
                     } else {
                       return (
                         <td key={row.id}>
@@ -233,58 +219,29 @@ const TablelUser = ({ setFilter, Filter }) => {
           })}
         </tbody>
       </table>
-
-      <div className="Pagination-react-table">
-        <MdKeyboardDoubleArrowLeft
-          className="react-table-icons-1"
-          onClick={() => table.setPageIndex(0)}
-        />
-
-        <MdKeyboardArrowLeft
-          className="react-table-icons-2"
-          disabled={!table.getCanPreviousPage()}
-          onClick={() => table.previousPage()}
-        />
-        <MdKeyboardArrowRight
-          className="react-table-icons-2"
-          disabled={!table.getCanNextPage()}
-          onClick={() => table.nextPage()}
-        />
-
-        <MdKeyboardDoubleArrowRight
-          className="react-table-icons-1"
-          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-        />
-      </div>
-
-      <div>
-        <Modal
-          open={textClick}
-          onOk={() => {
-            settextClick(false);
-          }}
-          onCancel={() => {
-            settextClick(false);
-          }}
-          footer={null}
-          className="TablelUser-table"
-        >
-          <h1 className="TablelUser-table-heding">
-            Benchsales Contact Details
-          </h1>
-          <FaEdit
-            className="TablelUser-FaEdit-edit-icons"
-            onClick={() => setModal2Open(true)}
+      <div className="footer-main-div">
+        <div className="Pagination-react-table">
+          <MdKeyboardDoubleArrowLeft
+            className="react-table-icons-1"
+            onClick={() => table.setPageIndex(0)}
           />
-          <div className="TablelUser-table-1">
-            {tableData.map((e, index) => (
-              <div key={index} className="TablelUser-table-row">
-                <div className="TablelUser-table-cell">{e.label} : </div>
-                <div className="TablelUser-table-cell">{e.value}</div>
-              </div>
-            ))}
-          </div>
-        </Modal>
+
+          <MdKeyboardArrowLeft
+            className="react-table-icons-2"
+            disabled={!table.getCanPreviousPage()}
+            onClick={() => table.previousPage()}
+          />
+          <MdKeyboardArrowRight
+            className="react-table-icons-2"
+            disabled={!table.getCanNextPage()}
+            onClick={() => table.nextPage()}
+          />
+
+          <MdKeyboardDoubleArrowRight
+            className="react-table-icons-1"
+            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+          />
+        </div>
       </div>
 
       <Modal
