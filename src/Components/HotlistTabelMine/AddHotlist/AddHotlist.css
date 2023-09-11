@@ -219,6 +219,7 @@
 
 .FaFileExport{
   margin-right: 28px;
+  cursor: pointer;
 }
 
 .FaFileExport:hover{

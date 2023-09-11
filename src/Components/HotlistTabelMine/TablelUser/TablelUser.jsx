@@ -39,6 +39,7 @@ const TablelUser = ({ setFilter, Filter }) => {
   const [textClick, settextClick] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
   const [Shorting, setShorting] = useState("");
+  const [isModalOpen3, setIsModalOpen3] = useState(false);
 
   const columns = [
     {
@@ -98,6 +99,19 @@ const TablelUser = ({ setFilter, Filter }) => {
     onSortingChange: setFilter,
     onGlobalFilterChange: setShorting,
   });
+
+
+  const showModal3 = () => {
+    setIsModalOpen3(true);
+  };
+  const handleOk3 = () => {
+    setIsModalOpen3(false);
+  };
+
+  const handleCancel3 = () => {
+    setIsModalOpen3(false);
+  };
+
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   const [ids, setIds] = useState([])
@@ -158,7 +172,10 @@ const TablelUser = ({ setFilter, Filter }) => {
                     header?.column?.columnDef?.header,
                     header.getContext()
                   )}
-                  <Icon icon="fa-solid:filter" className="fa-solid-icons" />
+                  <Icon icon="fa-solid:filter" className="fa-solid-icons"  onClick={showModal3} />
+                  <Modal  open={isModalOpen3} onOk={handleOk3} onCancel={handleCancel3} footer={null} closeIcon={false}>
+      
+      </Modal>
                   <Icon icon="fa-solid:sort-amount-up-alt" />
                 </th>
               ))}
@@ -182,6 +199,7 @@ const TablelUser = ({ setFilter, Filter }) => {
                   onChange={(e) => boxChange(e,row.id)}
                 /> 
                 
+
 
 
               </td>
