@@ -56,7 +56,6 @@ const success = () => {
 
   const ModalOpenDelete = () => {
     setIsModalOpenDelete(true);
-    console.log(isModalOpenDelete);
   };
   const ModalOpenDeleteOk = () => {
     setIsModalOpenDelete(false);

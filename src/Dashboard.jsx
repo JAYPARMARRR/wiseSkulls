@@ -10,8 +10,8 @@ const Dashboard = () => {
   const [Filter ,setFilter]= useState("")
   return (
     <>
-      <div className="Dashboard-main">
         <Navbar/> 
+      <div className="Dashboard-main">
         <TableNavbar setFilter={setFilter} Filter={Filter} />
         <TablelUser setFilter={setFilter} Filter={Filter} />
         {/* <Footer /> */}

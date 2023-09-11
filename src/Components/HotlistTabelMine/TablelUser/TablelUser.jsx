@@ -5,9 +5,6 @@ import { Icon } from "@iconify/react";
 import { useEffect, useMemo, useState } from "react";
 import mData from "./MOCK_DATA.json";
 
-
-
-
 import {
   flexRender,
   useReactTable,
@@ -88,6 +85,7 @@ const TablelUser = ({ setFilter, Filter }) => {
   ];
 
   const data = useMemo(() => mData, []);
+
   const table = useReactTable({
     data,
     columns,
@@ -101,7 +99,6 @@ const TablelUser = ({ setFilter, Filter }) => {
     onSortingChange: setFilter,
     onGlobalFilterChange: setShorting,
   });
-
 
   const showModal3 = () => {
     setIsModalOpen3(true);
@@ -125,7 +122,6 @@ const TablelUser = ({ setFilter, Filter }) => {
     setIsParentChecked(!isParentChecked);
   };
 
-
   const handleChildChange = (id) => {
     if (InArr.includes(id)) {
       setInArr(InArr.filter((item) => item !== id));
@@ -142,29 +138,20 @@ const TablelUser = ({ setFilter, Filter }) => {
     }
   }, [InArr, data]);
 
-
-
-
   return (
     <div>
       <table className="TablelUser-main">
         <thead>
           {table?.getHeaderGroups()?.map((headerGroup) => (
-
             <tr key={headerGroup.id}>
-
               <th className="TablelUser-heding">
-
-
-                 {/* Heding  */}
+                {/* Heding  */}
                 <input
                   type="checkbox"
                   className="TablelUser-input"
                   checked={isParentChecked}
                   onChange={handleParentChange}
                 />
-
-
               </th>
 
               {headerGroup?.headers?.map((header) => (
@@ -173,10 +160,22 @@ const TablelUser = ({ setFilter, Filter }) => {
                     header?.column?.columnDef?.header,
                     header.getContext()
                   )}
-                  <Icon icon="fa-solid:filter" className="fa-solid-icons"  onClick={showModal3} />
-                  <Modal  open={isModalOpen3} onOk={handleOk3} onCancel={handleCancel3} footer={null} closeIcon={false}>
-      
-      </Modal>
+
+                  <Icon
+                    icon="fa-solid:filter"
+                    className="fa-solid-icons"
+                    onClick={showModal3}
+                  />
+                  <Modal
+                    className="chakBoxinputmodal"
+                    open={isModalOpen3}
+                    onOk={handleOk3}
+                    onCancel={handleCancel3}
+                    footer={null}
+                    closeIcon={false}
+                  >
+                    <p>Kam baki </p>
+                  </Modal>
                   <Icon icon="fa-solid:sort-amount-up-alt" />
                 </th>
               ))}
@@ -184,40 +183,53 @@ const TablelUser = ({ setFilter, Filter }) => {
           ))}
         </thead>
         <tbody>
-          {table.getRowModel().rows.map((row) => 
-          
-          {
-              // console.log("rows id >>>" ,row.original.id);
-            return <>
-  
-            <tr key={row.id}>
-              <td className="chacbox">
-
-
-              {/* rows */}
-                <input
-                  type="checkbox"
-                  className="chacbox-chekd"
-                  checked={InArr.includes(row.original.id)}
-                  onChange={() => handleChildChange(row.original.id)}
-                 
-                /> 
-                
-
-
-
-              </td>
-
-              {row.getVisibleCells().map((cell) => {
-                // console.log(cell);
-                return (
-                  <td key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+          {table.getRowModel().rows.map((row) => {
+            return (
+              <>
+                <tr key={row.id}>
+                  <td className="chacbox">
+                    {/* rows */}
+                    <input
+                      type="checkbox"
+                      className="chacbox-chekd"
+                      checked={InArr.includes(row.original.id)}
+                      onChange={() => handleChildChange(row.original.id)}
+                    />
                   </td>
-                );
-              })}
-            </tr>
-            </>
+
+                  {row.getVisibleCells().map((cell) => {
+                    console.log("cell.column.id >>>" ,cell.column);
+
+                    
+                    if (cell.column.id == "name") {
+                      return (
+                        <td key={cell.id} className="underline" onClick={() => {
+                          settextClick(true);
+                        }}>
+                          
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        
+
+                        </td>
+                      );
+
+                    } else {
+                      return (
+                        <td key={row.id}>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </td>
+                      );
+                    }
+                  })}
+                </tr>
+              </>
+            );
           })}
         </tbody>
       </table>
