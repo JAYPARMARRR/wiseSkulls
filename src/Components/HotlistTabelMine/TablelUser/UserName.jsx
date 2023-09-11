@@ -7,6 +7,7 @@ import { FiEdit3 } from 'react-icons/fi';
 
 const UserName = ({ cell, row, setModal2Open }) => {
   const [textClick, settextClick] = useState(false);
+ 
 
 
   return (
@@ -55,14 +56,25 @@ const UserName = ({ cell, row, setModal2Open }) => {
                   width: "100%",
                 }}
               >
+               
                 {Object.keys(row?.original).map((col) => {
+
+                  const NameChang = col === "name"
+                  
+                    console.log("Chek   >>" ,row);
                   return (
-                    <div key={col} style={{ display: "flex", width: "100%" }}>
-                      <div className="TablelUser-table-cell"> <span className="TablelUser-table-cell-span">{col}</span></div>
-                      <div className="TablelUser-table-cell">  <span>:</span> 
+                    
+                    <>
+                  
+                    <div key={col} style={{ display: "flex", width: "100%" }} className={`TablelUser-table-cell ${NameChang ? 'nameColumn' : ''}`}>
+                      
+                      <div className="TablelUser-table-cell">{col}</div>
+                      <div>  <span>:</span> 
+                      
                         {row?.original[col]}
                       </div>
                     </div>
+                    </>
                   );
                 })}
               </div>

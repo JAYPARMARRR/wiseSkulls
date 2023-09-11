@@ -181,7 +181,6 @@ gap: 30px;
 
 
 
-
 .TablelUser-FaEdit-edit-icons-modal-button {
   background-color: #00B282;
   color: #F5F5F5;
@@ -219,8 +218,17 @@ gap: 30px;
 
 
 
+/* .TablelUser-table-cell-2{
+  color: #006295;
+  text-decoration: underline;
+  cursor: pointer;
+} */
 
-
+.nameColumn {
+  color: #006295;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 
 /* ///////////////////////////////////////////////----- Pagination-react-table---------////////////////// */
