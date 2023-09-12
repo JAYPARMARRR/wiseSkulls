@@ -3,11 +3,12 @@ import { flexRender } from "@tanstack/react-table";
 import { Modal } from "antd";
 import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
-import { FiEdit3 } from 'react-icons/fi';
+import { FiEdit3 } from "react-icons/fi";
 
 const UserName = ({ cell, row, setModal2Open }) => {
   const [textClick, settextClick] = useState(false);
- 
+
+
 
 
   return (
@@ -18,14 +19,12 @@ const UserName = ({ cell, row, setModal2Open }) => {
         onClick={() => {
           settextClick(true);
         }}
-        
       >
         {flexRender(cell.column.columnDef.cell, cell.getContext())}
 
-        <FiEdit3/>
-        
+        <FiEdit3  className="FiEdit3"/>
       </td>
-      <div>
+      <>
         <Modal
           open={textClick}
           onOk={() => {
@@ -56,32 +55,44 @@ const UserName = ({ cell, row, setModal2Open }) => {
                   width: "100%",
                 }}
               >
-               
-                {Object.keys(row?.original).map((col) => {
 
-                  const NameChang = col === "name"
-                  
-                    console.log("Chek   >>" ,row);
+
+
+
+                {Object.keys(row?.original).map((col) => {
+                  const NameChang = col === "name";
+        console.log("row?.original >> ", row?.original);
                   return (
-                    
                     <>
-                  
-                    <div key={col} style={{ display: "flex", width: "100%" }} className={`TablelUser-table-cell ${NameChang ? 'nameColumn' : ''}`}>
-                      
-                      <div className="TablelUser-table-cell">{col}</div>
-                      <div>  <span>:</span> 
-                      
-                        {row?.original[col]}
+                      <div className="TablelUser-table-cell">
+                        <div
+                          key={col}
+                          style={{ display: "flex", width: "100%" }}
+                          className={ ` ${NameChang ? "nameColumn" : ""}`}
+                          
+                        >
+                          <h3 className="lebal-show">{col}</h3>
+                          <div>
+                            {" "}
+                            <span className="TablelUser-main-modal-sapn"> :</span>
+
+                            <span className="TablelUser-main-modal-key" >
+                            {row?.original[col]} 
+
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
                     </>
                   );
                 })}
+
+
               </div>
             </div>
           </div>
         </Modal>
-      </div>
+      </>
     </>
   );
 };

@@ -52,6 +52,7 @@ const success = () => {
 
   const handleCancel = () => {
     setIsModalOpen(false);
+   
   };
 
   const ModalOpenDelete = () => {
@@ -264,7 +265,7 @@ const handleDrop = (e, targetIndex) => {
         <div className="Modal-3-button-main"> 
         {contextHolder}
             <button className="Modal-button-yes-button" onClick={success} >Yes</button>
-          <button className="Modal-button-no-button">No</button>
+          <button className="Modal-button-no-button" onClick={handleCancel}>No</button>
         </div>
       </Modal>
 
