@@ -5,10 +5,10 @@ import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
 
-const UserName = ({ cell, row, setModal2Open }) => {
+const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
   const [textClick, settextClick] = useState(false);
 
-
+  
 
 
   return (
@@ -61,7 +61,19 @@ const UserName = ({ cell, row, setModal2Open }) => {
 
                 {Object.keys(row?.original).map((col) => {
                   const NameChang = col === "name";
-        console.log("row?.original >> ", row?.original);
+      
+                  const handleClick = () => {
+                    if (NameChang) {
+                      setInputSetV(row?.original.name);
+                      console.log("looooo >");
+                    }
+                  };
+
+
+                    // console.log("InputSetV  >> >> ",InputSetV);
+        //  console.log("row?.original >> ", row?.original);
+
+
                   return (
                     <>
                       <div className="TablelUser-table-cell">
@@ -69,14 +81,14 @@ const UserName = ({ cell, row, setModal2Open }) => {
                           key={col}
                           style={{ display: "flex", width: "100%" }}
                           className={ ` ${NameChang ? "nameColumn" : ""}`}
-                          
+                         
                         >
-                          <h3 className="lebal-show">{col}</h3>
+                          <h3 className="lebal-show"  >{col}</h3>
                           <div>
                             {" "}
                             <span className="TablelUser-main-modal-sapn"> :</span>
 
-                            <span className="TablelUser-main-modal-key" >
+                            <span className="TablelUser-main-modal-key"  onClick={handleClick}>
                             {row?.original[col]} 
 
                             </span>

@@ -21,17 +21,8 @@ import {
 import UserName from "./UserName";
 
 // eslint-disable-next-line react/prop-types
-const TablelUser = ({ setFilter, Filter }) => {
-  // const tableData = [
-  //   { label: "First Name", value: "Jayu" },
-  //   { label: "Last Name", value: "Parmar" },
-  //   { label: "Business Email", value: "@relianttechno.com" },
-  //   { label: "Hangout ID", value: "--No--" },
-  //   { label: "Phone No", value: "9510923353" },
-  //   { label: "LinkedIn ID", value: "--No--" },
-  //   { label: "WhatsApp Number", value: "9510923353" },
-  //   { label: "Location", value: "Charlotte, NC" },
-  // ];
+const TablelUser = ({ setFilter, Filter ,setInputSetV,InputSetV }) => {
+
 
   const [modal2Open, setModal2Open] = useState(false);
   const [Shorting, setShorting] = useState("");
@@ -200,7 +191,7 @@ const TablelUser = ({ setFilter, Filter }) => {
                     if (cell.column.id == "name") {
                       return (
                         // eslint-disable-next-line react/jsx-key
-                        <UserName cell={cell} row={row} setModal2Open={setModal2Open} />
+                        <UserName cell={cell} row={row} setModal2Open={setModal2Open}  setInputSetV={setInputSetV} InputSetV={InputSetV} />
                       );
                     } else {
                       return (

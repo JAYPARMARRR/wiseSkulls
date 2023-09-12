@@ -12,35 +12,27 @@ import Lottie from "lottie-react";
 
 import { CiSearch } from "react-icons/ci";
 import { FaGripVertical } from "react-icons/fa";
-import { MdDelete } from 'react-icons/md';
-import { Icon } from '@iconify/react';
+import { MdDelete } from "react-icons/md";
+import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 
-
-
-import {  message } from 'antd';
-
+import { message } from "antd";
 
 // eslint-disable-next-line react/prop-types
-const TableNavbar = ({setFilter, Filter}) => {
-  
+const TableNavbar = ({ setFilter, Filter, InputSetV }) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
 
-const Navigate = useNavigate()
+  const Navigate = useNavigate();
 
-
-const [messageApi, contextHolder] = message.useMessage();
-const success = () => {
-  messageApi.open({
-    type: 'success',
-    content: ' Delete Successfully',
-  });
-};
-
-
-
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: " Delete Successfully",
+    });
+  };
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -52,7 +44,6 @@ const success = () => {
 
   const handleCancel = () => {
     setIsModalOpen(false);
-   
   };
 
   const ModalOpenDelete = () => {
@@ -66,52 +57,49 @@ const success = () => {
     setIsModalOpenDelete(false);
   };
 
-/////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////
 
-const [items, setItems] = useState([
-  { id: "1", content: "Condidata Name" },
-  { id: "2", content: "Title" },
-  { id: "3", content: "Current Location" },
-  { id: "4", content: "Availability" },
-  { id: "5", content: "Experience" },
-  { id: "6", content: "Visa type" },
-  { id: "7", content: "Relocation" },
-  { id: "8", content: "Notes" },
-]);
+  const [items, setItems] = useState([
+    { id: "1", content: "Condidata Name" },
+    { id: "2", content: "Title" },
+    { id: "3", content: "Current Location" },
+    { id: "4", content: "Availability" },
+    { id: "5", content: "Experience" },
+    { id: "6", content: "Visa type" },
+    { id: "7", content: "Relocation" },
+    { id: "8", content: "Notes" },
+  ]);
 
-const handleDragStart = (e, index) => {
-  e.dataTransfer.setData("index", index);
-};
+  const handleDragStart = (e, index) => {
+    e.dataTransfer.setData("index", index);
+  };
 
-const handleDragOver = (e) => {
-  e.preventDefault();
-};
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
 
-const handleDrop = (e, targetIndex) => {
-  e.preventDefault();
+  const handleDrop = (e, targetIndex) => {
+    e.preventDefault();
 
-  const sourceIndex = e.dataTransfer.getData("index");
-  const newItems = [...items];
-  const [movedItem] = newItems.splice(sourceIndex, 1);
-  newItems.splice(targetIndex, 0, movedItem);
+    const sourceIndex = e.dataTransfer.getData("index");
+    const newItems = [...items];
+    const [movedItem] = newItems.splice(sourceIndex, 1);
+    newItems.splice(targetIndex, 0, movedItem);
 
-  setItems(newItems);
-};
+    setItems(newItems);
+  };
 
-
-
-
-
-
+const InputSetVv = ()=>{
+  console.log("InputSetVv >>>");
+       InputSetV= false
+  
+}
 
 
   return (
     <>
       <div className="TableNavbar">
-
-
         <div className="TableNavbar-left-side">
-
           <CiSearch size={18} className="TableNavbar-BiSearch-Search-icons" />
 
           <input
@@ -120,27 +108,21 @@ const handleDrop = (e, targetIndex) => {
             className="TableNavbar-search-box"
             value={Filter}
             onChange={(e) => setFilter(e.target.value)}
-         
           />
         </div>
+{/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */}
+        <div className="TableNavbar-navbar-center-box ">
+        <span className="InputSetV-input" onClick={InputSetVv}>{InputSetV}</span>
+        </div>
 
-     
-
-  <input type="text" className="TableNavbar-navbar-center-box" readOnly />
-
-
-
-
-    
-
-    
-
-
-       
+      
 
         <div className="TableNavbar-right-side">
-        <Icon icon="fluent:table-settings-28-regular"   className="TableNavbar-nav-image"
-            onClick={() => setModal2Open(true)}/>
+          <Icon
+            icon="fluent:table-settings-28-regular"
+            className="TableNavbar-nav-image"
+            onClick={() => setModal2Open(true)}
+          />
           <img src={RisetImg} alt="Image 2" className="TableNavbar-nav-image" />
           <img
             src={ExpartImg}
@@ -152,13 +134,13 @@ const handleDrop = (e, targetIndex) => {
             className="TableNavbar-nav-Delete-button"
             onClick={ModalOpenDelete}
           >
-              <MdDelete  className="MdDelete"/>
-             Delete
+            <MdDelete className="MdDelete" />
+            Delete
           </button>
           <button
             className="TableNavbar-nav-button"
-            onClick={() => { Navigate("/addHotlist")
-                     
+            onClick={() => {
+              Navigate("/addHotlist");
             }}
           >
             Add Hotlist
@@ -168,17 +150,7 @@ const handleDrop = (e, targetIndex) => {
 
       {/* //////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
-
-
-
-
-
-
-
       {/* seting modal csss */}
-
-
-
 
       <div className="table-navbar-Modal-1">
         <Modal
@@ -193,31 +165,27 @@ const handleDrop = (e, targetIndex) => {
           <img src={setingImg} className="popupTitalImg" />
           <h3 className="Column-Settings">Column Settings</h3>
           <form className="form-container">
-            
- 
             <div className="popup-1">
-            <div className="jayu">
-        <ul className="item-list">
-          {items.map((item, index) => (
-              <li
-              key={item.id}
-              className="item"
-              draggable
-              onDragStart={(e) => handleDragStart(e, index)}
-              onDragOver={handleDragOver}
-              onDrop={(e) => handleDrop(e, index)}
-              >  <FaGripVertical className="popupicons"/>
-              <input type="checkbox" className="checkboxPOPUP-1"/>
-              {item.content}
-            </li>
-          ))}
-        </ul>
-      </div>
-
+              <div className="jayu">
+                <ul className="item-list">
+                  {items.map((item, index) => (
+                    <li
+                      key={item.id}
+                      className="item"
+                      draggable
+                      onDragStart={(e) => handleDragStart(e, index)}
+                      onDragOver={handleDragOver}
+                      onDrop={(e) => handleDrop(e, index)}
+                    >
+                      {" "}
+                      <FaGripVertical className="popupicons" />
+                      <input type="checkbox" className="checkboxPOPUP-1" />
+                      {item.content}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-
-        
-
           </form>
           <div className="popup-tow-button-main">
             <button className="cancel-button">Cancel</button>
@@ -226,14 +194,6 @@ const handleDrop = (e, targetIndex) => {
         </Modal>
       </div>
       {/* ///////////////////////////////////////////////////////////////////////////////////// */}
-
-
-
-
-
-
-
-
 
       <Modal
         className="table-navbar-Modal-2"
@@ -262,10 +222,14 @@ const handleDrop = (e, targetIndex) => {
         closeIcon={false}
       >
         <h3 className="Modal-3-heding">Confirm Delete</h3>
-        <div className="Modal-3-button-main"> 
-        {contextHolder}
-            <button className="Modal-button-yes-button" onClick={success} >Yes</button>
-          <button className="Modal-button-no-button" onClick={handleCancel}>No</button>
+        <div className="Modal-3-button-main">
+          {contextHolder}
+          <button className="Modal-button-yes-button" onClick={success}>
+            Yes
+          </button>
+          <button className="Modal-button-no-button" onClick={handleCancel}>
+            No
+          </button>
         </div>
       </Modal>
 
@@ -275,6 +239,3 @@ const handleDrop = (e, targetIndex) => {
 };
 
 export default TableNavbar;
-
-
-
