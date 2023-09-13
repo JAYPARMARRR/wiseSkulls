@@ -21,11 +21,11 @@ import {
 import UserName from "./UserName";
 
 // eslint-disable-next-line react/prop-types
-const TablelUser = ({ setFilter, Filter ,setInputSetV,InputSetV }) => {
-
-
+const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
+
+ const [BenchSalesDetails ,setBenchSalesDetails]=useState("")
 
 
   const [Shorting, setShorting] = useState("");
@@ -130,6 +130,10 @@ const TablelUser = ({ setFilter, Filter ,setInputSetV,InputSetV }) => {
     }
   }, [InArr, data]);
 
+  
+  setBenchSalesDetails(mData.name)
+console.log("BenchSalesDetails >>>>",BenchSalesDetails);
+
   return (
     <div>
       <table className="TablelUser-main">
@@ -193,7 +197,13 @@ const TablelUser = ({ setFilter, Filter ,setInputSetV,InputSetV }) => {
                     if (cell.column.id == "name") {
                       return (
                         // eslint-disable-next-line react/jsx-key
-                        <UserName cell={cell} row={row} setModal2Open={setModal2Open}  setInputSetV={setInputSetV} InputSetV={InputSetV} />
+                        <UserName
+                          cell={cell}
+                          row={row}
+                          setModal2Open={setModal2Open}
+                          setInputSetV={setInputSetV}
+                          InputSetV={InputSetV}
+                        />
                       );
                     } else {
                       return (
@@ -241,7 +251,7 @@ const TablelUser = ({ setFilter, Filter ,setInputSetV,InputSetV }) => {
         centered
         open={modal2Open}
         onOk={() => setModal2Open(false)}
-        onCancel={() => setModal2Open(false)}  
+        onCancel={() => setModal2Open(false)}
         footer={null}
         className="TablelUser-FaEdit-edit-icons-modal"
       >
@@ -249,84 +259,84 @@ const TablelUser = ({ setFilter, Filter ,setInputSetV,InputSetV }) => {
           Bench Sales Details
         </h2>
 
+        {/* ////////////////////////////////////////////////// */}
+
+        <div className="TablelUser-FaEdit-right-modal">
+          
+         
+              <div className="yyy" >
+                <input
+                  type="text"
+                  placeholder="Business Email"
+                  className="TablelUser-modal-in-3"
+                  value={BenchSalesDetails}
+              
+                />
+              </div>
+           
+
+          <div className="yyy">
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="TablelUser-modal-in-3"
+            />
+          </div>
+          <div className="yyy">
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="TablelUser-modal-in-3"
+            />
+          </div>
+        </div>
+
+        {/* ////////////////////////////////////////////////// */}
         <div className="TablelUser-FaEdit-right-modal">
           <div className="yyy">
-
-          <input
-            type="text"
-            placeholder="Business Email"
-            className="TablelUser-modal-in-3"
-          />
+            <input
+              type="text"
+              placeholder="Phone No."
+              className="TablelUser-modal-in-3"
+            />
           </div>
-     <div className="yyy">
-
-          <input
-            type="text"
-            placeholder="First Name"
-            className="TablelUser-modal-in-3"
-          />
-     </div>
-     <div className="yyy">
-
-          <input
-            type="text"
-            placeholder="Last Name"
-            className="TablelUser-modal-in-3"
-          />
-     </div>
+          <div className="yyy">
+            <input
+              type="text"
+              placeholder="LinkedIn ID"
+              className="TablelUser-modal-in-3"
+            />
+          </div>
+          <div className="yyy">
+            <input
+              type="text"
+              placeholder="Hangout ID"
+              className="TablelUser-modal-in-3"
+            />
+          </div>
         </div>
         {/* ////////////////////////////////////////////////// */}
         <div className="TablelUser-FaEdit-right-modal">
           <div className="yyy">
-
-          <input
-            type="text"
-            placeholder="Phone No."
-            className="TablelUser-modal-in-3"
-          />
+            <input
+              type="text"
+              placeholder="WhatsApp Number"
+              className="TablelUser-modal-in-3"
+            />
           </div>
           <div className="yyy">
-
-          <input
-            type="text"
-            placeholder="LinkedIn ID"
-            className="TablelUser-modal-in-3"
-          />
-          </div>
-          <div className="yyy">
-
-          <input
-            type="text"
-            placeholder="Hangout ID"
-            className="TablelUser-modal-in-3"
-          />
-          </div>
-        </div>
-        {/* ////////////////////////////////////////////////// */}
-        <div className="TablelUser-FaEdit-right-modal">
-          <div className="yyy">
-
-          <input
-            type="text"
-            placeholder="WhatsApp Number"
-            className="TablelUser-modal-in-3"
-          />
-          </div>
-          <div className="yyy">
-
-          <input
-            type="text"
-            placeholder="Location"
-            className="TablelUser-modal-in-3"
-          />
+            <input
+              type="text"
+              placeholder="Location"
+              className="TablelUser-modal-in-3"
+            />
           </div>
         </div>
         {/* ////////////////////////////////////////////////// */}
         <div className="TablelUser-FaEdit-edit-icons-modal-button-main">
-
-        <button className="TablelUser-FaEdit-edit-icons-modal-button">
-          Update
-        </button>
+          <button className="TablelUser-FaEdit-edit-icons-modal-button">
+            Update
+          </button>
         </div>
       </Modal>
     </div>
