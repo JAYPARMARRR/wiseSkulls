@@ -140,12 +140,13 @@ const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
   };
 
 
-
+  console.log("isParentChecked >>>>>",isParentChecked );
   return (
     <div>
       <table className="TablelUser-main">
         <thead>
           {table?.getHeaderGroups()?.map((headerGroup) => (
+          
             <tr key={headerGroup.id}>
               <th className="TablelUser-heding">
                 {/* Heding  */}

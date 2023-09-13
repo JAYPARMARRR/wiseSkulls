@@ -76,6 +76,7 @@ const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
                     <>
                       <div className="TablelUser-table-cell">
                         <div
+                        
                           key={col}
                           style={{ display: "flex", width: "100%" }}
                           className={ ` ${NameChang ? "nameColumn" : ""}`}
