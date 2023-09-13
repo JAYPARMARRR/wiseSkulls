@@ -102,7 +102,9 @@ const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
             </div>
           </div>
         </Modal>
+        
       </>
+   
     </>
   );
 };

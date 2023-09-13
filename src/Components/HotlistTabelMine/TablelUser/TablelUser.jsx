@@ -2,6 +2,8 @@ import "./TablelUser.css";
 import { Modal } from "antd";
 import { Icon } from "@iconify/react";
 import { useEffect, useMemo, useState } from "react";
+
+import {  message } from 'antd';
 import mData from "./MOCK_DATA.json";
 
 import {
@@ -24,8 +26,7 @@ import UserName from "./UserName";
 const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
-
- const [BenchSalesDetails ,setBenchSalesDetails]=useState("")
+  const [messageApi, contextHolder] = message.useMessage();
 
 
   const [Shorting, setShorting] = useState("");
@@ -130,9 +131,15 @@ const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
     }
   }, [InArr, data]);
 
-  
-  setBenchSalesDetails(mData.name)
-console.log("BenchSalesDetails >>>>",BenchSalesDetails);
+  const TablelUserUpdate = () => {
+
+    messageApi.open({
+      type: 'success',
+      content: 'Update Successfully',
+    });
+  };
+
+
 
   return (
     <div>
@@ -269,7 +276,7 @@ console.log("BenchSalesDetails >>>>",BenchSalesDetails);
                   type="text"
                   placeholder="Business Email"
                   className="TablelUser-modal-in-3"
-                  value={BenchSalesDetails}
+                  
               
                 />
               </div>
@@ -334,12 +341,14 @@ console.log("BenchSalesDetails >>>>",BenchSalesDetails);
         </div>
         {/* ////////////////////////////////////////////////// */}
         <div className="TablelUser-FaEdit-edit-icons-modal-button-main">
-          <button className="TablelUser-FaEdit-edit-icons-modal-button">
+        {contextHolder}
+          <button className="TablelUser-FaEdit-edit-icons-modal-button" onClick={TablelUserUpdate}>
             Update
           </button>
         </div>
       </Modal>
     </div>
+    
   );
 };
 
