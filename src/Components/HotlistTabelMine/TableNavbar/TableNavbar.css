@@ -41,7 +41,9 @@
   margin: 6px;
   position: absolute;
   top: 94px;
+  cursor: pointer;
 }
+
 
   .TableNavbar-right-side {
     display: flex;

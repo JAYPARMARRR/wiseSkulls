@@ -144,8 +144,8 @@
 .TablelUser-FaEdit-edit-icons {
   color: #999999;
   position: absolute;
-  right: 64px;
-  top: 44px;
+  right: 63px;
+  top: 38px;
   height: 73px;
   width: 21px;
   cursor: pointer;
@@ -189,55 +189,66 @@
   /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
   .TablelUser-FaEdit-edit-icons-modal .ant-modal-content {
     height: 73vh;
-    width: 197%;
+    width: 251%;
     /* text-align: center; */
-    margin: 22px -226px;
+    margin: 24px -394px;
+    background: #f5f5f5 0 0 no-repeat padding-box;
+    height: 492px!important;
+    padding: 45px 24px!important;
 }
 
 
 .TablelUser-modal-in-3 {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-  box-sizing: border-box;
-  margin: 31px 56px;
+  border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 2px;
+    height: 48px;
+    outline: none;
+    padding: 12px;
+    width: 21.5vw;
+    border-color: #00B282;
 }
 .TablelUser-FaEdit-edit-icons-modal-heding{
-  text-align: center;
-  font-size: 26px;
+  font-size: 17px;
+  font-weight: 700;
+  margin-left: 38px;
   color: #000000;
+  font-weight: 900;
+
 }
-.TablelUser-modal-in-3::placeholder {
-  color: #999;
-}
 
-.TablelUser-modal-in-3:focus {
-  border-color: #5cabff;
-  box-shadow: 0 0 5px rgba(55, 152, 255, 0.5);
-
-
+.yyy{
+  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .TablelUser-FaEdit-right-modal{
-gap: 30px;
+  display: flex;
+  gap: 10%;
+  height: 100px;
+  justify-content: start;
+  margin-left: 3%;
 }
 
 
-
+.TablelUser-FaEdit-edit-icons-modal-button-main{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
 .TablelUser-FaEdit-edit-icons-modal-button {
-  background-color: #00B282;
-  color: #F5F5F5;
+  background: #00b282 0 0 no-repeat padding-box;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
+  color: #fff;
   cursor: pointer;
-  font-size: 19px;
-
-  position: absolute;
-  top: 79%;
-  left: 47%;
+  font-size: 20px;
+  height: 65px;
+  margin-top: 25px;
+  outline: none;
+  width: 14%;
 }
 
 

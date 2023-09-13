@@ -65,13 +65,11 @@ const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
                   const handleClick = () => {
                     if (NameChang) {
                       setInputSetV(row?.original.name);
-                      console.log("looooo >");
+                      settextClick(false)
                     }
                   };
 
 
-                    // console.log("InputSetV  >> >> ",InputSetV);
-        //  console.log("row?.original >> ", row?.original);
 
 
                   return (

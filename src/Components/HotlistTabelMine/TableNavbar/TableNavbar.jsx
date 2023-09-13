@@ -15,11 +15,11 @@ import { FaGripVertical } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
-
+import { TiDelete } from "react-icons/ti";
 import { message } from "antd";
 
 // eslint-disable-next-line react/prop-types
-const TableNavbar = ({ setFilter, Filter, InputSetV }) => {
+const TableNavbar = ({ setFilter, Filter, InputSetV, setInputSetV }) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
@@ -43,7 +43,8 @@ const TableNavbar = ({ setFilter, Filter, InputSetV }) => {
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    setIsModalOpenDelete(false);
+
   };
 
   const ModalOpenDelete = () => {
@@ -89,12 +90,13 @@ const TableNavbar = ({ setFilter, Filter, InputSetV }) => {
     setItems(newItems);
   };
 
-const InputSetVv = ()=>{
-  console.log("InputSetVv >>>");
-       InputSetV= false
-  
-}
+  /////////////////////////////////////////////////////////////
+  const [isNameDelete, setNameDelete] = useState(false);
 
+  const InputSetVv = () => {
+    setInputSetV(false);
+    setNameDelete(true);
+  };
 
   return (
     <>
@@ -110,12 +112,16 @@ const InputSetVv = ()=>{
             onChange={(e) => setFilter(e.target.value)}
           />
         </div>
-{/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */}
-        <div className="TableNavbar-navbar-center-box ">
-        <span className="InputSetV-input" onClick={InputSetVv}>{InputSetV}</span>
-        </div>
+        {/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
-      
+        <div className="TableNavbar-navbar-center-box ">
+          {
+            InputSetV &&
+            <span className="InputSetV-input">
+              {InputSetV} <TiDelete onClick={InputSetVv} />
+            </span>
+          }
+        </div>
 
         <div className="TableNavbar-right-side">
           <Icon
