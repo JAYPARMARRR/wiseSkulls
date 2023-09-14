@@ -2,14 +2,12 @@
 import { flexRender } from "@tanstack/react-table";
 import { Modal } from "antd";
 import { useState } from "react";
-import { FaEdit } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
+import EditUserComp from "./EditUserComp";
 
-const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
+const UserName = ({ cell, row, setInputSetV }) => {
   const [textClick, settextClick] = useState(false);
-
-  
-
+  const [editModal, setEditModal] = useState(false);
 
   return (
     <>
@@ -22,7 +20,7 @@ const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
       >
         {flexRender(cell.column.columnDef.cell, cell.getContext())}
 
-        <FiEdit3  className="FiEdit3"/>
+        <FiEdit3 className="FiEdit3" />
       </td>
       <>
         <Modal
@@ -41,10 +39,7 @@ const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
               Benchsales Contact Details
             </h4>
           </div>
-          <FaEdit
-            className="TablelUser-FaEdit-edit-icons"
-            onClick={() => setModal2Open(true)}
-          />
+          <EditUserComp row={row} setEditModal={setEditModal} editModal={editModal} />
 
           <div className="TablelUser-table-1">
             <div className="TablelUser-table-row">
@@ -55,41 +50,35 @@ const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
                   width: "100%",
                 }}
               >
-
-
-
-
                 {Object.keys(row?.original).map((col) => {
                   const NameChang = col === "name";
-      
                   const handleClick = () => {
                     if (NameChang) {
                       setInputSetV(row?.original.name);
-                      settextClick(false)
+                      settextClick(false);
                     }
                   };
-
-
-
 
                   return (
                     <>
                       <div className="TablelUser-table-cell">
                         <div
-                        
                           key={col}
                           style={{ display: "flex", width: "100%" }}
-                          className={ ` ${NameChang ? "nameColumn" : ""}`}
-                         
+                          className={` ${NameChang ? "nameColumn" : ""}`}
                         >
-                          <h3 className="lebal-show"  >{col}</h3>
+                          <h3 className="lebal-show">{col}</h3>
                           <div>
                             {" "}
-                            <span className="TablelUser-main-modal-sapn"> :</span>
-
-                            <span className="TablelUser-main-modal-key"  onClick={handleClick}>
-                            {row?.original[col]} 
-
+                            <span className="TablelUser-main-modal-sapn">
+                              {" "}
+                              :
+                            </span>
+                            <span
+                              className="TablelUser-main-modal-key"
+                              onClick={handleClick}
+                            >
+                              {row?.original[col]}
                             </span>
                           </div>
                         </div>
@@ -97,15 +86,13 @@ const UserName = ({ cell, row, setModal2Open ,setInputSetV }) => {
                     </>
                   );
                 })}
-
-
               </div>
             </div>
           </div>
         </Modal>
-        
+
+        {/* ////////////////////////////////////////////////// ////////////////////////////////////////////////// */}
       </>
-   
     </>
   );
 };

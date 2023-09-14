@@ -28,6 +28,7 @@ const TableNavbar = ({ setFilter, Filter, InputSetV, setInputSetV }) => {
 
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
+    setIsModalOpenDelete(false);
     messageApi.open({
       type: "success",
       content: " Delete Successfully",
