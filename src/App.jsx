@@ -18,6 +18,7 @@ const App = () => {
       success();
       setislogin(true);
     } else {
+      warningnotlogin()
       setislogin(false);
     }
   };
@@ -29,6 +30,12 @@ const App = () => {
     });
   };
 
+  const warningnotlogin = () => {
+    messageApi.open({
+      type: 'error',
+      content: 'Email is a jayu@gmail.com and Password is a 12468 ',
+    });
+  };
   return (
     <BrowserRouter>
       {contextHolder}

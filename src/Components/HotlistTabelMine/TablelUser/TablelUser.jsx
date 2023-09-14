@@ -2,6 +2,7 @@ import "./TablelUser.css";
 import { Modal } from "antd";
 import { Icon } from "@iconify/react";
 import { useEffect, useMemo, useState } from "react";
+
 import mData from "./MOCK_DATA.json";
 
 import {
@@ -24,9 +25,6 @@ import UserName from "./UserName";
 const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
-
- const [BenchSalesDetails ,setBenchSalesDetails]=useState("")
-
 
   const [Shorting, setShorting] = useState("");
   const [isParentChecked, setIsParentChecked] = useState(false);
@@ -130,10 +128,6 @@ const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
     }
   }, [InArr, data]);
 
-
-  setBenchSalesDetails(mData.name)
-console.log("BenchSalesDetails >>>>",BenchSalesDetails);
-
   return (
     <div>
       <table className="TablelUser-main">
@@ -203,6 +197,7 @@ console.log("BenchSalesDetails >>>>",BenchSalesDetails);
                           setModal2Open={setModal2Open}
                           setInputSetV={setInputSetV}
                           InputSetV={InputSetV}
+                          modal2Open={modal2Open}
                         />
                       );
                     } else {
@@ -247,98 +242,7 @@ console.log("BenchSalesDetails >>>>",BenchSalesDetails);
         </div>
       </div>
 
-      <Modal
-        centered
-        open={modal2Open}
-        onOk={() => setModal2Open(false)}
-        onCancel={() => setModal2Open(false)}
-        footer={null}
-        className="TablelUser-FaEdit-edit-icons-modal"
-      >
-        <h2 className="TablelUser-FaEdit-edit-icons-modal-heding">
-          Bench Sales Details
-        </h2>
-
-        {/* ////////////////////////////////////////////////// */}
-
-        <div className="TablelUser-FaEdit-right-modal">
-          
-         
-              <div className="yyy" >
-                <input
-                  type="text"
-                
-                  className="TablelUser-modal-in-3"
-                  value={BenchSalesDetails}
-              
-                />
-              </div>
-           
-
-          <div className="yyy">
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="TablelUser-modal-in-3"
-            />
-          </div>
-          <div className="yyy">
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="TablelUser-modal-in-3"
-            />
-          </div>
-        </div>
-
-        {/* ////////////////////////////////////////////////// */}
-        <div className="TablelUser-FaEdit-right-modal">
-          <div className="yyy">
-            <input
-              type="text"
-              placeholder="Phone No."
-              className="TablelUser-modal-in-3"
-            />
-          </div>
-          <div className="yyy">
-            <input
-              type="text"
-              placeholder="LinkedIn ID"
-              className="TablelUser-modal-in-3"
-            />
-          </div>
-          <div className="yyy">
-            <input
-              type="text"
-              placeholder="Hangout ID"
-              className="TablelUser-modal-in-3"
-            />
-          </div>
-        </div>
-        {/* ////////////////////////////////////////////////// */}
-        <div className="TablelUser-FaEdit-right-modal">
-          <div className="yyy">
-            <input
-              type="text"
-              placeholder="WhatsApp Number"
-              className="TablelUser-modal-in-3"
-            />
-          </div>
-          <div className="yyy">
-            <input
-              type="text"
-              placeholder="Location"
-              className="TablelUser-modal-in-3"
-            />
-          </div>
-        </div>
-        {/* ////////////////////////////////////////////////// */}
-        <div className="TablelUser-FaEdit-edit-icons-modal-button-main">
-          <button className="TablelUser-FaEdit-edit-icons-modal-button">
-            Update
-          </button>
-        </div>
-      </Modal>
+ 
     </div>
   );
 };
