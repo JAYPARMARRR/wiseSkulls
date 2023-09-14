@@ -130,7 +130,7 @@ const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
     }
   }, [InArr, data]);
 
-  
+
   setBenchSalesDetails(mData.name)
 console.log("BenchSalesDetails >>>>",BenchSalesDetails);
 
@@ -267,7 +267,7 @@ console.log("BenchSalesDetails >>>>",BenchSalesDetails);
               <div className="yyy" >
                 <input
                   type="text"
-                  placeholder="Business Email"
+                
                   className="TablelUser-modal-in-3"
                   value={BenchSalesDetails}
               
