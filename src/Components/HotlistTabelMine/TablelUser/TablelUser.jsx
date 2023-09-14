@@ -112,13 +112,26 @@ const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
     setIsParentChecked(!isParentChecked);
   };
 
-  const handleChildChange = (id) => {
-    if (InArr.includes(id)) {
+ 
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// console.log("InArr >>> ",InArr);
+
+const handleChildChange = (id) => {
+  if (InArr.includes(id)) {
+
       setInArr(InArr.filter((item) => item !== id));
     } else {
       setInArr([...InArr, id]);
     }
   };
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
   useEffect(() => {
     if (InArr.length === mData.length) {
@@ -127,6 +140,7 @@ const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
       setIsParentChecked(false);
     }
   }, [InArr, data]);
+
 
   return (
     <div>
