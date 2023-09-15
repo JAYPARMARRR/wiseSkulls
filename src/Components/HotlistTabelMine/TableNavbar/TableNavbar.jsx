@@ -16,24 +16,32 @@ import { MdDelete } from "react-icons/md";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { TiDelete } from "react-icons/ti";
-import { message } from "antd";
+// import { message } from "antd";
 
 // eslint-disable-next-line react/prop-types
-const TableNavbar = ({ setFilter, Filter, deleteFunction, setIsModalOpenDelete, isModalOpenDelete,  InputSetV, setInputSetV }) => {
+const TableNavbar = ({ setFilter, Filter, InputSetV,  setInputSetV  ,deleteConfirm,isModalOpenDelete ,setIsModalOpenDelete}) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
   const Navigate = useNavigate();
 
-  const [messageApi, contextHolder] = message.useMessage();
-  // const deleteFunction = () => {
+  // const [messageApi, contextHolder] = message.useMessage();
+  // const success = () => {
   //   setIsModalOpenDelete(false);
   //   messageApi.open({
   //     type: "success",
   //     content: " Delete Successfully",
   //   });
   // };
+
+  // const deleteConfirm =()=>{
+  //   // console.log("InArr >>>",InArr);
+  //   // setIsModalOpenDelete(false)
+  //   // console.log("AllData >",AllData);
+   
+  // } 
+
+
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -230,8 +238,8 @@ const TableNavbar = ({ setFilter, Filter, deleteFunction, setIsModalOpenDelete, 
       >
         <h3 className="Modal-3-heding">Confirm Delete</h3>
         <div className="Modal-3-button-main">
-          {contextHolder}
-          <button className="Modal-button-yes-button" onClick={deleteFunction}>
+          {/* {contextHolder} */}
+          <button className="Modal-button-yes-button" onClick={deleteConfirm}>
             Yes
           </button>
           <button className="Modal-button-no-button" onClick={handleCancel}>
