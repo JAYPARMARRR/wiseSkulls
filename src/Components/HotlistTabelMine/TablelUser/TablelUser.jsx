@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./TablelUser.css";
 import { Modal } from "antd";
 import { Icon } from "@iconify/react";
@@ -22,7 +23,7 @@ import {
 import UserName from "./UserName";
 
 // eslint-disable-next-line react/prop-types
-const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,setInArr ,setyolo}) => {
+const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,setInArr ,setIds}) => {
   const [modal2Open, setModal2Open] = useState(false); 
   const [isModalOpen3, setIsModalOpen3] = useState(false);
 
@@ -114,8 +115,8 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
     }
     setIsParentChecked(!isParentChecked);
   };
-
   const handleChildChange = (id) => {
+
     if (InArr.includes(id)) {
       setInArr(InArr.filter((item) => item !== id));
     } else {
@@ -131,6 +132,9 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
     }
   }, [InArr, data]);
 
+  useEffect(()=>{
+    setIds(InArr)
+  },[InArr])
 
   return (
     <div>
