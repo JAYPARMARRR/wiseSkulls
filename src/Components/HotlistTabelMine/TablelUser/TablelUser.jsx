@@ -23,7 +23,7 @@ import {
 import UserName from "./UserName";
 
 // eslint-disable-next-line react/prop-types
-const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,setInArr ,setIds}) => {
+const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,setInArr ,setyolo}) => {
   const [modal2Open, setModal2Open] = useState(false); 
   const [isModalOpen3, setIsModalOpen3] = useState(false);
 
@@ -72,7 +72,7 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
       header: "Availability",
       cell: (info) => info.getValue(),
     },
-  ];
+  ]; 
 
   const data = useMemo(() => mData, [mData]);
 
@@ -132,9 +132,9 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
     }
   }, [InArr, data]);
 
-  useEffect(()=>{
-    setIds(InArr)
-  },[InArr])
+useEffect (()=>{
+  setyolo(InArr)
+},[InArr])
 
   return (
     <div>

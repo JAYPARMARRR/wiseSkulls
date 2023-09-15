@@ -14,18 +14,18 @@ const Dashboard = () => {
   const [InArr, setInArr] = useState([]);
 
 
-  const [ids, setIds] = useState([])
+  const [yolo, setyolo] = useState([])
   const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
   const [allData, setAllData] = useState(mData)
 
 
   const deleteFunction = () =>{
+    console.log("oylo >>>", yolo);
     
   
-    setAllData(allData?.filter((ele)=> !ids.includes(ele?.id)))
+    setAllData(allData?.filter((ele)=> !yolo.includes(ele?.id)))
     setIsModalOpenDelete(false)
 
-    // console.log("ids>>>",ids)
     
     
   }
@@ -37,7 +37,7 @@ const Dashboard = () => {
       <div className="Dashboard-main">
         <TableNavbar setFilter={setFilter} deleteFunction ={deleteFunction} setIsModalOpenDelete={setIsModalOpenDelete} isModalOpenDelete={isModalOpenDelete}  mData={mData} InArr={InArr} setInArr={setInArr} Filter={Filter} InputSetV ={InputSetV}  setInputSetV={setInputSetV}    />
 
-        <TablelUser setFilter={setFilter} InArr={InArr} setIds={setIds} setInArr={setInArr}Filter={Filter}  mData={allData} InputSetV={InputSetV}    setInputSetV={setInputSetV}   />
+        <TablelUser setFilter={setFilter} InArr={InArr} setyolo={setyolo} setInArr={setInArr}Filter={Filter}  mData={allData} InputSetV={InputSetV}    setInputSetV={setInputSetV}   />
         {/* <Footer /> */} 
       </div>
     </>

@@ -16,7 +16,6 @@ import { MdDelete } from "react-icons/md";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { TiDelete } from "react-icons/ti";
-import { message } from "antd";
 
 // eslint-disable-next-line react/prop-types
 const TableNavbar = ({ setFilter, Filter, InputSetV,  setInputSetV  ,deleteFunction,isModalOpenDelete ,setIsModalOpenDelete}) => {
@@ -24,22 +23,7 @@ const TableNavbar = ({ setFilter, Filter, InputSetV,  setInputSetV  ,deleteFunct
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const Navigate = useNavigate();
-  const [messageApi, contextHolder] = message.useMessage();
-
-  // const success = () => {
-  //   setIsModalOpenDelete(false);
-  //   messageApi.open({
-  //     type: "success",
-  //     content: " Delete Successfully",
-  //   });
-  // };
-
-  // const deleteConfirm =()=>{
-  //   // console.log("InArr >>>",InArr);
-  //   // setIsModalOpenDelete(false)
-  //   // console.log("AllData >",AllData);
-   
-  // } 
+  
 
 
 
@@ -100,6 +84,7 @@ const TableNavbar = ({ setFilter, Filter, InputSetV,  setInputSetV  ,deleteFunct
   };
 
   /////////////////////////////////////////////////////////////
+  // eslint-disable-next-line no-unused-vars
   const [isNameDelete, setNameDelete] = useState(false);
 
   const InputSetVv = () => {
