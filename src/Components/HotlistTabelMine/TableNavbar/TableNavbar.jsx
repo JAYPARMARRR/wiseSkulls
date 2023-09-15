@@ -19,21 +19,21 @@ import { TiDelete } from "react-icons/ti";
 import { message } from "antd";
 
 // eslint-disable-next-line react/prop-types
-const TableNavbar = ({ setFilter, Filter, InputSetV, setInputSetV }) => {
+const TableNavbar = ({ setFilter, Filter, deleteFunction, setIsModalOpenDelete, isModalOpenDelete,  InputSetV, setInputSetV }) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
+
 
   const Navigate = useNavigate();
 
   const [messageApi, contextHolder] = message.useMessage();
-  const success = () => {
-    setIsModalOpenDelete(false);
-    messageApi.open({
-      type: "success",
-      content: " Delete Successfully",
-    });
-  };
+  // const deleteFunction = () => {
+  //   setIsModalOpenDelete(false);
+  //   messageApi.open({
+  //     type: "success",
+  //     content: " Delete Successfully",
+  //   });
+  // };
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -231,7 +231,7 @@ const TableNavbar = ({ setFilter, Filter, InputSetV, setInputSetV }) => {
         <h3 className="Modal-3-heding">Confirm Delete</h3>
         <div className="Modal-3-button-main">
           {contextHolder}
-          <button className="Modal-button-yes-button" onClick={success}>
+          <button className="Modal-button-yes-button" onClick={deleteFunction}>
             Yes
           </button>
           <button className="Modal-button-no-button" onClick={handleCancel}>

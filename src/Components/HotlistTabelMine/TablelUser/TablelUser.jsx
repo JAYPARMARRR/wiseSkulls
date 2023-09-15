@@ -3,7 +3,7 @@ import { Modal } from "antd";
 import { Icon } from "@iconify/react";
 import { useEffect, useMemo, useState } from "react";
 
-import mData from "./MOCK_DATA.json";
+// import mData from "./MOCK_DATA.json";
 
 import {
   flexRender,
@@ -22,13 +22,18 @@ import {
 import UserName from "./UserName";
 
 // eslint-disable-next-line react/prop-types
-const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
+const TablelUser = ({ setFilter,setIds,mData, Filter, setInputSetV, InputSetV }) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen3, setIsModalOpen3] = useState(false);
 
   const [Shorting, setShorting] = useState("");
   const [isParentChecked, setIsParentChecked] = useState(false);
   const [InArr, setInArr] = useState([]);
+
+
+
+  // console.log("mData>>>",mData)
+
 
   const columns = [
     {
@@ -74,7 +79,7 @@ const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
     },
   ];
 
-  const data = useMemo(() => mData, []);
+  const data = useMemo(() => mData, [mData]);
 
   const table = useReactTable({
     data,
@@ -112,26 +117,14 @@ const TablelUser = ({ setFilter, Filter, setInputSetV, InputSetV }) => {
     setIsParentChecked(!isParentChecked);
   };
 
- 
+  const handleChildChange = (id) => {
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// console.log("InArr >>> ",InArr);
-
-const handleChildChange = (id) => {
-  if (InArr.includes(id)) {
-
+    if (InArr.includes(id)) {
       setInArr(InArr.filter((item) => item !== id));
     } else {
       setInArr([...InArr, id]);
     }
   };
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
   useEffect(() => {
     if (InArr.length === mData.length) {
@@ -141,7 +134,12 @@ const handleChildChange = (id) => {
     }
   }, [InArr, data]);
 
+  useEffect(()=>{
+    setIds(InArr)
+  },[InArr])
 
+ 
+  // console.log("InArr >> ",InArr);
   return (
     <div>
       <table className="TablelUser-main">
