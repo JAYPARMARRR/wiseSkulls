@@ -152,7 +152,7 @@
 }
 .TablelUser-table-cell {
   flex: 1;
-  padding: 12.7px;
+  padding: 12.5px;
   border-bottom: 1px solid #707070;
   border-radius: 4px;
   display: flex;
@@ -306,4 +306,27 @@
   height: 44px;
     width: 34px;
 
+}
+
+.candidates-per-page{
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  width: 20%;
+
+}
+
+.candidates-per-page-select{
+  background-color: #a4a5a5!important;
+  border-radius: 4px!important;
+  color: #fff!important;
+  margin-left: 15px;
+  padding: 0!important;
+}
+
+
+.candidates-per-page-option{
+  background-color: white;
+  color: #000;
+  border-radius: 4px;
 }

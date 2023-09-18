@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 import { TiDelete } from "react-icons/ti";
 
 // eslint-disable-next-line react/prop-types
-const TableNavbar = ({ setFilter, Filter, InputSetV,  setInputSetV  ,deleteFunction,isModalOpenDelete ,setIsModalOpenDelete}) => {
+const TableNavbar = ({ setFilter, Filter, InputSetV,  setInputSetV ,contextHolder  ,deleteFunction,isModalOpenDelete ,setIsModalOpenDelete}) => {
   const [modal2Open, setModal2Open] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -224,6 +224,7 @@ const TableNavbar = ({ setFilter, Filter, InputSetV,  setInputSetV  ,deleteFunct
         <h3 className="Modal-3-heding">Confirm Delete</h3>
         <div className="Modal-3-button-main">
           {/* {contextHolder} */}
+          {contextHolder}
           <button className="Modal-button-yes-button" onClick={deleteFunction}>
             Yes
           </button>

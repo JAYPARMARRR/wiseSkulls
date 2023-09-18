@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./TablelUser.css";
-import { Modal } from "antd";
+
 import { Icon } from "@iconify/react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -25,7 +25,6 @@ import UserName from "./UserName";
 // eslint-disable-next-line react/prop-types
 const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,setInArr ,setyolo}) => {
   const [modal2Open, setModal2Open] = useState(false); 
-  const [isModalOpen3, setIsModalOpen3] = useState(false);
 
   const [Shorting, setShorting] = useState("");
   const [isParentChecked, setIsParentChecked] = useState(false);
@@ -90,17 +89,7 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
     onGlobalFilterChange: setShorting,
   });
 
-  const showModal3 = () => {
-    setIsModalOpen3(true);
-  };
-  const handleOk3 = () => {
-    setIsModalOpen3(false);
-  };
-
-  const handleCancel3 = () => {
-    setIsModalOpen3(false);
-  };
-
+ 
 
 
 
@@ -162,18 +151,9 @@ useEffect (()=>{
                   <Icon
                     icon="fa-solid:filter"
                     className="fa-solid-icons"
-                    onClick={showModal3}
+                 
                   />
-                  <Modal
-                    className="chakBoxinputmodal"
-                    open={isModalOpen3}
-                    onOk={handleOk3}
-                    onCancel={handleCancel3}
-                    footer={null}
-                    closeIcon={false}
-                  >
-                    <p>Kam baki </p>
-                  </Modal>
+                  
                   <Icon icon="fa-solid:sort-amount-up-alt" />
                 </th>
               ))}
@@ -225,6 +205,9 @@ useEffect (()=>{
           })}
         </tbody>
       </table>
+
+{/* //////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+
       <div className="footer-main-div">
         <div className="Pagination-react-table">
           <MdKeyboardDoubleArrowLeft
@@ -236,7 +219,7 @@ useEffect (()=>{
             className="react-table-icons-2"
             disabled={!table.getCanPreviousPage()}
             onClick={() => table.previousPage()}
-          />
+          />     
           <MdKeyboardArrowRight
             className="react-table-icons-2"
             disabled={!table.getCanNextPage()}
@@ -247,6 +230,23 @@ useEffect (()=>{
             className="react-table-icons-1"
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
           />
+        </div>
+        <div className="candidates-per-page">
+    
+       <span>Candidates per page</span>
+        <select
+        className="candidates-per-page-select"
+          value={table.getState().pagination.pageSize}
+          onChange={e => {
+            table.setPageSize(Number(e.target.value))
+          }}
+        >
+          {[10, 20, 30, 40, 50].map(pageSize => (
+            <option key={pageSize} value={pageSize} className="candidates-per-page-option">
+               <div>{pageSize}</div>
+            </option>
+          ))}
+        </select>
         </div>
       </div>
 
