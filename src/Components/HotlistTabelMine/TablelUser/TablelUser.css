@@ -212,6 +212,7 @@
   font-size: 17px;
   font-weight: 700;
   margin-left: 38px;
+
   color: #000000;
   font-weight: 900;
 
@@ -308,21 +309,8 @@
 
 }
 
-.candidates-per-page{
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  width: 20%;
 
-}
 
-.candidates-per-page-select{
-  background-color: #a4a5a5!important;
-  border-radius: 4px!important;
-  color: #fff!important;
-  margin-left: 15px;
-  padding: 0!important;
-}
 
 
 .candidates-per-page-option{
@@ -330,3 +318,18 @@
   color: #000;
   border-radius: 4px;
 }
+
+.page-link{
+  color: #000;
+  background-color: white;
+  border: 1px solid rgb(150, 150, 150);
+  cursor: pointer;
+}
+.page-link:hover{
+  color: #000;
+  background-color: white;
+  border: 1px solid rgb(150, 150, 150);
+}
+
+
+

@@ -4,8 +4,6 @@ import "./TablelUser.css";
 import { Icon } from "@iconify/react";
 import { useEffect, useMemo, useState } from "react";
 
-
-
 import {
   flexRender,
   useReactTable,
@@ -14,18 +12,20 @@ import {
   getFilteredRowModel,
 } from "@tanstack/react-table";
 
-import {
-  MdKeyboardDoubleArrowLeft,
-  MdKeyboardDoubleArrowRight,
-  MdKeyboardArrowLeft,
-  MdKeyboardArrowRight,
-} from "react-icons/md";
 import UserName from "./UserName";
-
+import ReactPaginate from "react-paginate";
 // eslint-disable-next-line react/prop-types
-const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,setInArr ,setyolo}) => {
-  const [modal2Open, setModal2Open] = useState(false); 
-
+const TablelUser = ({
+  setFilter,
+  Filter,
+  mData,
+  setInputSetV,
+  InputSetV,
+  InArr,
+  setInArr,
+  setyolo,
+}) => {
+  const [modal2Open, setModal2Open] = useState(false);
   const [Shorting, setShorting] = useState("");
   const [isParentChecked, setIsParentChecked] = useState(false);
 
@@ -71,9 +71,26 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
       header: "Availability",
       cell: (info) => info.getValue(),
     },
-  ]; 
+  ];
 
-  const data = useMemo(() => mData, [mData]);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const dataPerPage = 10;
+  const totalData = 500;
+  const pageCount = Math.ceil(totalData / dataPerPage);
+
+  const pageClick = (tableData) => {
+    const selectedPage = tableData.selected;
+
+    setCurrentPage(selectedPage);
+  };
+
+  const startIndex = currentPage * dataPerPage || 0;
+  const endIndex = startIndex + dataPerPage || 10;
+  const data = useMemo(
+    () => mData.slice(startIndex, endIndex),
+    [startIndex, mData]
+  );
 
   const table = useReactTable({
     data,
@@ -89,11 +106,6 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
     onGlobalFilterChange: setShorting,
   });
 
- 
-
-
-
-
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const handleParentChange = () => {
     if (isParentChecked) {
@@ -105,7 +117,6 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
     setIsParentChecked(!isParentChecked);
   };
   const handleChildChange = (id) => {
-
     if (InArr.includes(id)) {
       setInArr(InArr.filter((item) => item !== id));
     } else {
@@ -121,9 +132,11 @@ const TablelUser = ({ setFilter, Filter, mData, setInputSetV, InputSetV ,InArr ,
     }
   }, [InArr, data]);
 
-useEffect (()=>{
-  setyolo(InArr)
-},[InArr])
+  useEffect(() => {
+    setyolo(InArr);
+  }, [InArr]);
+
+  //////////////////////////////////////
 
   return (
     <div>
@@ -148,12 +161,8 @@ useEffect (()=>{
                     header.getContext()
                   )}
 
-                  <Icon
-                    icon="fa-solid:filter"
-                    className="fa-solid-icons"
-                 
-                  />
-                  
+                  <Icon icon="fa-solid:filter" className="fa-solid-icons" />
+
                   <Icon icon="fa-solid:sort-amount-up-alt" />
                 </th>
               ))}
@@ -206,51 +215,55 @@ useEffect (()=>{
         </tbody>
       </table>
 
-{/* //////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+      {/* //////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
       <div className="footer-main-div">
-        <div className="Pagination-react-table">
-          <MdKeyboardDoubleArrowLeft
-            className="react-table-icons-1"
-            onClick={() => table.setPageIndex(0)}
-          />
-
-          <MdKeyboardArrowLeft
-            className="react-table-icons-2"
-            disabled={!table.getCanPreviousPage()}
-            onClick={() => table.previousPage()}
-          />     
-          <MdKeyboardArrowRight
-            className="react-table-icons-2"
-            disabled={!table.getCanNextPage()}
-            onClick={() => table.nextPage()}
-          />
-
-          <MdKeyboardDoubleArrowRight
-            className="react-table-icons-1"
-            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-          />
-        </div>
         <div className="candidates-per-page">
-    
-       <span>Candidates per page</span>
-        <select
-        className="candidates-per-page-select"
-          value={table.getState().pagination.pageSize}
-          onChange={e => {
-            table.setPageSize(Number(e.target.value))
-          }}
-        >
-          {[10, 20, 30, 40, 50].map(pageSize => (
-            <option key={pageSize} value={pageSize} className="candidates-per-page-option">
-               <div>{pageSize}</div>
-            </option>
-          ))}
-        </select>
+          <span>Candidates per page</span>
+          <select
+            className="candidates-per-page-select"
+            value={table.getState().pagination.pageSize}
+            onChange={(e) => {
+              table.setPageSize(Number(e.target.value));
+            }}
+          >
+            {[10, 20, 30, 40, 50].map((pageSize) => (
+              <option
+                key={pageSize}
+                value={pageSize}
+                className="candidates-per-page-option"
+              >
+                <div>{pageSize}</div>
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Pagination */}
+        <div className="Pagination-react-table">
+          <ReactPaginate
+            previousLabel={"<<"}
+            nextLabel={">>"}
+            breakLabel={"..."}
+            pageCount={pageCount}
+            marginPagesDisplayed={5}
+            pageRangeDisplayed={1}
+            onPageChange={pageClick}
+            containerClassName={"pagination"}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextClassName={"page-item"}
+            nextLinkClassName={"page-link"}
+            breakClassName={"page-item"}
+            breakLinkClassName={"page-link"}
+            activeClassName={"active"}
+            
+            initialPage={data}
+          />
         </div>
       </div>
-
- 
     </div>
   );
 };
