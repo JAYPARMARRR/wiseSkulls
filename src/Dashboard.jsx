@@ -52,7 +52,7 @@ const Dashboard = () => {
           setInputSetV={setInputSetV}
           contextHolder={contextHolder}
         />
-
+        <div className="tableStyle">
         <TablelUser
           setFilter={setFilter}
           InArr={InArr}
@@ -63,6 +63,7 @@ const Dashboard = () => {
           InputSetV={InputSetV}
           setInputSetV={setInputSetV}
         />
+        </div>
       </div>
     </>
   );

@@ -1,8 +1,12 @@
 .Dashboard-main {
-    
     margin: 22px 39px;
-    height: 86vh;
+    /* height: 86vh; */
     width: 94%;
     border-radius: 11px;
 
 }
+/* 
+.tableStyle{
+    height: 50vh;
+    overflow: scroll;
+} */

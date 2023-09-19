@@ -218,25 +218,25 @@ const TablelUser = ({
       {/* //////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
       <div className="footer-main-div">
+        <div>Showing 500 entries</div>
         <div className="candidates-per-page">
           <span>Candidates per page</span>
+
+
           <select
-            className="candidates-per-page-select"
-            value={table.getState().pagination.pageSize}
-            onChange={(e) => {
-              table.setPageSize(Number(e.target.value));
-            }}
-          >
-            {[10, 20, 30, 40, 50].map((pageSize) => (
-              <option
-                key={pageSize}
-                value={pageSize}
-                className="candidates-per-page-option"
-              >
-                <div>{pageSize}</div>
-              </option>
-            ))}
-          </select>
+  value={table.getState().pagination.pageSize}
+  onChange={e => {
+    table.setPageSize(Number(e.target.value))
+  }}
+>
+  {[10, 20, 30, 40, 50].map(pageSize => (
+    <option key={pageSize} value={pageSize}>
+       {pageSize}
+    </option>
+  ))}
+</select>
+
+        
         </div>
 
         {/* Pagination */}
@@ -259,7 +259,6 @@ const TablelUser = ({
             breakClassName={"page-item"}
             breakLinkClassName={"page-link"}
             activeClassName={"active"}
-            
             initialPage={data}
           />
         </div>
